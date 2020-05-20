@@ -3,12 +3,9 @@
     <h2>Welcome to Plex Tools</h2>
 
     {#if $plexToken == null }
-    <div class="modal-content">
+    <div class="modal-content col-3 m-auto" style='margin-top:4em;'>
       <div class="modal-header">
         <h5 class="modal-title">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" on:click>
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
       <div class="modal-body">
         <p>Enter your Plex credentials</p>
@@ -20,11 +17,11 @@
           <div class='form-group'>
             <input type='password' class='form-control' bind:value={password} placeholder="password" />
           </div>
+
+          <div class='form-group'>
+            <button type="button" class="btn btn-primary" on:click={requestLogin}>Login</button>
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" on:click={requestLogin}>Login</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" on:click>Close</button>
       </div>
     </div>
 

@@ -28,7 +28,7 @@ const Plex = {
     Plex.PARAMS.forEach(key => {
       Plex[key] = Plex.getParam(key);
     });
-    console.log("[Plex] Load params from localStorage");
+    console.log("[Plex] Load params from localStorage", Plex.params());
   },
   params() {
     let params = {}

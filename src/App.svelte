@@ -1,58 +1,108 @@
 <script>
   import interact from 'interactjs';
   import {onMount} from 'svelte';
-  import {plexToken, plexUser, plexLibraries, currentPage, currentLibrary, current} from './stores.js';
+  import {plexToken, plexUser, plexLibraries, currentPage, currentLibrary, currLibId, current} from './stores.js';
 
   import Library from './Library.svelte';
   import WelcomePage from './pages/WelcomePage.svelte';
   import MoviePage from './pages/MoviePage.svelte';
-  
+  import PlaylistPage from './pages/PlaylistPage.svelte';  
   const Plex = document.plex; // only for console access
 
-  // copy plex params into store  
-  function loadPlex() {
-    console.log("Load Plex")
-    $plexToken = Plex.token;
-    $plexUser = Plex.params();
-    console.log($plexToken, $plexUser, $plexLibraries.length);
-  }
 
-  async function loadLibraries() {
-    if ($plexToken == null) return;
-    let libs = await document.plex.Library.all();
-    console.log("[App] Plex call for Libraries", libs);
-    if (Array.isArray(libs)) {
-      $plexLibraries = libs;
-    }
-  };
+  let promise;
+  setTimeout(function() {
+    promise = loadLibraries();
+  }, 5);
+  //
+  // app functions
+  //
 
-  function toggleLogin() {
-    return;
-  };
+  /*
+    async login       
+      - login from Plex.server and store creds in Plex.storage
+      - getLibraries
 
+    logout           
+      - clear user creds in Plex.storage
+      - clear user creds in stores
+      - clear libraries, currLibId in stores
+      - clear movies,playlists, etc.
+
+    loadPLex
+      - loads creds from Plex.storage => stores.js
+
+    initPlex (onMount)
+      - clears libraries, currLibId, movies, playlists, etc.
+      - loads creds
+
+    async getLibraries (overrides)
+      - loads loads libraries from Plex => stores.js
+      - sets currLibId -> first lib
+  */
+
+  // login - login and store credentials
   async function login(event) {
-    console.log("Log in ", event);
+    console.log("[App] Log in ", event);
     let email = event.detail.email;
     let password = event.detail.password;
     let resp = await Plex.Server.login(email, password);
-
-    $plexToken = Plex.token;
-    $plexUser = Plex.params();
+    await initPlex();
   };
 
-  function logout() {
+  // logout - clear credentials, clear cache
+  async function logout() {
+    // clear all credentials in Plex
     Plex.Server.logout();
+    // clear all stored credentials
+    await loadPlex();
+    // clear all libraries and other cached lists
+  };
+
+  async function initPlex() {
+    console.log("[App] Reset and init stores.js from Plex.params")
+    $plexLibraries = [];
+    $currLibId     = null;
+    // clear movies, playlists, etc.
     loadPlex();
   };
+
+  // Load stores.js from Plex.params
+  function loadPlex() {
+    $plexToken = Plex.token;
+    $plexUser  = Plex.params();
+  }
+
+  // cache libraries
+
+  // curr cache
+  // - currLibrary -> index is by .key? plexlibraries.find {l => l.key == currLibraryId}
+  // - libraries  
+
+
+  // copy plex params into store
+  // if logged in, but libraries is empty, 
+    // load libraries, set first as currLibraryId
+
+
+  async function loadLibraries() {
+    console.log("loadLibraies called")
+    if ($plexToken == null) return;
+    $plexLibraries = await document.plex.Library.all();
+    $currLibId = $plexLibraries[0].key;
+    console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
+  };
+
  
-  setTimeout(() => {
-    if ($plexLibraries.length == 0) {
-      loadLibraries();
-    }
-  }, 0);
+  // setTimeout(() => { 
+  //   loadLibraries();
+  //   //$currLibId = $plexLibraries[0].key;
+  // }, 1);
 
   onMount(() => {
-    loadPlex();
+    console.log("[App] onMount:")
+    console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
+    initPlex();
   });
 </script>
 
@@ -67,29 +117,27 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" class:active={$currentPage == 'movies'}>
-        <a class="nav-link" href="#" on:click={ () => $currentPage = 'movies' }>Medias</a>
-      </li>
-      <li class="nav-item" class:active={$currentPage == 'playlists'}>
-        <a class="nav-link" href="#" on:click={ () => $currentPage = 'playlists' }>Playlists</a>
-      </li>
-      <li class="nav-item" class:active={$currentPage == 'collections'}>
-        <a class="nav-link" href="#" on:click={ () => $currentPage = 'collections' }>Collections</a>
-      </li>
-      <li class="nav-item"><span class='nav-link'>|</span></li>
-      {#each $plexLibraries as library}
+      {#if $plexToken == null}
         <li class="nav-item">
-          <a class="nav-link" 
-             href="#" 
-             class:active={ $currentLibrary == library.key }
-             on:click={ () => $currentLibrary = library.key }>
-            {library.title}
-          </a>
+          <a class="nav-link" href='#'><strong>Please login in to start</strong></a>
         </li>
-      {/each}
-      <li class="nav-item"><span class='nav-link'>
-        <small>{$currentPage}|{$currentLibrary}</small>
-      </span></li>
+      {:else}
+        {#each $plexLibraries as library}
+          <li class="nav-item">
+            <a class="nav-link" 
+               href="#" 
+               class:active={ $currLibId == library.key }
+               on:click={ () => $currLibId = library.key }>
+              {library.title}
+            </a>
+          </li>
+        {/each}
+      {/if}
+      <li class="nav-item">
+        <span class='nav-link'>
+          <small>{$currentPage}|{$currLibId}</small>
+        </span>
+      </li>
 
 <!--       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -105,21 +153,18 @@
         {#if $plexToken}
           <a href="#" class='nav-link' on:click={logout}>{$plexUser.name} Logout</a>
         {:else}
-          <a href="#" class='nav-link' on:click={toggleLogin}>Login</a>
+          <a href="#" class='nav-link'>Login</a>
         {/if}
       </li>
     </ul>
   </div>
 </nav>
-
-{#if ($plexToken == null) }
-  <WelcomePage on:click={loadLibraries} on:login={login} />
-{:else if $currentPage == 'playlists'}
-  <PlaylistPage library_id={$currentLibrary}/>
-{:else if $currentPage == 'movies'}
-  <MoviePage library_id={$currentLibrary}/>
-{:else if $currentPage == 'collections'}
-  <CollectionPage library_id={$currentLibrary}/>
+{#if ($plexToken != null) }
+  {#await promise then libs}
+    <PlaylistPage library={$plexLibraries.find(l => l.key == $currLibId) }/>
+  {:catch error}
+    <p>Error!</p>
+  {/await}
 {:else}
   <WelcomePage on:click={loadLibraries} on:login={login} />
 {/if}

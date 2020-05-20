@@ -10,7 +10,16 @@ Written as a SPA in svelte, interactjs
   - log into Plex w/ user/pass and store user info
   - gets server info and stores
 
-  -> should default to downloading libraries, and select first one.
-    - load movies (for now, cache in stores.js)
+### flow
 
-  
+- login
+  -> get user and server info and stores it
+  -> get libraries and stores it
+  -> default to first library / media view
+
+- top menu bar allows setting of libraries
+  -> keep track of currentLibrary, cache libraries
+
+- default view is playlists view
+  -> media on left side, playlists manager on right
+  -> for now, cache both medias and playlists
