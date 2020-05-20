@@ -6,19 +6,20 @@
   import Library from './Library.svelte';
   import WelcomePage from './pages/WelcomePage.svelte';
   import MoviePage from './pages/MoviePage.svelte';
-  import PlaylistPage from './pages/PlaylistPage.svelte';
-  import CollectionPage from './pages/CollectionPage.svelte';
-
+  
   const Plex = document.plex; // only for console access
 
   // copy plex params into store  
   function loadPlex() {
+    console.log("Load Plex")
     $plexToken = Plex.token;
     $plexUser = Plex.params();
+    console.log($plexToken, $plexUser, $plexLibraries.length);
   }
 
   async function loadLibraries() {
-    let libs = await Plex.Library.all();
+    if ($plexToken == null) return;
+    let libs = await document.plex.Library.all();
     console.log("[App] Plex call for Libraries", libs);
     if (Array.isArray(libs)) {
       $plexLibraries = libs;
@@ -29,13 +30,20 @@
     return;
   };
 
-  function login() {
+  async function login(event) {
+    console.log("Log in ", event);
+    let email = event.detail.email;
+    let password = event.detail.password;
+    let resp = await Plex.Server.login(email, password);
 
-  }
+    $plexToken = Plex.token;
+    $plexUser = Plex.params();
+  };
+
   function logout() {
-    Plex.logout();
+    Plex.Server.logout();
     loadPlex();
-  }
+  };
  
   setTimeout(() => {
     if ($plexLibraries.length == 0) {
@@ -95,7 +103,7 @@
     <ul class='navbar-nav'>
       <li class='nav-item'>
         {#if $plexToken}
-          <a href="#" class='nav-link' on:click={toggleLogin}>{$plexUser.name} Logout</a>
+          <a href="#" class='nav-link' on:click={logout}>{$plexUser.name} Logout</a>
         {:else}
           <a href="#" class='nav-link' on:click={toggleLogin}>Login</a>
         {/if}
@@ -105,7 +113,7 @@
 </nav>
 
 {#if ($plexToken == null) }
-  <WelcomePage on:click={loadLibraries}/>
+  <WelcomePage on:click={loadLibraries} on:login={login} />
 {:else if $currentPage == 'playlists'}
   <PlaylistPage library_id={$currentLibrary}/>
 {:else if $currentPage == 'movies'}
@@ -113,5 +121,5 @@
 {:else if $currentPage == 'collections'}
   <CollectionPage library_id={$currentLibrary}/>
 {:else}
-  <WelcomePage on:click={loadLibraries}/>
+  <WelcomePage on:click={loadLibraries} on:login={login} />
 {/if}

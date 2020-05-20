@@ -53,3 +53,4 @@ follow this:
 More on parcel: https://parceljs.org/getting_started.html
 
 https://stackoverflow.com/questions/59629199/parcel-svelte-style-tags-with-sass
+

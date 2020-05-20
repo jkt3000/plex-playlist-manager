@@ -47,13 +47,17 @@
 </div>
 
 <script>
+  import { createEventDispatcher } from 'svelte';
   import Library from './../Library.svelte';
   import {plexToken, plexUser, plexLibraries, currentPage} from './../stores.js';
+
+  const dispatch = createEventDispatcher();
   
   let email;
   let password;
   const Plex = document.plex; // only for console access
   function requestLogin() {
+    console.log("dispatch loginRequest", email, password);
     dispatch('login', {email: email, password: password});
   }
 </script>

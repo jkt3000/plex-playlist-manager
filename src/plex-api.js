@@ -35,7 +35,6 @@ const Plex = {
     Plex.PARAMS.forEach(key => params[key] = Plex[key] );
     return params;
   },
-
   //    https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/photo/:/transcode?width=200&height=301&minSize=1&upscale=1&url=%2Flibrary%2Fmetadata%2F14267%2Fthumb%2F1587262894%3FX-Plex-Token%3D_3ZFfNvrYhZ9awqszJ_m&X-Plex-Token=_3ZFfNvrYhZ9awqszJ_m
   thumbUrl(thumb, width=200, height=301) {
     let params = new URLSearchParams();
@@ -67,6 +66,7 @@ const Plex = {
       Plex.setParam('token', data.authToken);
       Plex.setParam('avatar', data.thumb);
       Plex.setParam('name', data.username);
+      Plex.Server.getServerInfo();
     },    
     logout() {
       Plex.reset();
@@ -223,6 +223,7 @@ const Plex = {
     };
     return headers;
   }
+
 }
 
 export {Plex};
