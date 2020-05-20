@@ -43,7 +43,13 @@ Needed to run:
  add core-js 
 
  yarn add core-js (not as --dev) !!
+
+ yarn add svelte-preprocess
+
+follow this:
+  https://stackoverflow.com/questions/59629199/parcel-svelte-style-tags-with-sass 
 ```
 
 More on parcel: https://parceljs.org/getting_started.html
 
+https://stackoverflow.com/questions/59629199/parcel-svelte-style-tags-with-sass
