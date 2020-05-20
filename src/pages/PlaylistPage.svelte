@@ -21,20 +21,61 @@
 </script>
 
 
-<h3>Playlists {library ? library.title : ''}</h3>
+<div class='panel-right col-3 no-gutters'>
+  <nav class="navbar navbar-expand sticky-top filterbar-right">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Playlists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sort by</a>
+      </li>
+      <li class='nav-item '>
+        <a class="nav-link" href="#"><i class='fas fa-plus-circle'></i></a>
+      </li>
+    </ul>
+  </nav>
+  <div class='workarea-right'>
+    <div class='playlist-drop'>
+      <h5>My fav movies</h5>
+    </div>
+  </div>
+</div>
 
-  {#await promise}
-    <p>Loading movies...</p>
-  {:then movies}
-    <p>got movies...</p>
-    {#if movies != null}
+<div class='panel-left col-9 no-gutters'>
+  {#if library}
+  <nav class="navbar navbar-expand sticky-top" id='filter-bar'>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><span class='badge badge-pill badge-primary'>{library.totalSize}</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Filters</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sort Order</a>
+      </li>
+    </ul>
+  </nav>
+  {/if}
 
-      {#each movies as movie}
-        <p>movie</p>
-        <Movie movie={movie}/>
-      {/each}
-    {/if}
-    <p>Error loading...</p>
-  {:catch error}
-    <p>ERROR!</p>
-  {/await}
+  <div class='workarea'>
+    {#await promise}
+      <div class='p-2 m-2 text-center'>
+        <h2>Loading... <i class="fas fa-spinner fa-spin"></i></h2>
+      </div>
+    {:then movies}
+      {#if movies != null}
+        {#each movies as movie}
+          <Movie movie={movie}/>
+        {/each}
+      {/if}
+      <p>Error loading...</p>
+    {:catch error}
+      <p>ERROR!</p>
+    {/await}
+  </div>
+</div>
+
+
+

@@ -94,10 +94,10 @@ const Plex = {
       let resp = await Plex.request(url, {method: 'get'});
       let json = await resp.json();
       let libraries = json.MediaContainer.Directory;
-      for (let i=0; i <libraries.length; i++){
+      for (let i=0; i<libraries.length; i++){
         let url = `${Plex.hostUrl}/library/sections/${libraries[i].key}/all`;
         let size = await Plex.totalSize(url);
-        libraries[i].leafCount = size;
+        libraries[i].totalSize = size;
       }
       return libraries;
     },

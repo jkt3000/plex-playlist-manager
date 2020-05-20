@@ -1,7 +1,7 @@
 <script>
   import interact from 'interactjs';
   import {onMount} from 'svelte';
-  import {plexToken, plexUser, plexLibraries, currentPage, currentLibrary, currLibId, current} from './stores.js';
+  import {plexToken, plexUser, plexLibraries, currentLibrary, currLibId} from './stores.js';
 
   import Library from './Library.svelte';
   import WelcomePage from './pages/WelcomePage.svelte';
@@ -13,7 +13,7 @@
   let promise;
   setTimeout(function() {
     promise = loadLibraries();
-  }, 5);
+  }, 0);
   //
   // app functions
   //
@@ -55,8 +55,9 @@
     // clear all credentials in Plex
     Plex.Server.logout();
     // clear all stored credentials
-    await loadPlex();
     // clear all libraries and other cached lists
+    // load blank credentials
+    loadPlex();
   };
 
   async function initPlex() {
@@ -73,42 +74,22 @@
     $plexUser  = Plex.params();
   }
 
-  // cache libraries
-
-  // curr cache
-  // - currLibrary -> index is by .key? plexlibraries.find {l => l.key == currLibraryId}
-  // - libraries  
-
-
-  // copy plex params into store
-  // if logged in, but libraries is empty, 
-    // load libraries, set first as currLibraryId
-
-
   async function loadLibraries() {
-    console.log("loadLibraies called")
+    console.log("[App] loadLibraries()")
     if ($plexToken == null) return;
     $plexLibraries = await document.plex.Library.all();
     $currLibId = $plexLibraries[0].key;
     console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
   };
 
- 
-  // setTimeout(() => { 
-  //   loadLibraries();
-  //   //$currLibId = $plexLibraries[0].key;
-  // }, 1);
-
   onMount(() => {
-    console.log("[App] onMount:")
-    console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
     initPlex();
   });
 </script>
 
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id='header'>
-  <a class="navbar-brand" href="#" on:click={ () => $currentPage = 'welcome' }>
+  <a class="navbar-brand" href="#">
     Plex Tools 
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,31 +115,25 @@
         {/each}
       {/if}
       <li class="nav-item">
-        <span class='nav-link'>
-          <small>{$currentPage}|{$currLibId}</small>
-        </span>
+        <span class='nav-link'>| <small>Lib: {$currLibId}</small> </span>
       </li>
+    </ul>
 
-<!--       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
- -->    </ul>
     <ul class='navbar-nav'>
       <li class='nav-item'>
         {#if $plexToken}
-          <a href="#" class='nav-link' on:click={logout}>{$plexUser.name} Logout</a>
-        {:else}
-          <a href="#" class='nav-link'>Login</a>
+          <a href="#" class='nav-link' on:click={logout}>
+            <img src="{$plexUser.avatar}" width=40 class='rounded-circle inline'/>
+            {$plexUser.name} 
+            Logout
+          </a>
         {/if}
       </li>
     </ul>
   </div>
 </nav>
+
+
 {#if ($plexToken != null) }
   {#await promise then libs}
     <PlaylistPage library={$plexLibraries.find(l => l.key == $currLibId) }/>
@@ -166,5 +141,5 @@
     <p>Error!</p>
   {/await}
 {:else}
-  <WelcomePage on:click={loadLibraries} on:login={login} />
+  <WelcomePage on:login={login} />
 {/if}
