@@ -33,6 +33,16 @@ Needed to run:
 
 ```
  yarn add --dev @babel/core @babel/preset-env @babel/plugin-proposal-class-properties
+
+ install svelte
+
+ yarn add --dev svelte
+ yarn add --dev parcel-plugin-svelte
+ yarn add --dev parcel-bundler
+
+ add core-js 
+
+ yarn add core-js (not as --dev) !!
 ```
 
 More on parcel: https://parceljs.org/getting_started.html
