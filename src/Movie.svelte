@@ -6,7 +6,7 @@
   </div>
   <div class='poster-text'>
     <h5>{title}</h5>
-    <p>{year}</p>
+    <p>{year} {moment(movie.originallyAvailableAt).format("MMM D, YYYY")}</p>
 <!--   Rating: {movie.rating}
   Duration: {parseInt(movie.duration/60/1000,10)}m
   Release: {moment(movie.originallyAvailableAt).format("MMM D, YYYY")}

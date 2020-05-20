@@ -12,6 +12,18 @@ body {
   min-width:  900px;
   
 }
+#header {
+  height: 55px;
+  max-height:55px;
+}
+
+#filter-bar {
+  top: 55px; left: 0; right:0;
+  padding: 5px;
+  background: black;
+  height: 50px;
+  max-height:50px;
+}
 
 .draggable {
   touch-action: none;

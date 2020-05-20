@@ -79,6 +79,10 @@
           </a>
         </li>
       {/each}
+      <li class="nav-item"><span class='nav-link'>
+        <small>{$currentPage}|{$currentLibrary}</small>
+      </span></li>
+
 <!--       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -100,17 +104,14 @@
   </div>
 </nav>
 
-<main role='main' class='container-fluid pt-2 pb-2'>
-  <small>{$currentPage}|{$currentLibrary}</small>
-  {#if ($plexToken == null) }
-    <WelcomePage on:click={loadLibraries}/>
-  {:else if $currentPage == 'playlists'}
-    <PlaylistPage library_id={$currentLibrary}/>
-  {:else if $currentPage == 'movies'}
-    <MoviePage library_id={$currentLibrary}/>
-  {:else if $currentPage == 'collections'}
-    <CollectionPage library_id={$currentLibrary}/>
-  {:else}
-    <WelcomePage on:click={loadLibraries}/>
-  {/if}
-</main>
+{#if ($plexToken == null) }
+  <WelcomePage on:click={loadLibraries}/>
+{:else if $currentPage == 'playlists'}
+  <PlaylistPage library_id={$currentLibrary}/>
+{:else if $currentPage == 'movies'}
+  <MoviePage library_id={$currentLibrary}/>
+{:else if $currentPage == 'collections'}
+  <CollectionPage library_id={$currentLibrary}/>
+{:else}
+  <WelcomePage on:click={loadLibraries}/>
+{/if}
