@@ -59,7 +59,7 @@ const Plex = {
       form.append('password', password);
 
       let resp = await Plex.request(url, {method: 'post', body: form, noToken: true});
-      let data = await resp.json();
+      let data = resp.data;
       console.log("[Plex] Login response ", data);
       console.log(data.authToken, data.thumb, data.username)
       // assume everything went well - need to handle error conditions
@@ -74,7 +74,7 @@ const Plex = {
     async getServerInfo() {
       let url = Plex.API_PATHS.serverUrl;
       let resp = await Plex.request(url, {method: 'get'});
-      let data = await resp.json();
+      let data = resp.data;
       let server = data.find(entry => entry.product === "Plex Media Server");
       console.log("server found", server, server.connections[0]);
       if (server != null) {
@@ -92,13 +92,15 @@ const Plex = {
     async all() {
       let url = `${Plex.hostUrl}/library/sections`;
       let resp = await Plex.request(url, {method: 'get'});
-      let json = await resp.json();
-      let libraries = json.MediaContainer.Directory;
+      let data = resp.data;
+      let libraries = data.MediaContainer.Directory;
+      console.log("[Plex] Library.all data", data)
       for (let i=0; i<libraries.length; i++){
         let url = `${Plex.hostUrl}/library/sections/${libraries[i].key}/all`;
         let size = await Plex.totalSize(url);
         libraries[i].totalSize = size;
       }
+      console.log(libraries)
       return libraries;
     },
     get(id) {},
@@ -114,8 +116,8 @@ const Plex = {
     async all(library_id, options = {}) {
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
       let resp = await Plex.request(url, {method: 'get'});
-      let json = await resp.json();
-      return json.MediaContainer;
+      let data = resp.data;
+      return data.MediaContainer;
     },
     get(id) {},
     update(id, data) {},
@@ -142,9 +144,9 @@ const Plex = {
     async all(options = {}) {
       let url = `${Plex.hostUrl}/playlists`;
       let resp = await Plex.request(url, {method: 'get'});
-      let json = await resp.json();
-      console.log("[plexapi] playlists all", json)
-      return json.MediaContainer;
+      let data = resp.data;
+      console.log("[plexapi] playlists all", data)
+      return data.MediaContainer;
     },
     get(id) {},
     addItem() {},
@@ -193,22 +195,40 @@ const Plex = {
   // async fetch promise 
   // - need to handle failure conditions
   // - what to send in case of failure?
+  // response format:
+  //
+  //  {ok: true|false, message: "", status: 201, data: Object }
   async request(url, {method = 'get', headers = {}, 
                 options, body, page, page_size, noToken = false} = {}) {
     page = page || 1;
     page_size = page_size || 500;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let resp = await fetch(url, {method: method, headers: headers, body: body});
-    return resp;
+    let msg = await resp.json()
+      .then(data => {
+        return {ok: true, message: resp.statusText, status: resp.status, data: data};
+      })
+      .catch(error => {
+        let response = {ok: false, message: null, status: null, data: null}
+        if (resp.status > 299) {
+          response.status = resp.status;
+          response.message = resp.statusText;
+        } else {
+          response.message = error.message;
+        }
+        return response;
+      });
+    return msg;
   },
+
 
    // same as request, but just want totalSize
   async totalSize(url, { method = 'get', headers = null, options, body } = {}) {    
     let opts = { method: method, headers: headers, options: options, body: body,
                  page: 1, page_size: 0 };
     let resp = await Plex.request(url, opts);
-    let json = await resp.json();
-    return json.MediaContainer.totalSize;
+    let data = resp.data;
+    return data.MediaContainer.totalSize;
   },
 
   _sanitizeHeaders(headers, options, page, page_size, noToken) {

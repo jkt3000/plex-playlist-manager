@@ -75,9 +75,10 @@
   }
 
   async function loadLibraries() {
-    console.log("[App] loadLibraries()")
     if ($plexToken == null) return;
-    $plexLibraries = await document.plex.Library.all();
+    let lib = await document.plex.Library.all();
+    $plexLibraries = lib;
+
     $currLibId = $plexLibraries[0].key;
     console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
     console.log($plexLibraries[0])
@@ -144,6 +145,7 @@
     });    
 
   });
+
 </script>
 
 
