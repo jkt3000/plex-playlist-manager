@@ -1,0 +1,30 @@
+/*
+  Show regular playlist
+
+  URL: /playlists/<id>  - non smart playlist
+
+*/
+
+{
+  "MediaContainer": {
+    "size": 1,
+    "Metadata": [
+      {
+        "allowSync": true,
+        "ratingKey": "26699",
+        "key": "/playlists/26699/items",
+        "guid": "com.plexapp.agents.none://af1b0e45-9e8c-47ce-89fb-af1e0ab6ed94",
+        "type": "playlist",
+        "title": "Aliens",
+        "summary": "",
+        "smart": false,
+        "playlistType": "video",
+        "composite": "/playlists/26699/composite/1589594015",
+        "duration": 48379000,
+        "leafCount": 6,
+        "addedAt": 1575916869,
+        "updatedAt": 1589594015
+      }
+    ]
+  }
+}

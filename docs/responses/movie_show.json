@@ -1,0 +1,598 @@
+/*
+  SHOW Movie details
+
+  URL: /library/metadata/<id>
+*/
+
+{
+  "MediaContainer": {
+    "size": 1,
+    "allowSync": true,
+    "identifier": "com.plexapp.plugins.library",
+    "librarySectionID": 3,
+    "librarySectionTitle": "4K Movies",
+    "librarySectionUUID": "17d230c7-2e77-4246-a5c7-a5e399e69ad6",
+    "mediaTagPrefix": "/system/bundle/media/flags/",
+    "mediaTagVersion": 1579823211,
+    "Metadata": [
+      {
+        "ratingKey": "14276",
+        "key": "/library/metadata/14276",
+        "guid": "com.plexapp.agents.imdb://tt4172430?lang=en",
+        "studio": "Paramount",
+        "type": "movie",
+        "title": "13 Hours: The Secret Soldiers of Benghazi",
+        "librarySectionTitle": "4K Movies",
+        "librarySectionID": 3,
+        "librarySectionKey": "/library/sections/3",
+        "contentRating": "R",
+        "summary": "An American Ambassador is killed during an attack at a U.S. compound in Libya as a security team struggles to make sense out of the chaos.",
+        "rating": 5.1,
+        "audienceRating": 8.2,
+        "userRating": 10.0,
+        "viewOffset": 7457492,
+        "lastViewedAt": 1588184720,
+        "year": 2016,
+        "tagline": "When everything went wrong, six men had the courage to do what was right.",
+        "thumb": "/library/metadata/14276/thumb/1587262534",
+        "art": "/library/metadata/14276/art/1587262534",
+        "duration": 8667936,
+        "originallyAvailableAt": "2016-01-13",
+        "addedAt": 1575832635,
+        "updatedAt": 1587262534,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/15078",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 33095,
+            "duration": 8667936,
+            "bitrate": 28551,
+            "width": 3840,
+            "height": 1600,
+            "aspectRatio": 2.35,
+            "audioChannels": 8,
+            "audioCodec": "truehd",
+            "videoCodec": "hevc",
+            "videoResolution": "4k",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 33096,
+                "key": "/library/parts/33096/1559977904/file.mkv",
+                "duration": 8667936,
+                "file": "/volume1/Media/Movies_HQ/13 Hours The Secret Soldiers of Benghazi (2016)/13 Hours The Secret Soldiers of Benghazi (2016) [4K] [HEVC] [OTH 8ch].mkv",
+                "size": 30874313606,
+                "container": "mkv",
+                "hasThumbnail": "1",
+                "videoProfile": "main 10",
+                "Stream": [
+                  {
+                    "id": 78128,
+                    "streamType": 1,
+                    "default": true,
+                    "codec": "hevc",
+                    "index": 0,
+                    "bitrate": 19229,
+                    "bitDepth": 10,
+                    "chromaSubsampling": "4:2:0",
+                    "colorPrimaries": "bt2020",
+                    "colorRange": "tv",
+                    "colorSpace": "bt2020nc",
+                    "colorTrc": "smpte2084",
+                    "frameRate": 23.976,
+                    "height": 1600,
+                    "level": 153,
+                    "profile": "main 10",
+                    "refFrames": 1,
+                    "title": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.2160p.BluRay.x265.10bit.HDR.DTS-HD.MA.TrueHD.7.1.Atmos-SWTYBLZ",
+                    "width": 3840,
+                    "displayTitle": "4K (HEVC Main 10 HDR)"
+                  },
+                  {
+                    "id": 78129,
+                    "streamType": 2,
+                    "selected": true,
+                    "default": true,
+                    "codec": "truehd",
+                    "index": 1,
+                    "channels": 8,
+                    "bitrate": 4642,
+                    "language": "English",
+                    "languageCode": "eng",
+                    "audioChannelLayout": "7.1",
+                    "bitDepth": 24,
+                    "samplingRate": 48000,
+                    "title": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.2160p.BluRay.x265.10bit.HDR.DTS-HD.MA.TrueHD.7.1.Atmos-SWTYBLZ",
+                    "displayTitle": "English (TRUEHD 7.1)"
+                  },
+                  {
+                    "id": 78130,
+                    "streamType": 2,
+                    "codec": "dca",
+                    "index": 2,
+                    "channels": 8,
+                    "bitrate": 3854,
+                    "language": "English",
+                    "languageCode": "eng",
+                    "audioChannelLayout": "7.1",
+                    "bitDepth": 24,
+                    "profile": "ma",
+                    "samplingRate": 48000,
+                    "title": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.2160p.BluRay.x265.10bit.HDR.DTS-HD.MA.TrueHD.7.1.Atmos-SWTYBLZ",
+                    "displayTitle": "English (DTS-HD MA 7.1)"
+                  },
+                  {
+                    "id": 78131,
+                    "streamType": 2,
+                    "codec": "ac3",
+                    "index": 3,
+                    "channels": 6,
+                    "bitrate": 640,
+                    "language": "English",
+                    "languageCode": "eng",
+                    "audioChannelLayout": "5.1(side)",
+                    "samplingRate": 48000,
+                    "title": "13.Hours.The.Secret.Soldiers.Of.Benghazi.2016.2160p.BluRay.x265.10bit.SDR.DTS-HD.MA.TrueHD.7.1.Atmos-SWTYBLZ",
+                    "displayTitle": "English (AC3 5.1)"
+                  },
+                  {
+                    "id": 78132,
+                    "streamType": 3,
+                    "default": true,
+                    "codec": "srt",
+                    "index": 4,
+                    "bitrate": 0,
+                    "language": "English",
+                    "languageCode": "eng",
+                    "title": "English-SRT",
+                    "displayTitle": "English (SRT)"
+                  },
+                  {
+                    "id": 78133,
+                    "streamType": 3,
+                    "codec": "pgs",
+                    "index": 5,
+                    "bitrate": 38,
+                    "language": "English",
+                    "languageCode": "eng",
+                    "headerCompression": true,
+                    "title": "English-PGS",
+                    "displayTitle": "English (PGS)"
+                  },
+                  {
+                    "id": 78134,
+                    "streamType": 3,
+                    "codec": "pgs",
+                    "index": 6,
+                    "bitrate": 42,
+                    "language": "English",
+                    "languageCode": "eng",
+                    "headerCompression": true,
+                    "title": "English-SDH-PGS",
+                    "displayTitle": "English (PGS)"
+                  },
+                  {
+                    "id": 78135,
+                    "streamType": 3,
+                    "codec": "pgs",
+                    "index": 7,
+                    "bitrate": 37,
+                    "language": "Français",
+                    "languageCode": "fre",
+                    "headerCompression": true,
+                    "title": "French-PGS",
+                    "displayTitle": "Français (PGS)"
+                  },
+                  {
+                    "id": 78136,
+                    "streamType": 3,
+                    "codec": "pgs",
+                    "index": 8,
+                    "bitrate": 32,
+                    "language": "Português",
+                    "languageCode": "por",
+                    "headerCompression": true,
+                    "title": "Portuguese-PGS",
+                    "displayTitle": "Português (PGS)"
+                  },
+                  {
+                    "id": 78137,
+                    "streamType": 3,
+                    "codec": "pgs",
+                    "index": 9,
+                    "bitrate": 38,
+                    "language": "Español",
+                    "languageCode": "spa",
+                    "headerCompression": true,
+                    "title": "Spanish-PGS",
+                    "displayTitle": "Español (PGS)"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "id": 22,
+            "filter": "genre=22",
+            "tag": "Action"
+          },
+          {
+            "id": 105,
+            "filter": "genre=105",
+            "tag": "Drama"
+          },
+          {
+            "id": 1076,
+            "filter": "genre=1076",
+            "tag": "History"
+          },
+          {
+            "id": 25,
+            "filter": "genre=25",
+            "tag": "Thriller"
+          },
+          {
+            "id": 287,
+            "filter": "genre=287",
+            "tag": "War"
+          }
+        ],
+        "Director": [
+          {
+            "id": 8646,
+            "filter": "director=8646",
+            "tag": "Michael Bay"
+          }
+        ],
+        "Writer": [
+          {
+            "id": 45596,
+            "filter": "writer=45596",
+            "tag": "Chuck Hogan"
+          }
+        ],
+        "Producer": [
+          {
+            "id": 14070,
+            "filter": "producer=14070",
+            "tag": "Michael Bay"
+          },
+          {
+            "id": 7682,
+            "filter": "producer=7682",
+            "tag": "Erwin Stoff"
+          }
+        ],
+        "Country": [
+          {
+            "id": 36619,
+            "filter": "country=36619",
+            "tag": "Malta"
+          }
+        ],
+        "Role": [
+          {
+            "id": 3332,
+            "filter": "actor=3332",
+            "tag": "James Badge Dale",
+            "role": "Tyrone 'Rone' Woods"
+          },
+          {
+            "id": 19078,
+            "filter": "actor=19078",
+            "tag": "John Krasinski",
+            "role": "Jack Silva",
+            "thumb": "http://image.tmdb.org/t/p/original/t6Aq1dAnxtlOtdevIMqQg5ZMCpl.jpg"
+          },
+          {
+            "id": 19788,
+            "filter": "actor=19788",
+            "tag": "Max Martini",
+            "role": "Mark 'Oz' Geist"
+          },
+          {
+            "id": 16184,
+            "filter": "actor=16184",
+            "tag": "Pablo Schreiber",
+            "role": "Kris 'Tanto' Paronto"
+          },
+          {
+            "id": 16409,
+            "filter": "actor=16409",
+            "tag": "Toby Stephens",
+            "role": "Glen 'Bub' Doherty"
+          },
+          {
+            "id": 45597,
+            "filter": "actor=45597",
+            "tag": "Dominic Fumusa",
+            "role": "John 'Tig' Tiegen"
+          },
+          {
+            "id": 45598,
+            "filter": "actor=45598",
+            "tag": "Matt Letscher",
+            "role": "Chris Stevens",
+            "thumb": "http://image.tmdb.org/t/p/original/1XY921058aXNLCHRJO8AumhsCmI.jpg"
+          },
+          {
+            "id": 39638,
+            "filter": "actor=39638",
+            "tag": "David Denman",
+            "role": "Dave 'Boon' Benton",
+            "thumb": "http://image.tmdb.org/t/p/original/qe7LVAvooGPISNaUUSuVQqFRkFM.jpg"
+          },
+          {
+            "id": 45599,
+            "filter": "actor=45599",
+            "tag": "Alexia Barlier",
+            "role": "Sona Jillani",
+            "thumb": "http://image.tmdb.org/t/p/original/2osfqBBEX5nN2WcRPPwu8XUggUc.jpg"
+          },
+          {
+            "id": 33521,
+            "filter": "actor=33521",
+            "tag": "Freddie Stroma",
+            "role": "Brit Vayner"
+          },
+          {
+            "id": 13245,
+            "filter": "actor=13245",
+            "tag": "David Costabile",
+            "role": "Bob"
+          },
+          {
+            "id": 71282,
+            "filter": "actor=71282",
+            "tag": "Peyman Maadi",
+            "role": "Amahl",
+            "thumb": "http://image.tmdb.org/t/p/original/24xiGPiabzK9tNRqsViM0iEonTS.jpg"
+          },
+          {
+            "id": 45600,
+            "filter": "actor=45600",
+            "tag": "David Giuntoli",
+            "role": "DS Scott Wickland",
+            "thumb": "http://image.tmdb.org/t/p/original/xxtB8TfKLMw9Utx5v2b3Z0nu5VL.jpg"
+          },
+          {
+            "id": 32709,
+            "filter": "actor=32709",
+            "tag": "Demetrius Grosse",
+            "role": "DS Agent Dave Ubben"
+          },
+          {
+            "id": 45601,
+            "filter": "actor=45601",
+            "tag": "Christopher Dingli",
+            "role": "Sean Smith"
+          },
+          {
+            "id": 19287,
+            "filter": "actor=19287",
+            "tag": "David Furr",
+            "role": "DS Alec"
+          },
+          {
+            "id": 44126,
+            "filter": "actor=44126",
+            "tag": "Wrenn Schmidt",
+            "role": "Becky Silva"
+          },
+          {
+            "id": 45602,
+            "filter": "actor=45602",
+            "tag": "Ivy George",
+            "role": "Emily Silva"
+          },
+          {
+            "id": 691,
+            "filter": "actor=691",
+            "tag": "Julia Butters",
+            "role": "Beverly Silva",
+            "thumb": "http://image.tmdb.org/t/p/original/fmOAQsjKmlbuw4cj5NPoXCyJQSE.jpg"
+          },
+          {
+            "id": 23673,
+            "filter": "actor=23673",
+            "tag": "Ben Youcef",
+            "role": "Azaan"
+          },
+          {
+            "id": 22185,
+            "filter": "actor=22185",
+            "tag": "Elektra Anastasi",
+            "role": "CIA Agent"
+          },
+          {
+            "id": 45603,
+            "filter": "actor=45603",
+            "tag": "Liisa Evastina",
+            "role": "Actress",
+            "thumb": "http://image.tmdb.org/t/p/original/id4PYjHRTlMkDXU0ZoC0vftNIIv.jpg"
+          },
+          {
+            "id": 45604,
+            "filter": "actor=45604",
+            "tag": "Steffi Thake",
+            "role": "Chief's Assistant",
+            "thumb": "http://image.tmdb.org/t/p/original/9eZRWUIE055U0EafhmhOEtwLnTE.jpg"
+          },
+          {
+            "id": 45605,
+            "filter": "actor=45605",
+            "tag": "Kerim Troeller",
+            "role": "Viper",
+            "thumb": "http://image.tmdb.org/t/p/original/Ae4ujU5P9eqUpHFejhA85kG5Lj6.jpg"
+          },
+          {
+            "id": 42100,
+            "filter": "actor=42100",
+            "tag": "Kenny Sheard",
+            "role": "Delta 1"
+          },
+          {
+            "id": 39784,
+            "filter": "actor=39784",
+            "tag": "Andrew Arrabito",
+            "role": "Delta Operator",
+            "thumb": "http://image.tmdb.org/t/p/original/8j6A1n7RlSKesgvfyT9kbfQOlaw.jpg"
+          },
+          {
+            "id": 45606,
+            "filter": "actor=45606",
+            "tag": "Davide Tucci",
+            "role": "Defence Attaché",
+            "thumb": "http://image.tmdb.org/t/p/original/sr3M8suVcRlPyIPIeYywgR6lVRg.jpg"
+          },
+          {
+            "id": 45607,
+            "filter": "actor=45607",
+            "tag": "Shane Rowe",
+            "role": "CIA Annex Cook"
+          },
+          {
+            "id": 45608,
+            "filter": "actor=45608",
+            "tag": "Gábor Bodis",
+            "role": "CIA Agent"
+          },
+          {
+            "id": 8716,
+            "filter": "actor=8716",
+            "tag": "Kevin Kent",
+            "role": "DS Vincent",
+            "thumb": "http://image.tmdb.org/t/p/original/kmK20UNBpcZCBjUHsA88YVcW34O.jpg"
+          },
+          {
+            "id": 45609,
+            "filter": "actor=45609",
+            "tag": "Mike Moriarty",
+            "role": "DS Wesley"
+          },
+          {
+            "id": 8362,
+            "filter": "actor=8362",
+            "tag": "Manuel Cauchi",
+            "role": "Fahreed",
+            "thumb": "http://image.tmdb.org/t/p/original/5L6rLqxFEM2ycYNnBCgfhIprzAI.jpg"
+          },
+          {
+            "id": 45610,
+            "filter": "actor=45610",
+            "tag": "Mohamed Naimane",
+            "role": "Hesham"
+          }
+        ],
+        "Similar": [
+          {
+            "id": 2583,
+            "filter": "similar=2583",
+            "tag": "Lone Survivor"
+          },
+          {
+            "id": 4272,
+            "filter": "similar=4272",
+            "tag": "Eye in the Sky"
+          },
+          {
+            "id": 4278,
+            "filter": "similar=4278",
+            "tag": "The Finest Hours"
+          },
+          {
+            "id": 5444,
+            "filter": "similar=5444",
+            "tag": "Deepwater Horizon"
+          },
+          {
+            "id": 2150,
+            "filter": "similar=2150",
+            "tag": "London Has Fallen"
+          },
+          {
+            "id": 5437,
+            "filter": "similar=5437",
+            "tag": "Triple 9"
+          },
+          {
+            "id": 5598,
+            "filter": "similar=5598",
+            "tag": "Patriots Day"
+          },
+          {
+            "id": 5433,
+            "filter": "similar=5433",
+            "tag": "The Accountant"
+          },
+          {
+            "id": 8542,
+            "filter": "similar=8542",
+            "tag": "Blood Father"
+          },
+          {
+            "id": 4281,
+            "filter": "similar=4281",
+            "tag": "Criminal"
+          },
+          {
+            "id": 3965,
+            "filter": "similar=3965",
+            "tag": "Sicario"
+          },
+          {
+            "id": 3748,
+            "filter": "similar=3748",
+            "tag": "The Gunman"
+          },
+          {
+            "id": 2133,
+            "filter": "similar=2133",
+            "tag": "Jack Reacher: Never Go Back"
+          },
+          {
+            "id": 3737,
+            "filter": "similar=3737",
+            "tag": "Run All Night"
+          },
+          {
+            "id": 2575,
+            "filter": "similar=2575",
+            "tag": "Green Zone"
+          },
+          {
+            "id": 16245,
+            "filter": "similar=16245",
+            "tag": "Jason Bourne"
+          },
+          {
+            "id": 27691,
+            "filter": "similar=27691",
+            "tag": "Act of Valor"
+          },
+          {
+            "id": 2344,
+            "filter": "similar=2344",
+            "tag": "Kill the Messenger"
+          },
+          {
+            "id": 5588,
+            "filter": "similar=5588",
+            "tag": "War Dogs"
+          },
+          {
+            "id": 2578,
+            "filter": "similar=2578",
+            "tag": "Black Hawk Down"
+          }
+        ]
+      }
+    ]
+  }
+}

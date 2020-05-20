@@ -1,0 +1,2907 @@
+
+// List playlist items (not smart list)
+//
+// URL: /playlists/<id>/items
+
+{
+  "MediaContainer": {
+    "size": 30,
+    "allowSync": true,
+    "composite": "/playlists/14188/composite/1589594569",
+    "duration": 215817,
+    "leafCount": 30,
+    "playlistType": "video",
+    "ratingKey": "14188",
+    "smart": true,
+    "title": "Denzel",
+    "Metadata": [
+      {
+        "ratingKey": "17911",
+        "key": "/library/metadata/17911",
+        "guid": "com.plexapp.agents.imdb://tt1272878?lang=en",
+        "studio": "Universal Pictures",
+        "type": "movie",
+        "title": "2 Guns",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "A DEA agent and an undercover Naval Intelligence officer who have been tasked with investigating one another find they have been set up by the mob -- the very organization the two men believe they have been stealing money from.",
+        "rating": 6.4,
+        "audienceRating": 6.6,
+        "year": 2013,
+        "tagline": "2 Guns, 1 Bank.",
+        "thumb": "/library/metadata/17911/thumb/1575865139",
+        "art": "/library/metadata/17911/art/1575865139",
+        "duration": 6555382,
+        "originallyAvailableAt": "2013-08-02",
+        "addedAt": 1575853393,
+        "updatedAt": 1575865139,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/26552",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39545,
+            "duration": 6555382,
+            "bitrate": 2144,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39546,
+                "key": "/library/parts/39546/1383905481/file.mp4",
+                "duration": 6555382,
+                "file": "/volume1/Media/Movies/2 Guns (2013)/2 Guns (2013) [1080p] [AAC 2ch].mp4",
+                "size": 1760468767,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Comedy"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Baltasar Kormákur"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Blake Masters"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Mark Wahlberg"
+          },
+          {
+            "tag": "Paula Patton"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17812",
+        "key": "/library/metadata/17812",
+        "guid": "com.plexapp.agents.imdb://tt0765429?lang=en",
+        "studio": "Imagine Entertainment",
+        "type": "movie",
+        "title": "American Gangster",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Following the death of his employer and mentor, Bumpy Johnson, Frank Lucas establishes himself as the number one importer of heroin in the Harlem district of Manhattan. He does so by buying heroin directly from the source in South East Asia and he comes up with a unique way of importing the drugs into the United States. Partly based on a true story.",
+        "rating": 8.0,
+        "audienceRating": 8.7,
+        "viewCount": 1,
+        "lastViewedAt": 1576989679,
+        "year": 2007,
+        "tagline": "There are two sides to the American dream",
+        "thumb": "/library/metadata/17812/thumb/1575864638",
+        "art": "/library/metadata/17812/art/1575864638",
+        "duration": 10545993,
+        "originallyAvailableAt": "2007-11-02",
+        "addedAt": 1575853373,
+        "updatedAt": 1575864638,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/26154",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39438,
+            "duration": 10545993,
+            "bitrate": 1931,
+            "width": 1920,
+            "height": 1040,
+            "aspectRatio": 1.85,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39439,
+                "key": "/library/parts/39439/1426464270/file.mp4",
+                "duration": 10545993,
+                "file": "/volume1/Media/Movies/American Gangster (2007)/American Gangster (2007) [1080p] [AAC 2ch].mp4",
+                "size": 2550757943,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Biography"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Ridley Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Steven Zaillian"
+          },
+          {
+            "tag": "Mark Jacobson"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Russell Crowe"
+          },
+          {
+            "tag": "Chiwetel Ejiofor"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16350",
+        "key": "/library/metadata/16350",
+        "guid": "com.plexapp.agents.imdb://tt0145681?lang=en",
+        "studio": "Columbia Pictures",
+        "type": "movie",
+        "title": "The Bone Collector",
+        "titleSort": "Bone Collector",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Rookie cop, Amelia Donaghy reluctantly teams with Lincoln Rhyme – formerly the department's top homicide detective but now paralyzed as a result of a spinal injury – to catch a grisly serial killer dubbed 'The Bone Collector'. The murderer's special signature is to leave tantalizing clues based on the grim remains of his crimes.",
+        "rating": 2.8,
+        "audienceRating": 6.3,
+        "year": 1999,
+        "tagline": "Serial killer vs. forensic genius",
+        "thumb": "/library/metadata/16350/thumb/1575860456",
+        "art": "/library/metadata/16350/art/1575860456",
+        "duration": 7077195,
+        "originallyAvailableAt": "1999-11-04",
+        "addedAt": 1575853095,
+        "updatedAt": 1575860456,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/20244",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 37801,
+            "duration": 7077195,
+            "bitrate": 1942,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37802,
+                "key": "/library/parts/37802/1370926881/file.mp4",
+                "duration": 7077195,
+                "file": "/volume1/Media/Movies/The Bone Collector (1999)/The Bone Collector (1999) [1080p] [AAC 2ch].mp4",
+                "size": 1720919250,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Crime"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Phillip Noyce"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Jeremy Iacone"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Angelina Jolie"
+          },
+          {
+            "tag": "Queen Latifah"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16348",
+        "key": "/library/metadata/16348",
+        "guid": "com.plexapp.agents.imdb://tt1037705?lang=en",
+        "studio": "Alcon Entertainment",
+        "type": "movie",
+        "title": "The Book of Eli",
+        "titleSort": "Book of Eli",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "A post-apocalyptic tale, in which a lone man fights his way across America in order to protect a sacred book that holds the secrets to saving humankind.",
+        "rating": 4.7,
+        "audienceRating": 6.4,
+        "year": 2010,
+        "tagline": "Some will kill to have it. He will kill to protect it.",
+        "thumb": "/library/metadata/16348/thumb/1575860454",
+        "art": "/library/metadata/16348/art/1575860454",
+        "duration": 7060654,
+        "originallyAvailableAt": "2010-01-11",
+        "addedAt": 1575853095,
+        "updatedAt": 1575860454,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/20221",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 37799,
+            "duration": 7060654,
+            "bitrate": 15664,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "dca-ma",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "ma",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37800,
+                "key": "/library/parts/37800/1491381957/file.mkv",
+                "duration": 7060654,
+                "file": "/volume1/Media/Movies/The Book of Eli (2010)/The Book of Eli (2010) [1080p] [DCA 6ch].mkv",
+                "size": 13528129100,
+                "audioProfile": "ma",
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Adventure"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Albert Hughes"
+          },
+          {
+            "tag": "Allen Hughes"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Gary Whitta"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Gary Oldman"
+          },
+          {
+            "tag": "Mila Kunis"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17552",
+        "key": "/library/metadata/17552",
+        "guid": "com.plexapp.agents.imdb://tt0115956?lang=en",
+        "studio": "Fox 2000 Pictures",
+        "type": "movie",
+        "title": "Courage Under Fire",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "A US Army officer had made a \"friendly fire\" mistake that was covered up and he was reassigned to a desk job. Later he was tasked to investigate a female chopper commander's worthiness to be awarded the Medal of Honor posthumously. At first all seemed in order. But then he begins to notice inconsistencies between the testimonies of the witnesses....",
+        "rating": 8.5,
+        "audienceRating": 6.6,
+        "year": 1996,
+        "tagline": "A medal for honor. A search for justice. A battle for truth.",
+        "thumb": "/library/metadata/17552/thumb/1575863321",
+        "art": "/library/metadata/17552/art/1575863321",
+        "duration": 6987980,
+        "originallyAvailableAt": "1996-07-04",
+        "addedAt": 1575853326,
+        "updatedAt": 1575863321,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/25032",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39158,
+            "duration": 6987980,
+            "bitrate": 1233,
+            "width": 1280,
+            "height": 694,
+            "aspectRatio": 1.85,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "720",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "he-aac",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39159,
+                "key": "/library/parts/39159/1453521341/file.mkv",
+                "duration": 6987980,
+                "file": "/volume1/Media/Movies/Courage Under Fire (1996)/Courage Under Fire (1996) [720p] [AAC 2ch].mkv",
+                "size": 1078242903,
+                "audioProfile": "he-aac",
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Edward Zwick"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Patrick Sheane Duncan"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Meg Ryan"
+          },
+          {
+            "tag": "Lou Diamond Phillips"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17534",
+        "key": "/library/metadata/17534",
+        "guid": "com.plexapp.agents.imdb://tt0112740?lang=en",
+        "studio": "Hollywood Pictures",
+        "type": "movie",
+        "title": "Crimson Tide",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "On a US nuclear missile sub, a young first officer stages a mutiny to prevent his trigger happy captain from launching his missiles before confirming his orders to do so.",
+        "rating": 8.8,
+        "audienceRating": 8.3,
+        "viewCount": 1,
+        "lastViewedAt": 1576774994,
+        "year": 1995,
+        "tagline": "Danger runs deep.",
+        "thumb": "/library/metadata/17534/thumb/1575863233",
+        "art": "/library/metadata/17534/art/1575863233",
+        "duration": 6946538,
+        "originallyAvailableAt": "1995-05-12",
+        "addedAt": 1575853323,
+        "updatedAt": 1575863233,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39139,
+            "duration": 6946538,
+            "bitrate": 1915,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39140,
+                "key": "/library/parts/39140/1370881220/file.mp4",
+                "duration": 6946538,
+                "file": "/volume1/Media/Movies/Crimson Tide (1995)/Crimson Tide (1995) [1080p] [AAC 2ch].mp4",
+                "size": 1666748265,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Tony Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Michael Schiffer"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Gene Hackman"
+          },
+          {
+            "tag": "Matt Craven"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17440",
+        "key": "/library/metadata/17440",
+        "guid": "com.plexapp.agents.imdb://tt0453467?lang=en",
+        "studio": "Jerry Bruckheimer Films",
+        "type": "movie",
+        "title": "Déjà Vu",
+        "titleSort": "Deja Vu",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "Called in to recover evidence in the aftermath of a horrific explosion on a New Orleans ferry, Federal agent Doug Carlin gets pulled away from the scene and taken to a top-secret government lab that uses a time-shifting surveillance device to help prevent crime.",
+        "rating": 5.5,
+        "audienceRating": 7.3,
+        "year": 2006,
+        "tagline": "If you think it's just a feeling, go back... and look again.",
+        "thumb": "/library/metadata/17440/thumb/1576429450",
+        "art": "/library/metadata/17440/art/1576429450",
+        "duration": 7587263,
+        "originallyAvailableAt": "2006-11-22",
+        "addedAt": 1575853304,
+        "updatedAt": 1576429450,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 39040,
+            "duration": 7587263,
+            "bitrate": 1742,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39041,
+                "key": "/library/parts/39041/1438232424/file.mp4",
+                "duration": 7587263,
+                "file": "/volume1/Media/Movies/Déjà Vu (2006)/Déjà Vu (2006) [1080p] [AAC 2ch].mp4",
+                "size": 1652255044,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          },
+          {
+            "id": 65368,
+            "duration": 7586963,
+            "bitrate": 3927,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "hevc",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "lc",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 65390,
+                "key": "/library/parts/65390/1501068111/file.mkv",
+                "duration": 7586963,
+                "file": "/volume1/Media/Movies_HEVC/Déjà Vu (2006)/Déjà Vu (2006) [1080p] [HEVC] [AAC 6ch].mkv",
+                "size": 3654469829,
+                "audioProfile": "lc",
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Tony Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Terry Rossio"
+          },
+          {
+            "tag": "Bill Marsilii"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Paula Patton"
+          },
+          {
+            "tag": "Val Kilmer"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17486",
+        "key": "/library/metadata/17486",
+        "guid": "com.plexapp.agents.imdb://tt0112857?lang=en",
+        "studio": "TriStar Pictures",
+        "type": "movie",
+        "title": "Devil in a Blue Dress",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "In late 1940s Los Angeles, Easy Rawlins is an unemployed black World War II veteran with few job prospects. At a bar, Easy meets DeWitt Albright, a mysterious white man looking for someone to investigate the disappearance of a missing white woman named Daphne Monet, who he suspects is hiding out in one of the city's black jazz clubs. Strapped for money and facing house payments, Easy takes the job, but soon finds himself in over his head.",
+        "rating": 8.8,
+        "audienceRating": 7.0,
+        "year": 1995,
+        "tagline": "Private detective Easy Rawlins has been caught on the wrong side of the most dangerous secret in town.",
+        "thumb": "/library/metadata/17486/thumb/1575862979",
+        "art": "/library/metadata/17486/art/1575862979",
+        "duration": 6077953,
+        "originallyAvailableAt": "1995-09-15",
+        "addedAt": 1575853311,
+        "updatedAt": 1575862979,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/24821",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39089,
+            "duration": 6077953,
+            "bitrate": 2723,
+            "width": 1920,
+            "height": 1040,
+            "aspectRatio": 1.85,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39090,
+                "key": "/library/parts/39090/1504392931/file.mp4",
+                "duration": 6077953,
+                "file": "/volume1/Media/Movies/Devil in a Blue Dress (1995)/Devil in a Blue Dress (1995) [1080p] [AAC 6ch].mp4",
+                "size": 2073710296,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Crime"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Carl Franklin"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Carl Franklin"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Tom Sizemore"
+          },
+          {
+            "tag": "Jennifer Beals"
+          }
+        ]
+      },
+      {
+        "ratingKey": "26872",
+        "key": "/library/metadata/26872",
+        "guid": "com.plexapp.agents.imdb://tt0455944?lang=en",
+        "studio": "Columbia Pictures",
+        "type": "movie",
+        "title": "The Equalizer",
+        "titleSort": "Equalizer",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "McCall believes he has put his mysterious past behind him and dedicated himself to beginning a new, quiet life. But when he meets Teri, a young girl under the control of ultra-violent Russian gangsters, he can’t stand idly by – he has to help her. Armed with hidden skills that allow him to serve vengeance against anyone who would brutalize the helpless, McCall comes out of his self-imposed retirement and finds his desire for justice reawakened. If someone has a problem, if the odds are stacked against them, if they have nowhere else to turn, McCall will help. He is The Equalizer.",
+        "rating": 5.9,
+        "audienceRating": 7.6,
+        "year": 2014,
+        "tagline": "What do you see when you look at me?",
+        "thumb": "/library/metadata/26872/thumb/1576429060",
+        "art": "/library/metadata/26872/art/1576429060",
+        "duration": 7922942,
+        "originallyAvailableAt": "2014-09-24",
+        "addedAt": 1576428462,
+        "updatedAt": 1576429060,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/26999",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 65301,
+            "duration": 7922942,
+            "bitrate": 3342,
+            "width": 1920,
+            "height": 802,
+            "aspectRatio": 2.35,
+            "audioChannels": 8,
+            "audioCodec": "aac",
+            "videoCodec": "hevc",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "lc",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 65323,
+                "key": "/library/parts/65323/1501002548/file.mkv",
+                "duration": 7922942,
+                "file": "/volume1/Media/Movies_HEVC/The Equalizer (2014)/The Equalizer (2014) [1080p] [HEVC] [AAC 8ch].mkv",
+                "size": 3304819164,
+                "audioProfile": "lc",
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Antoine Fuqua"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Richard Wenk"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "The Equalizer"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Marton Csokas"
+          },
+          {
+            "tag": "Chloë Grace Moretz"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16271",
+        "key": "/library/metadata/16271",
+        "guid": "com.plexapp.agents.imdb://tt3766354?lang=en",
+        "studio": "Columbia Pictures",
+        "type": "movie",
+        "title": "The Equalizer 2",
+        "titleSort": "Equalizer 2",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Robert McCall, who serves an unflinching justice for the exploited and oppressed, embarks on a relentless, globe-trotting quest for vengeance when a long-time girl friend is murdered.",
+        "rating": 5.2,
+        "audienceRating": 6.1,
+        "viewCount": 1,
+        "lastViewedAt": 1584759038,
+        "year": 2018,
+        "tagline": "There is no equal",
+        "thumb": "/library/metadata/16271/thumb/1575860415",
+        "art": "/library/metadata/16271/art/1575860415",
+        "duration": 7272094,
+        "originallyAvailableAt": "2018-07-19",
+        "addedAt": 1575853081,
+        "updatedAt": 1575860415,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/19974",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 37719,
+            "duration": 7272094,
+            "bitrate": 4901,
+            "width": 1920,
+            "height": 796,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "ac3",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37720,
+                "key": "/library/parts/37720/1540926471/file.mkv",
+                "duration": 7272094,
+                "file": "/volume1/Media/Movies/The Equalizer 2 (2018)/The Equalizer 2 (2018) [1080p] [AC3 6ch].mkv",
+                "size": 4457034123,
+                "container": "mkv",
+                "hasThumbnail": "1",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Antoine Fuqua"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Richard Wenk"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "The Equalizer"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Pedro Pascal"
+          },
+          {
+            "tag": "Ashton Sanders"
+          }
+        ]
+      },
+      {
+        "ratingKey": "26931",
+        "key": "/library/metadata/26931",
+        "guid": "com.plexapp.agents.imdb://tt0119099?lang=en",
+        "studio": "Atlas Entertainment",
+        "type": "movie",
+        "title": "Fallen",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Homicide detective John Hobbes witnesses the execution of serial killer Edgar Reese. Soon after the execution the killings start again, and they are very similar to Reese's style.",
+        "rating": 4.0,
+        "audienceRating": 7.2,
+        "year": 1998,
+        "tagline": "Detective John Hobbes is searching for a criminal he's already met... already caught... and already killed",
+        "thumb": "/library/metadata/26931/thumb/1576429366",
+        "art": "/library/metadata/26931/art/1576429366",
+        "duration": 7451392,
+        "originallyAvailableAt": "1998-01-16",
+        "addedAt": 1576428472,
+        "updatedAt": 1576429366,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/27073",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 65360,
+            "duration": 7451392,
+            "bitrate": 3491,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "ac3",
+            "videoCodec": "hevc",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 65382,
+                "key": "/library/parts/65382/1502897972/file.mkv",
+                "duration": 7451392,
+                "file": "/volume1/Media/Movies_HEVC/Fallen (1998)/Fallen (1998) [1080p] [HEVC] [AC3 6ch].mkv",
+                "size": 3253062535,
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Gregory Hoblit"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Nicholas Kazan"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "John Goodman"
+          },
+          {
+            "tag": "Donald Sutherland"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17334",
+        "key": "/library/metadata/17334",
+        "guid": "com.plexapp.agents.imdb://tt1907668?lang=en",
+        "studio": "Paramount",
+        "type": "movie",
+        "title": "Flight",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Commercial airline pilot Whip Whitaker has a problem with drugs and alcohol, though so far he's managed to complete his flights safely. His luck runs out when a disastrous mechanical malfunction sends his plane hurtling toward the ground. Whip pulls off a miraculous crash-landing that results in only six lives lost. Shaken to the core, Whip vows to get sober -- but when the crash investigation exposes his addiction, he finds himself in an even worse situation.",
+        "rating": 7.3,
+        "year": 2012,
+        "thumb": "/library/metadata/17334/thumb/1575862262",
+        "art": "/library/metadata/17334/art/1575862262",
+        "duration": 8315370,
+        "originallyAvailableAt": "2012-11-02",
+        "addedAt": 1575853283,
+        "updatedAt": 1575862262,
+        "primaryExtraKey": "/library/metadata/24352",
+        "ratingImage": "imdb://image.rating",
+        "Media": [
+          {
+            "id": 38904,
+            "duration": 8315370,
+            "bitrate": 1857,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38905,
+                "key": "/library/parts/38905/1370888745/file.mp4",
+                "duration": 8315370,
+                "file": "/volume1/Media/Movies/Flight (2012)/Flight (2012) [1080p] [AAC 2ch].mp4",
+                "size": 1934979999,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Drama"
+          },
+          {
+            "tag": "Thriller"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Robert Zemeckis"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "John Gatins"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Don Cheadle"
+          },
+          {
+            "tag": "Bruce Greenwood"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17240",
+        "key": "/library/metadata/17240",
+        "guid": "com.plexapp.agents.imdb://tt0097441?lang=en",
+        "studio": "TriStar Pictures",
+        "type": "movie",
+        "title": "Glory",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Robert Gould Shaw leads the US Civil War's first all-black volunteer company, fighting prejudices of both his own Union army and the Confederates.",
+        "rating": 9.3,
+        "audienceRating": 9.3,
+        "year": 1989,
+        "tagline": "Their innocence. Their heritage. Their lives.",
+        "thumb": "/library/metadata/17240/thumb/1575861933",
+        "art": "/library/metadata/17240/art/1575861933",
+        "duration": 7334421,
+        "originallyAvailableAt": "1989-12-15",
+        "addedAt": 1575853268,
+        "updatedAt": 1575861933,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/24055",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 38749,
+            "duration": 7334421,
+            "bitrate": 2724,
+            "width": 1920,
+            "height": 1040,
+            "aspectRatio": 1.85,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38750,
+                "key": "/library/parts/38750/1453519274/file.mp4",
+                "duration": 7334421,
+                "file": "/volume1/Media/Movies/Glory (1989)/Glory (1989) [1080p] [AAC 6ch].mp4",
+                "size": 2501508755,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Biography"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Edward Zwick"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Kevin Jarre"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Matthew Broderick"
+          },
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Cary Elwes"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16218",
+        "key": "/library/metadata/16218",
+        "guid": "com.plexapp.agents.imdb://tt0427309?lang=en",
+        "studio": "The Weinstein Company",
+        "type": "movie",
+        "title": "The Great Debaters",
+        "titleSort": "Great Debaters",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "The true story of a brilliant but politically radical debate team coach who uses the power of words to transform a group of underdog African American college students into an historical powerhouse that took on the Harvard elite.",
+        "rating": 7.9,
+        "audienceRating": 8.6,
+        "year": 2007,
+        "tagline": "When the nation was in need, he inspired them to give us hope.",
+        "thumb": "/library/metadata/16218/thumb/1575860383",
+        "art": "/library/metadata/16218/art/1575860383",
+        "duration": 3747046,
+        "originallyAvailableAt": "2007-12-27",
+        "addedAt": 1575853068,
+        "updatedAt": 1575860383,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/19730",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 37662,
+            "duration": 3747046,
+            "bitrate": 1558,
+            "width": 640,
+            "height": 256,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "ac3",
+            "videoCodec": "mpeg4",
+            "videoResolution": "sd",
+            "container": "avi",
+            "videoFrameRate": "24p",
+            "videoProfile": "advanced simple",
+            "Part": [
+              {
+                "id": 37663,
+                "key": "/library/parts/37663/1382858590/file.avi",
+                "duration": 3747046,
+                "file": "/volume1/Media/Movies/The Great Debaters (2007)/The Great Debaters (2007) [480p] [AC3 2ch].avi",
+                "size": 734285824,
+                "container": "avi",
+                "videoProfile": "advanced simple"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Biography"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Denzel Washington"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Robert Eisele"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Nate Parker"
+          },
+          {
+            "tag": "Forest Whitaker"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16184",
+        "key": "/library/metadata/16184",
+        "guid": "com.plexapp.agents.imdb://tt0174856?lang=en",
+        "studio": "Universal Pictures",
+        "type": "movie",
+        "title": "The Hurricane",
+        "titleSort": "Hurricane",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "The story of Rubin \"Hurricane\" Carter, a boxer wrongly imprisoned for murder, and the people who aided in his fight to prove his innocence.",
+        "rating": 8.3,
+        "audienceRating": 8.7,
+        "year": 1999,
+        "tagline": "His greatest fight was for justice.",
+        "thumb": "/library/metadata/16184/thumb/1575860365",
+        "art": "/library/metadata/16184/art/1575860365",
+        "duration": 8381280,
+        "originallyAvailableAt": "1999-09-17",
+        "addedAt": 1575853063,
+        "updatedAt": 1575860365,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/19455",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 37628,
+            "duration": 8381280,
+            "bitrate": 840,
+            "width": 608,
+            "height": 320,
+            "aspectRatio": 1.85,
+            "audioChannels": 2,
+            "audioCodec": "mp3",
+            "videoCodec": "mpeg4",
+            "videoResolution": "sd",
+            "container": "avi",
+            "videoFrameRate": "PAL",
+            "videoProfile": "advanced simple",
+            "Part": [
+              {
+                "id": 37629,
+                "key": "/library/parts/37629/1382858736/file.avi",
+                "duration": 8381280,
+                "file": "/volume1/Media/Movies/The Hurricane (1999)/The Hurricane (1999) [360p] [MP3 2ch].avi",
+                "size": 893171712,
+                "container": "avi",
+                "videoProfile": "advanced simple"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Biography"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Norman Jewison"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Armyan Bernstein"
+          },
+          {
+            "tag": "Dan Gordon"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Vicellous Reon Shannon"
+          },
+          {
+            "tag": "Deborah Kara Unger"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17102",
+        "key": "/library/metadata/17102",
+        "guid": "com.plexapp.agents.imdb://tt0454848?lang=en",
+        "studio": "Imagine Entertainment",
+        "type": "movie",
+        "title": "Inside Man",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "When an armed, masked gang enter a Manhattan bank, lock the doors and take hostages, the detective assigned to effect their release enters negotiations preoccupied with corruption charges he is facing.",
+        "rating": 8.6,
+        "audienceRating": 8.5,
+        "year": 2006,
+        "tagline": "It looked like the perfect bank robbery. But you can’t judge a crime by its cover.",
+        "thumb": "/library/metadata/17102/thumb/1575861219",
+        "art": "/library/metadata/17102/art/1575861219",
+        "duration": 7716780,
+        "originallyAvailableAt": "2006-03-23",
+        "addedAt": 1575853241,
+        "updatedAt": 1575861219,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/23494",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 38605,
+            "duration": 7716780,
+            "bitrate": 812,
+            "width": 1280,
+            "height": 544,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "720",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "he-aac",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38606,
+                "key": "/library/parts/38606/1370898117/file.mp4",
+                "duration": 7716780,
+                "file": "/volume1/Media/Movies/Inside Man (2006)/Inside Man (2006) [720p] [AAC 2ch].mp4",
+                "size": 785703459,
+                "audioProfile": "he-aac",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Crime"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Spike Lee"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Russell Gewirtz"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Inside Man"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Clive Owen"
+          },
+          {
+            "tag": "Jodie Foster"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17060",
+        "key": "/library/metadata/17060",
+        "guid": "com.plexapp.agents.imdb://tt0251160?lang=en",
+        "studio": "New Line Cinema",
+        "type": "movie",
+        "title": "John Q",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "John Quincy Archibald is a father and husband whose son is diagnosed with an enlarged heart and then finds out he cannot receive a transplant because HMO insurance will not cover it. Therefore, he decides to take a hospital full of patients hostage until the hospital puts his son's name on the donor's list.",
+        "rating": 2.3,
+        "audienceRating": 7.8,
+        "year": 2002,
+        "tagline": "Give a father no options and you leave him no choice.",
+        "thumb": "/library/metadata/17060/thumb/1575860964",
+        "art": "/library/metadata/17060/art/1575860964",
+        "duration": 6952752,
+        "originallyAvailableAt": "2002-02-15",
+        "addedAt": 1575853232,
+        "updatedAt": 1575860964,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/23296",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 38559,
+            "duration": 6952752,
+            "bitrate": 833,
+            "width": 624,
+            "height": 352,
+            "aspectRatio": 1.78,
+            "audioChannels": 2,
+            "audioCodec": "mp3",
+            "videoCodec": "mpeg4",
+            "videoResolution": "sd",
+            "container": "avi",
+            "videoFrameRate": "NTSC",
+            "Part": [
+              {
+                "id": 38560,
+                "key": "/library/parts/38560/1382852203/file.avi",
+                "duration": 6952752,
+                "file": "/volume1/Media/Movies/John Q (2002)/John Q (2002) [360p] [MP3 2ch].avi",
+                "size": 734037038,
+                "container": "avi"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Crime"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Nick Cassavetes"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "James Kearns"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Robert Duvall"
+          },
+          {
+            "tag": "Anne Heche"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16110",
+        "key": "/library/metadata/16110",
+        "guid": "com.plexapp.agents.imdb://tt2404435?lang=en",
+        "studio": "Columbia Pictures",
+        "type": "movie",
+        "title": "The Magnificent Seven",
+        "titleSort": "Magnificent Seven",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "Looking to mine for gold, greedy industrialist Bartholomew Bogue seizes control of the Old West town of Rose Creek. With their lives in jeopardy, Emma Cullen and other desperate residents turn to bounty hunter Sam Chisolm for help. Chisolm recruits an eclectic group of gunslingers to take on Bogue and his ruthless henchmen. With a deadly showdown on the horizon, the seven mercenaries soon find themselves fighting for more than just money once the bullets start to fly.",
+        "rating": 6.9,
+        "year": 2016,
+        "tagline": "Justice has a number.",
+        "thumb": "/library/metadata/16110/thumb/1575860327",
+        "art": "/library/metadata/16110/art/1575860327",
+        "duration": 7970058,
+        "originallyAvailableAt": "2016-09-14",
+        "addedAt": 1575853050,
+        "updatedAt": 1575860327,
+        "primaryExtraKey": "/library/metadata/19227",
+        "ratingImage": "imdb://image.rating",
+        "Media": [
+          {
+            "id": 37550,
+            "duration": 7970058,
+            "bitrate": 2724,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37551,
+                "key": "/library/parts/37551/1481033999/file.mp4",
+                "duration": 7970058,
+                "file": "/volume1/Media/Movies/The Magnificent Seven (2016)/The Magnificent Seven (2016) [1080p] [AAC 6ch].mp4",
+                "size": 2721151350,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Adventure"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Antoine Fuqua"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Akira Kurosawa"
+          },
+          {
+            "tag": "Shinobu Hashimoto"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Chris Pratt"
+          },
+          {
+            "tag": "Ethan Hawke"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16929",
+        "key": "/library/metadata/16929",
+        "guid": "com.plexapp.agents.imdb://tt0104797?lang=en",
+        "studio": "Warner Bros. Pictures",
+        "type": "movie",
+        "title": "Malcolm X",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "A tribute to the controversial black activist and leader of the struggle for black liberation. He hit bottom during his imprisonment in the '50s, he became a Black Muslim and then a leader in the Nation of Islam. His assassination in 1965 left a legacy of self-determination and racial pride.",
+        "rating": 8.8,
+        "audienceRating": 9.1,
+        "year": 1992,
+        "thumb": "/library/metadata/16929/thumb/1575860736",
+        "art": "/library/metadata/16929/art/1575860736",
+        "duration": 6906083,
+        "originallyAvailableAt": "1992-11-18",
+        "addedAt": 1575853208,
+        "updatedAt": 1575860736,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/22671",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 38423,
+            "duration": 6906083,
+            "bitrate": 2281,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38424,
+                "key": "/library/parts/38424/1415061826/file.mp4",
+                "duration": 6906083,
+                "file": "/volume1/Media/Movies/Malcolm X (1992)/Malcolm X (1992) [1080p] [AAC 2ch].mp4",
+                "size": 1972527246,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Biography"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Spike Lee"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Spike Lee"
+          },
+          {
+            "tag": "Arnold Perl"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Angela Bassett"
+          },
+          {
+            "tag": "Albert Hall"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16921",
+        "key": "/library/metadata/16921",
+        "guid": "com.plexapp.agents.imdb://tt0328107?lang=en",
+        "studio": "Regency Enterprises",
+        "type": "movie",
+        "title": "Man on Fire",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Jaded ex-CIA operative John Creasy reluctantly accepts a job as the bodyguard for a 10-year-old girl in Mexico City. They clash at first, but eventually bond, and when she's kidnapped he's consumed by fury and will stop at nothing to save her life.",
+        "rating": 3.9,
+        "audienceRating": 8.9,
+        "viewCount": 2,
+        "lastViewedAt": 1588120944,
+        "year": 2004,
+        "tagline": "Creasy's art is death, and he is about to paint his masterpiece.",
+        "thumb": "/library/metadata/16921/thumb/1587741976",
+        "art": "/library/metadata/16921/art/1587741976",
+        "duration": 8765799,
+        "originallyAvailableAt": "2004-04-23",
+        "addedAt": 1575853206,
+        "updatedAt": 1587741976,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/22633",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 69647,
+            "duration": 8765799,
+            "bitrate": 2723,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 69872,
+                "key": "/library/parts/69872/1587687533/file.mp4",
+                "duration": 8765799,
+                "file": "/volume1/Media/Movies/Man on Fire (2004)/Man on Fire (2004) [1080p] [AAC 6ch].mp4",
+                "size": 2991506271,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Tony Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Brian Helgeland"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Dakota Fanning"
+          },
+          {
+            "tag": "Radha Mitchell"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16105",
+        "key": "/library/metadata/16105",
+        "guid": "com.plexapp.agents.imdb://tt0368008?lang=en",
+        "studio": "Paramount",
+        "type": "movie",
+        "title": "The Manchurian Candidate",
+        "titleSort": "Manchurian Candidate",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Years after his squad was ambushed during the Gulf War, Major Ben Marco finds himself having terrible nightmares. He begins to doubt that his fellow squad-mate Sergeant Raymond Shaw, now a vice-presidential candidate, is the hero he remembers him being. As Marco's doubts deepen, Shaw's political power grows, and, when Marco finds a mysterious implant embedded in his back, the memory of what really happened begins to return.",
+        "rating": 8.0,
+        "audienceRating": 6.3,
+        "year": 2004,
+        "tagline": "Everything is under control.",
+        "thumb": "/library/metadata/16105/thumb/1575860326",
+        "art": "/library/metadata/16105/art/1575860326",
+        "duration": 7792041,
+        "originallyAvailableAt": "2004-07-30",
+        "addedAt": 1575853050,
+        "updatedAt": 1575860326,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/19214",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 37545,
+            "duration": 7792041,
+            "bitrate": 2724,
+            "width": 1920,
+            "height": 1080,
+            "aspectRatio": 1.78,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37546,
+                "key": "/library/parts/37546/1457227878/file.mp4",
+                "duration": 7792041,
+                "file": "/volume1/Media/Movies/The Manchurian Candidate (2004)/The Manchurian Candidate (2004) [1080p] [AAC 6ch].mp4",
+                "size": 2659599107,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Drama"
+          },
+          {
+            "tag": "Mystery"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Jonathan Demme"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Dean Georgaris"
+          },
+          {
+            "tag": "Daniel Pyne"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Liev Schreiber"
+          },
+          {
+            "tag": "Meryl Streep"
+          }
+        ]
+      },
+      {
+        "ratingKey": "15744",
+        "key": "/library/metadata/15744",
+        "guid": "com.plexapp.agents.imdb://tt0313443?lang=en",
+        "studio": "Metro-Goldwyn-Mayer",
+        "type": "movie",
+        "title": "Out of Time",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Matt Lee Whitlock, respected chief of police in small Banyan Key, Florida, must solve a vicious double homicide before he himself falls under suspicion. Matt Lee has to stay a few steps ahead of his own police force and everyone he's trusted in order to find out the truth.",
+        "rating": 6.4,
+        "audienceRating": 5.8,
+        "year": 2003,
+        "tagline": "The Clock Is Ticking...",
+        "thumb": "/library/metadata/15744/thumb/1575868126",
+        "art": "/library/metadata/15744/art/1575868126",
+        "duration": 6325367,
+        "originallyAvailableAt": "2003-10-03",
+        "addedAt": 1575852981,
+        "updatedAt": 1575868126,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "primaryExtraKey": "/library/metadata/16774",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 37170,
+            "duration": 6325367,
+            "bitrate": 2724,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37171,
+                "key": "/library/parts/37171/1566393397/file.mp4",
+                "duration": 6325367,
+                "file": "/volume1/Media/Movies/Out of Time (2003)/Out of Time (2003) [1080p] [AAC 6ch].mp4",
+                "size": 2159473959,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Carl Franklin"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "David Collard"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Eva Mendes"
+          },
+          {
+            "tag": "Sanaa Lathan"
+          }
+        ]
+      },
+      {
+        "ratingKey": "26899",
+        "key": "/library/metadata/26899",
+        "guid": "com.plexapp.agents.imdb://tt0107818?lang=en",
+        "studio": "TriStar Pictures",
+        "type": "movie",
+        "title": "Philadelphia",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "Two competing lawyers join forces to sue a prestigious law firm for AIDS discrimination. As their unlikely friendship develops their courage overcomes the prejudice and corruption of their powerful adversaries.",
+        "rating": 8.0,
+        "audienceRating": 8.9,
+        "year": 1993,
+        "tagline": "No one would take on his case... until one man was willing to take on the system.",
+        "thumb": "/library/metadata/26899/thumb/1576429131",
+        "art": "/library/metadata/26899/art/1576429131",
+        "duration": 7529534,
+        "originallyAvailableAt": "1993-12-22",
+        "addedAt": 1576428467,
+        "updatedAt": 1576429131,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/27048",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 65328,
+            "duration": 7529534,
+            "bitrate": 3840,
+            "width": 1920,
+            "height": 1036,
+            "aspectRatio": 1.85,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "hevc",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "lc",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 65350,
+                "key": "/library/parts/65350/1501038842/file.mkv",
+                "duration": 7529534,
+                "file": "/volume1/Media/Movies_HEVC/Philadelphia (1993)/Philadelphia (1993) [1080p] [HEVC] [AAC 6ch].mkv",
+                "size": 3554888036,
+                "audioProfile": "lc",
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Jonathan Demme"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Ron Nyswaner"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Tom Hanks"
+          },
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Jason Robards"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16636",
+        "key": "/library/metadata/16636",
+        "guid": "com.plexapp.agents.imdb://tt0210945?lang=en",
+        "studio": "Walt Disney Pictures",
+        "type": "movie",
+        "title": "Remember the Titans",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG",
+        "summary": "After leading his football team to 15 winning seasons, coach Bill Yoast is demoted and replaced by Herman Boone – tough, opinionated and as different from the beloved Yoast as he could be. The two men learn to overcome their differences and turn a group of hostile young men into champions.",
+        "rating": 7.3,
+        "audienceRating": 9.3,
+        "year": 2000,
+        "tagline": "History is written by the winners.",
+        "thumb": "/library/metadata/16636/thumb/1582642911",
+        "art": "/library/metadata/16636/art/1582642911",
+        "duration": 6806858,
+        "originallyAvailableAt": "2000-09-29",
+        "addedAt": 1575853150,
+        "updatedAt": 1582642911,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/21431",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 67447,
+            "duration": 6806858,
+            "bitrate": 2722,
+            "width": 1920,
+            "height": 816,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 67596,
+                "key": "/library/parts/67596/1582149296/file.mp4",
+                "duration": 6806858,
+                "file": "/volume1/Media/Movies/Remember the Titans (2000)/Remember the Titans (2000) [1080p] [AAC 6ch].mp4",
+                "size": 2320689518,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          },
+          {
+            "id": 38100,
+            "duration": 6806912,
+            "bitrate": 736,
+            "width": 1280,
+            "height": 544,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "720",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "he-aac",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38101,
+                "key": "/library/parts/38101/1370913768/file.mkv",
+                "duration": 6806912,
+                "file": "/volume1/Media/Movies/Remember the Titans (2000)/Remember the Titans (2000) [720p] [AAC 2ch].mkv",
+                "size": 628515118,
+                "audioProfile": "he-aac",
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Biography"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Boaz Yakin"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Gregory Allen Howard"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Will Patton"
+          },
+          {
+            "tag": "Ryan Hurst"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16566",
+        "key": "/library/metadata/16566",
+        "guid": "com.plexapp.agents.imdb://tt1599348?lang=en",
+        "studio": "Universal Pictures",
+        "type": "movie",
+        "title": "Safe House",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "A dangerous CIA renegade resurfaces after a decade on the run. When the safe house he's remanded to is attacked by mercenaries, a rookie operative escapes with him. Now, the unlikely allies must stay alive long enough to uncover who wants them dead.",
+        "rating": 5.2,
+        "audienceRating": 6.3,
+        "year": 2012,
+        "tagline": "No one is safe",
+        "thumb": "/library/metadata/16566/thumb/1575860573",
+        "art": "/library/metadata/16566/art/1575860573",
+        "duration": 6894631,
+        "originallyAvailableAt": "2012-02-09",
+        "addedAt": 1575853137,
+        "updatedAt": 1575860573,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/21173",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 38025,
+            "duration": 6894631,
+            "bitrate": 1872,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38026,
+                "key": "/library/parts/38026/1370916057/file.mp4",
+                "duration": 6894631,
+                "file": "/volume1/Media/Movies/Safe House (2012)/Safe House (2012) [1080p] [AAC 2ch].mp4",
+                "size": 1616678358,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Adventure"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Daniel Espinosa"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "David Guggenheim"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "South Africa"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Ryan Reynolds"
+          },
+          {
+            "tag": "Vera Farmiga"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16015",
+        "key": "/library/metadata/16015",
+        "guid": "com.plexapp.agents.imdb://tt0133952?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "The Siege",
+        "titleSort": "Siege",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "The secret US abduction of a suspected terrorist from his Middle East homeland leads to a wave of terrorist attacks in New York.  An FBI senior agent and his team attempt to locate and decommission the enemy cells, but must also deal with an Army General gone rogue and a female CIA agent of uncertain loyalties.",
+        "rating": 4.4,
+        "audienceRating": 5.3,
+        "year": 1998,
+        "tagline": "On November 6th our freedom is history",
+        "thumb": "/library/metadata/16015/thumb/1575860265",
+        "art": "/library/metadata/16015/art/1575860265",
+        "duration": 6965917,
+        "originallyAvailableAt": "1998-11-06",
+        "addedAt": 1575853033,
+        "updatedAt": 1575860265,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "primaryExtraKey": "/library/metadata/18839",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 37451,
+            "duration": 6965917,
+            "bitrate": 2262,
+            "width": 1920,
+            "height": 812,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37452,
+                "key": "/library/parts/37452/1400094827/file.mp4",
+                "duration": 6965917,
+                "file": "/volume1/Media/Movies/The Siege (1998)/The Siege (1998) [1080p] [AAC 2ch].mp4",
+                "size": 1973095009,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Thriller"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Edward Zwick"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Menno Meyjes"
+          },
+          {
+            "tag": "Edward Zwick"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Annette Bening"
+          },
+          {
+            "tag": "Bruce Willis"
+          }
+        ]
+      },
+      {
+        "ratingKey": "15994",
+        "key": "/library/metadata/15994",
+        "guid": "com.plexapp.agents.imdb://tt1111422?lang=en",
+        "studio": "Columbia Pictures",
+        "type": "movie",
+        "title": "The Taking of Pelham 1 2 3",
+        "titleSort": "Taking of Pelham 1 2 3",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Armed men hijack a New York City subway train, holding the passengers hostage in return for a ransom, and turning an ordinary day's work for dispatcher Walter Garber into a face-off with the mastermind behind the crime.",
+        "rating": 5.1,
+        "audienceRating": 5.2,
+        "year": 2009,
+        "tagline": "I can't get it out of my head. I'm gonna die today.",
+        "thumb": "/library/metadata/15994/thumb/1575860256",
+        "art": "/library/metadata/15994/art/1575860256",
+        "duration": 6355440,
+        "originallyAvailableAt": "2009-06-11",
+        "addedAt": 1575853027,
+        "updatedAt": 1575860256,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "primaryExtraKey": "/library/metadata/18788",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 37430,
+            "duration": 6355440,
+            "bitrate": 1961,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37431,
+                "key": "/library/parts/37431/1370940465/file.mp4",
+                "duration": 6355440,
+                "file": "/volume1/Media/Movies/The Taking of Pelham 1 2 3 (2009)/The Taking of Pelham 1 2 3 (2009) [1080p] [AAC 2ch].mp4",
+                "size": 1561095874,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Tony Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Brian Helgeland"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "John Travolta"
+          },
+          {
+            "tag": "John Turturro"
+          }
+        ]
+      },
+      {
+        "ratingKey": "15896",
+        "key": "/library/metadata/15896",
+        "guid": "com.plexapp.agents.imdb://tt0139654?lang=en",
+        "studio": "Village Roadshow Pictures",
+        "type": "movie",
+        "title": "Training Day",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "On his first day on the job as a narcotics officer, a rookie cop works with a rogue detective who isn't what he appears.",
+        "rating": 7.2,
+        "audienceRating": 8.9,
+        "year": 2001,
+        "tagline": "The only thing more dangerous than the line being crossed, is the cop who will cross it.",
+        "thumb": "/library/metadata/15896/thumb/1575860204",
+        "art": "/library/metadata/15896/art/1575860204",
+        "duration": 7322773,
+        "originallyAvailableAt": "2001-10-05",
+        "addedAt": 1575853006,
+        "updatedAt": 1575860204,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/18406",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 37326,
+            "duration": 7322773,
+            "bitrate": 1873,
+            "width": 1920,
+            "height": 816,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37327,
+                "key": "/library/parts/37327/1370943315/file.mp4",
+                "duration": 7322773,
+                "file": "/volume1/Media/Movies/Training Day (2001)/Training Day (2001) [1080p] [AAC 2ch].mp4",
+                "size": 1718239559,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "hasThumbnail": "1",
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Crime"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Antoine Fuqua"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "David Ayer"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Ethan Hawke"
+          },
+          {
+            "tag": "Scott Glenn"
+          }
+        ]
+      },
+      {
+        "ratingKey": "15851",
+        "key": "/library/metadata/15851",
+        "guid": "com.plexapp.agents.imdb://tt0477080?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Unstoppable",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "PG-13",
+        "summary": "A runaway train, transporting deadly, toxic chemicals, is barreling down on Stanton, Pennsylvania,  and proves to be unstoppable until a veteran engineer and young conductor risk their lives to try and stop it with a switch engine.",
+        "rating": 8.6,
+        "audienceRating": 7.2,
+        "viewCount": 1,
+        "lastViewedAt": 1576117204,
+        "year": 2010,
+        "tagline": "1,000,000 Tons. 100,000 Lives. 100 Minutes.",
+        "thumb": "/library/metadata/15851/thumb/1575860178",
+        "art": "/library/metadata/15851/art/1575860178",
+        "duration": 5910430,
+        "originallyAvailableAt": "2010-11-04",
+        "addedAt": 1575852997,
+        "updatedAt": 1575860178,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/18289",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 37277,
+            "duration": 5910430,
+            "bitrate": 2177,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37278,
+                "key": "/library/parts/37278/1370948555/file.mp4",
+                "duration": 5910430,
+                "file": "/volume1/Media/Movies/Unstoppable (2010)/Unstoppable (2010) [1080p] [AAC 2ch].mp4",
+                "size": 1611480606,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Thriller"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Tony Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Mark Bomback"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Chris Pine"
+          },
+          {
+            "tag": "Rosario Dawson"
+          }
+        ]
+      },
+      {
+        "ratingKey": "15829",
+        "key": "/library/metadata/15829",
+        "guid": "com.plexapp.agents.imdb://tt0114857?lang=en",
+        "studio": "Paramount",
+        "type": "movie",
+        "title": "Virtuosity",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "The Law Enforcement Technology Advancement Centre (LETAC) has developed SID version 6.7: a Sadistic, Intelligent, and Dangerous virtual reality entity which is synthesized from the personalities of more than 150 serial killers, and only one man can stop him.",
+        "rating": 3.2,
+        "audienceRating": 3.2,
+        "year": 1995,
+        "tagline": "Justice needs a new program.",
+        "thumb": "/library/metadata/15829/thumb/1575860169",
+        "art": "/library/metadata/15829/art/1575860169",
+        "duration": 6354133,
+        "originallyAvailableAt": "1995-08-04",
+        "addedAt": 1575852994,
+        "updatedAt": 1575860169,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "primaryExtraKey": "/library/metadata/18205",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 37255,
+            "duration": 6354133,
+            "bitrate": 2223,
+            "width": 1920,
+            "height": 816,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 37256,
+                "key": "/library/parts/37256/1387788601/file.mp4",
+                "duration": 6354133,
+                "file": "/volume1/Media/Movies/Virtuosity (1995)/Virtuosity (1995) [1080p] [AAC 2ch].mp4",
+                "size": 1768831149,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Crime"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Brett Leonard"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Eric Bernt"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Denzel Washington"
+          },
+          {
+            "tag": "Russell Crowe"
+          },
+          {
+            "tag": "Kelly Lynch"
+          }
+        ]
+      }
+    ]
+  }
+}

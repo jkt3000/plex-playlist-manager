@@ -1,0 +1,310 @@
+/*
+ 
+ Get all media (movie/shows) in Library
+
+  URL: /library/<id>/all 
+
+  params: "X-Plex-Container-Size" => 3, "X-Plex-Container-Start" => 1
+
+*/
+
+{
+  "MediaContainer": {
+    "size": 3,
+    "totalSize": 201,
+    "allowSync": true,
+    "art": "/:/resources/movie-fanart.jpg",
+    "identifier": "com.plexapp.plugins.library",
+    "librarySectionID": 3,
+    "librarySectionTitle": "4K Movies",
+    "librarySectionUUID": "17d230c7-2e77-4246-a5c7-a5e399e69ad6",
+    "mediaTagPrefix": "/system/bundle/media/flags/",
+    "mediaTagVersion": 1579823211,
+    "offset": 1,
+    "thumb": "/:/resources/movie.png",
+    "title1": "4K Movies",
+    "title2": "All 4K Movies",
+    "viewGroup": "movie",
+    "viewMode": 65592,
+    "Metadata": [
+      {
+        "ratingKey": "14276",
+        "key": "/library/metadata/14276",
+        "guid": "com.plexapp.agents.imdb://tt4172430?lang=en",
+        "studio": "Paramount",
+        "type": "movie",
+        "title": "13 Hours: The Secret Soldiers of Benghazi",
+        "contentRating": "R",
+        "summary": "An American Ambassador is killed during an attack at a U.S. compound in Libya as a security team struggles to make sense out of the chaos.",
+        "rating": 5.1,
+        "audienceRating": 8.2,
+        "userRating": 10.0,
+        "viewOffset": 7457492,
+        "lastViewedAt": 1588184720,
+        "year": 2016,
+        "tagline": "When everything went wrong, six men had the courage to do what was right.",
+        "thumb": "/library/metadata/14276/thumb/1587262534",
+        "art": "/library/metadata/14276/art/1587262534",
+        "duration": 8667936,
+        "originallyAvailableAt": "2016-01-13",
+        "addedAt": 1575832635,
+        "updatedAt": 1587262534,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/15078",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 33095,
+            "duration": 8667936,
+            "bitrate": 28551,
+            "width": 3840,
+            "height": 1600,
+            "aspectRatio": 2.35,
+            "audioChannels": 8,
+            "audioCodec": "truehd",
+            "videoCodec": "hevc",
+            "videoResolution": "4k",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 33096,
+                "key": "/library/parts/33096/1559977904/file.mkv",
+                "duration": 8667936,
+                "file": "/volume1/Media/Movies_HQ/13 Hours The Secret Soldiers of Benghazi (2016)/13 Hours The Secret Soldiers of Benghazi (2016) [4K] [HEVC] [OTH 8ch].mkv",
+                "size": 30874313606,
+                "container": "mkv",
+                "hasThumbnail": "1",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Drama"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Michael Bay"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Chuck Hogan"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "Malta"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "James Badge Dale"
+          },
+          {
+            "tag": "John Krasinski"
+          },
+          {
+            "tag": "Max Martini"
+          }
+        ]
+      },
+      {
+        "ratingKey": "28351",
+        "key": "/library/metadata/28351",
+        "guid": "com.plexapp.agents.imdb://tt8579674?lang=en",
+        "studio": "DreamWorks Pictures",
+        "type": "movie",
+        "title": "1917",
+        "contentRating": "R",
+        "summary": "At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.",
+        "rating": 8.9,
+        "audienceRating": 8.8,
+        "year": 2019,
+        "tagline": "Time is the enemy",
+        "thumb": "/library/metadata/28351/thumb/1587262546",
+        "art": "/library/metadata/28351/art/1587262546",
+        "duration": 7139488,
+        "originallyAvailableAt": "2019-12-25",
+        "addedAt": 1584575362,
+        "updatedAt": 1587262546,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/28352",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 68017,
+            "duration": 7139488,
+            "bitrate": 15150,
+            "width": 3840,
+            "height": 1606,
+            "aspectRatio": 2.35,
+            "audioChannels": 8,
+            "audioCodec": "truehd",
+            "videoCodec": "hevc",
+            "videoResolution": "4k",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 68073,
+                "key": "/library/parts/68073/1584591651/file.mkv",
+                "duration": 7139488,
+                "file": "/volume1/Media/Movies_HQ/1917 (2019)/1917 (2019) [4K] [HEVC] [OTH 8ch].mkv",
+                "size": 13582205016,
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Drama"
+          },
+          {
+            "tag": "War"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Sam Mendes"
+          },
+          {
+            "tag": "Shawn Mendes"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Sam Mendes"
+          },
+          {
+            "tag": "Krysty Wilson-Cairns"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "George MacKay"
+          },
+          {
+            "tag": "Dean-Charles Chapman"
+          },
+          {
+            "tag": "Mark Strong"
+          }
+        ]
+      },
+      {
+        "ratingKey": "26722",
+        "key": "/library/metadata/26722",
+        "guid": "com.plexapp.agents.imdb://tt0062622?lang=en",
+        "studio": "Metro-Goldwyn-Mayer",
+        "type": "movie",
+        "title": "2001: A Space Odyssey",
+        "contentRating": "G",
+        "summary": "Humanity finds a mysterious object buried beneath the lunar surface and sets off to find its origins with the help of HAL 9000, the world's most advanced super computer.",
+        "rating": 9.3,
+        "audienceRating": 8.9,
+        "year": 1968,
+        "tagline": "The Ultimate Trip.",
+        "thumb": "/library/metadata/26722/thumb/1587262599",
+        "art": "/library/metadata/26722/art/1587262599",
+        "duration": 8929257,
+        "originallyAvailableAt": "1968-04-09",
+        "addedAt": 1576020643,
+        "updatedAt": 1587262599,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/26724",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 66090,
+            "duration": 8929257,
+            "bitrate": 21616,
+            "width": 3840,
+            "height": 1746,
+            "aspectRatio": 2.2,
+            "audioChannels": 6,
+            "audioCodec": "dca-ma",
+            "videoCodec": "hevc",
+            "videoResolution": "4k",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "ma",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 66117,
+                "key": "/library/parts/66117/1576020818/file.mkv",
+                "duration": 8929257,
+                "file": "/volume1/Media/Movies_HQ/2001 A Space Odyssey (1968)/2001 A Space Odyssey (1968) [4K] [HEVC] [OTH 6ch].mkv",
+                "size": 23909516114,
+                "audioProfile": "ma",
+                "container": "mkv",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Adventure"
+          },
+          {
+            "tag": "Sci-Fi"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Stanley Kubrick"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Stanley Kubrick"
+          },
+          {
+            "tag": "Arthur C. Clarke"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "The Space Odyssey Series"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Keir Dullea"
+          },
+          {
+            "tag": "Gary Lockwood"
+          },
+          {
+            "tag": "William Sylvester"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaContainer size="1">
+<Playlist
+  ratingKey="29265"
+  key="/playlists/29265/items"
+  guid="com.plexapp.agents.none://7032ad15-5b9f-4539-9d44-9a20db131b92"
+  type="playlist"
+  title="bruce movies"
+  summary=""
+  smart="1"
+  playlistType="video"
+  composite="/playlists/29265/composite/1589479512"
+  icon="playlist://image.smart"
+  ratingCount="0"
+  duration="316790000"
+  leafCount="48"
+  addedAt="1589479511"
+  updatedAt="1589479512">
+</Playlist>
+</MediaContainer>

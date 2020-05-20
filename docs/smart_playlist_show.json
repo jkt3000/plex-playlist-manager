@@ -1,0 +1,30 @@
+/*
+  SHOW playlist
+  
+  URL: /playlists/<id>
+*/
+{
+  "MediaContainer": {
+    "size": 1,
+    "Metadata": [
+      {
+        "allowSync": true,
+        "content": "library://x/directory/%2Flibrary%2Fsections%2F1%2Fall%3Ftype%3D1%26decade%3D2010",
+        "ratingKey": "29268",
+        "key": "/playlists/29268/items",
+        "guid": "com.plexapp.agents.none://cc08e172-b5ca-4680-81e8-b547aa9d1138",
+        "type": "playlist",
+        "title": "2010 playlist",
+        "summary": "",
+        "smart": true,
+        "playlistType": "video",
+        "composite": "/playlists/29268/composite/1589593829",
+        "icon": "playlist://image.smart",
+        "duration": 6601662000,
+        "leafCount": 972,
+        "addedAt": 1589483342,
+        "updatedAt": 1589593829
+      }
+    ]
+  }
+}

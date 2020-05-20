@@ -1,0 +1,661 @@
+//
+// URL: /playlists/xxxx/items
+//
+
+
+{
+  "MediaContainer": {
+    "size": 6,
+    "allowSync": true,
+    "composite": "/playlists/26699/composite/1589594015",
+    "duration": 48379,
+    "leafCount": 6,
+    "playlistType": "video",
+    "ratingKey": "26699",
+    "smart": false,
+    "title": "Aliens",
+    "Metadata": [
+      {
+        "ratingKey": "17836",
+        "key": "/library/metadata/17836",
+        "guid": "com.plexapp.agents.imdb://tt0078748?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Alien",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "During its return to the earth, commercial spaceship Nostromo intercepts a distress signal from a distant planet. When a three-member team of the crew discovers a chamber containing thousands of eggs on the planet, a creature inside one of the eggs attacks an explorer. The entire crew is unaware of the impending nightmare set to descend upon them when the alien parasite planted inside its unfortunate host is birthed.",
+        "rating": 9.7,
+        "audienceRating": 9.4,
+        "viewOffset": 176000,
+        "lastViewedAt": 1589594089,
+        "year": 1979,
+        "tagline": "In space no one can hear you scream.",
+        "thumb": "/library/metadata/17836/thumb/1575864760",
+        "art": "/library/metadata/17836/art/1575864760",
+        "playlistItemID": 587,
+        "duration": 6997615,
+        "originallyAvailableAt": "1979-05-25",
+        "addedAt": 1575853379,
+        "updatedAt": 1575864760,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/26319",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39464,
+            "duration": 6997615,
+            "bitrate": 9431,
+            "width": 1920,
+            "height": 816,
+            "aspectRatio": 2.35,
+            "audioChannels": 6,
+            "audioCodec": "dca",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "audioProfile": "dts",
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39465,
+                "key": "/library/parts/39465/1461860146/file.mkv",
+                "duration": 6997615,
+                "file": "/volume1/Media/Movies/Alien (1979)/Alien (1979) [1080p] [DCA 6ch].mkv",
+                "size": 8251845873,
+                "audioProfile": "dts",
+                "container": "mkv",
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Horror"
+          },
+          {
+            "tag": "Sci-Fi"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Ridley Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Dan O'Bannon"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "United Kingdom"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Alien"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Tom Skerritt"
+          },
+          {
+            "tag": "Sigourney Weaver"
+          },
+          {
+            "tag": "Veronica Cartwright"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17835",
+        "key": "/library/metadata/17835",
+        "guid": "com.plexapp.agents.imdb://tt0090605?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Aliens",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "When Ripley's lifepod is found by a salvage crew over 50 years later, she finds that terra-formers are on the very planet they found the alien species. When the company sends a family of colonists out to investigate her story—all contact is lost with the planet and colonists. They enlist Ripley and the colonial marines to return and search for answers.",
+        "rating": 9.9,
+        "audienceRating": 9.4,
+        "year": 1986,
+        "tagline": "This Time It's War",
+        "thumb": "/library/metadata/17835/thumb/1575864758",
+        "art": "/library/metadata/17835/art/1575864758",
+        "playlistItemID": 57,
+        "duration": 9267050,
+        "originallyAvailableAt": "1986-07-18",
+        "addedAt": 1575853378,
+        "updatedAt": 1575864758,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/26318",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 39463,
+            "duration": 9267050,
+            "bitrate": 2724,
+            "width": 1920,
+            "height": 1036,
+            "aspectRatio": 1.85,
+            "audioChannels": 6,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39464,
+                "key": "/library/parts/39464/1502734820/file.mp4",
+                "duration": 9267050,
+                "file": "/volume1/Media/Movies/Aliens (1986) Special Edition/Aliens (1986) Special Edition [1080p] [AAC 6ch].mp4",
+                "size": 3162981194,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Adventure"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "James Cameron"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "James Cameron"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Alien"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Sigourney Weaver"
+          },
+          {
+            "tag": "Michael Biehn"
+          },
+          {
+            "tag": "Paul Reiser"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17828",
+        "key": "/library/metadata/17828",
+        "guid": "com.plexapp.agents.imdb://tt0103644?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Alien³",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "After escaping with Newt and Hicks from the alien planet, Ripley crash lands on Fiorina 161, a prison planet and host to a correctional facility. Unfortunately, although Newt and Hicks do not survive the crash, a more unwelcome visitor does. The prison does not allow weapons of any kind, and with aid being a long time away, the prisoners must simply survive in any way they can.",
+        "rating": 4.2,
+        "audienceRating": 4.7,
+        "year": 1992,
+        "tagline": "The bitch is back.",
+        "thumb": "/library/metadata/17828/thumb/1575864719",
+        "art": "/library/metadata/17828/art/1575864719",
+        "playlistItemID": 56,
+        "duration": 8692736,
+        "originallyAvailableAt": "1992-05-22",
+        "addedAt": 1575853378,
+        "updatedAt": 1575864719,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "primaryExtraKey": "/library/metadata/26270",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 39456,
+            "duration": 8692736,
+            "bitrate": 2067,
+            "width": 1920,
+            "height": 810,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39457,
+                "key": "/library/parts/39457/1370869045/file.mp4",
+                "duration": 8692736,
+                "file": "/volume1/Media/Movies/Alien³ (1992)/Alien³ (1992) [1080p] [AAC 2ch].mp4",
+                "size": 2249956095,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Horror"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "David Fincher"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Larry Ferguson"
+          },
+          {
+            "tag": "David Giler"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Alien"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Sigourney Weaver"
+          },
+          {
+            "tag": "Charles S. Dutton"
+          },
+          {
+            "tag": "Charles Dance"
+          }
+        ]
+      },
+      {
+        "ratingKey": "17829",
+        "key": "/library/metadata/17829",
+        "guid": "com.plexapp.agents.imdb://tt0118583?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Alien Resurrection",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "Two hundred years after Lt. Ripley died, a group of scientists clone her, hoping to breed the ultimate weapon. But the new Ripley is full of surprises … as are the new aliens. Ripley must team with a band of smugglers to keep the creatures from reaching Earth.",
+        "rating": 5.6,
+        "audienceRating": 3.9,
+        "year": 1997,
+        "tagline": "It's already too late.",
+        "thumb": "/library/metadata/17829/thumb/1575864721",
+        "art": "/library/metadata/17829/art/1575864721",
+        "playlistItemID": 58,
+        "duration": 6968753,
+        "originallyAvailableAt": "1997-11-12",
+        "addedAt": 1575853378,
+        "updatedAt": 1575864721,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "primaryExtraKey": "/library/metadata/26271",
+        "ratingImage": "rottentomatoes://image.rating.rotten",
+        "Media": [
+          {
+            "id": 39457,
+            "duration": 6968753,
+            "bitrate": 2087,
+            "width": 1920,
+            "height": 824,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 39458,
+                "key": "/library/parts/39458/1370868157/file.mp4",
+                "duration": 6968753,
+                "file": "/volume1/Media/Movies/Alien Resurrection (1997)/Alien Resurrection (1997) [1080p] [AAC 2ch].mp4",
+                "size": 1820526113,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Action"
+          },
+          {
+            "tag": "Horror"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Jean-Pierre Jeunet"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Joss Whedon"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Alien"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Sigourney Weaver"
+          },
+          {
+            "tag": "Winona Ryder"
+          },
+          {
+            "tag": "Brad Dourif"
+          }
+        ]
+      },
+      {
+        "ratingKey": "16670",
+        "key": "/library/metadata/16670",
+        "guid": "com.plexapp.agents.imdb://tt1446714?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Prometheus",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "M",
+        "summary": "A team of explorers discover a clue to the origins of mankind on Earth, leading them on a journey to the darkest corners of the universe. There, they must fight a terrifying battle to save the future of the human race.",
+        "rating": 7.3,
+        "audienceRating": 6.8,
+        "viewCount": 2,
+        "lastViewedAt": 1585141651,
+        "year": 2012,
+        "tagline": "The Search for Our Beginning Could Lead to Our End.",
+        "thumb": "/library/metadata/16670/thumb/1587141184",
+        "art": "/library/metadata/16670/art/1587141184",
+        "playlistItemID": 507,
+        "duration": 7425685,
+        "originallyAvailableAt": "2012-05-30",
+        "addedAt": 1575853156,
+        "updatedAt": 1587141184,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/21502",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 38134,
+            "duration": 7425685,
+            "bitrate": 2078,
+            "width": 1920,
+            "height": 800,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "1080",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 1,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 38135,
+                "key": "/library/parts/38135/1370912121/file.mp4",
+                "duration": 7425685,
+                "file": "/volume1/Media/Movies/Prometheus (2012)/Prometheus (2012) [1080p] [AAC 2ch].mp4",
+                "size": 1932130735,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": true,
+                "videoProfile": "high"
+              }
+            ]
+          },
+          {
+            "id": 69267,
+            "duration": 9132650,
+            "bitrate": 1877,
+            "width": 1280,
+            "height": 532,
+            "aspectRatio": 2.35,
+            "audioChannels": 2,
+            "audioCodec": "aac",
+            "videoCodec": "h264",
+            "videoResolution": "720",
+            "container": "mp4",
+            "videoFrameRate": "24p",
+            "optimizedForStreaming": 0,
+            "audioProfile": "lc",
+            "has64bitOffsets": false,
+            "videoProfile": "high",
+            "Part": [
+              {
+                "id": 69480,
+                "key": "/library/parts/69480/1584936757/file.mp4",
+                "duration": 9132650,
+                "file": "/volume1/Media/Movies/Prometheus (2012) [Workprint Edition]/Prometheus (2012) [Workprint.Edition].mp4",
+                "size": 2149019470,
+                "audioProfile": "lc",
+                "container": "mp4",
+                "has64bitOffsets": false,
+                "optimizedForStreaming": false,
+                "videoProfile": "high"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Adventure"
+          },
+          {
+            "tag": "Mystery"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Ridley Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "Damon Lindelof"
+          },
+          {
+            "tag": "Jon Spaihts"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Prometheus"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Noomi Rapace"
+          },
+          {
+            "tag": "Michael Fassbender"
+          },
+          {
+            "tag": "Charlize Theron"
+          }
+        ]
+      },
+      {
+        "ratingKey": "15332",
+        "key": "/library/metadata/15332",
+        "guid": "com.plexapp.agents.imdb://tt2316204?lang=en",
+        "studio": "20th Century Fox",
+        "type": "movie",
+        "title": "Alien: Covenant",
+        "librarySectionTitle": "4K Movies",
+        "librarySectionID": 3,
+        "librarySectionKey": "/library/sections/3",
+        "contentRating": "R",
+        "summary": "Bound for a remote planet on the far side of the galaxy, the crew of the colony ship 'Covenant' discovers what is thought to be an uncharted paradise, but is actually a dark, dangerous world—which has a sole inhabitant: the 'synthetic', David, survivor of the doomed Prometheus expedition.",
+        "rating": 6.6,
+        "audienceRating": 5.5,
+        "viewOffset": 585001,
+        "viewCount": 2,
+        "lastViewedAt": 1588299866,
+        "year": 2017,
+        "tagline": "The path to paradise begins in hell",
+        "thumb": "/library/metadata/15332/thumb/1587262658",
+        "art": "/library/metadata/15332/art/1587262658",
+        "playlistItemID": 508,
+        "duration": 7323455,
+        "originallyAvailableAt": "2017-05-09",
+        "addedAt": 1575845695,
+        "updatedAt": 1587262658,
+        "audienceRatingImage": "rottentomatoes://image.rating.spilled",
+        "chapterSource": "media",
+        "primaryExtraKey": "/library/metadata/15637",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Media": [
+          {
+            "id": 36056,
+            "duration": 7323455,
+            "bitrate": 43350,
+            "width": 3840,
+            "height": 1600,
+            "aspectRatio": 2.35,
+            "audioChannels": 8,
+            "audioCodec": "truehd",
+            "videoCodec": "hevc",
+            "videoResolution": "4k",
+            "container": "mkv",
+            "videoFrameRate": "24p",
+            "videoProfile": "main 10",
+            "Part": [
+              {
+                "id": 36057,
+                "key": "/library/parts/36057/1512450879/file.mkv",
+                "duration": 7323455,
+                "file": "/volume1/Media/Movies_HQ/Alien Covenant (2017) [4K]/Alien Covenant (2017) [4K] [HEVC] [OTH 8ch].mkv",
+                "size": 39571335905,
+                "container": "mkv",
+                "hasThumbnail": "1",
+                "videoProfile": "main 10"
+              }
+            ]
+          }
+        ],
+        "Genre": [
+          {
+            "tag": "Horror"
+          },
+          {
+            "tag": "Sci-Fi"
+          }
+        ],
+        "Director": [
+          {
+            "tag": "Ridley Scott"
+          }
+        ],
+        "Writer": [
+          {
+            "tag": "John Logan"
+          },
+          {
+            "tag": "Dante Harper"
+          }
+        ],
+        "Country": [
+          {
+            "tag": "USA"
+          }
+        ],
+        "Collection": [
+          {
+            "tag": "Prometheus"
+          }
+        ],
+        "Role": [
+          {
+            "tag": "Michael Fassbender"
+          },
+          {
+            "tag": "Katherine Waterston"
+          },
+          {
+            "tag": "Billy Crudup"
+          }
+        ]
+      }
+    ]
+  }
+}

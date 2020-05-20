@@ -1,0 +1,175 @@
+//  GET https://plex.tv/api/v2/resources
+
+[
+  {
+    "name": "hoth",
+    "product": "Plex Media Server",
+    "productVersion": "1.18.5.2309-f5213a238",
+    "platform": "Linux",
+    "platformVersion": "DSM 6.2.2.24922-6",
+    "device": "DS1819+",
+    "clientIdentifier": "623cbfe8a679d4d8c68a6ffe3608aca44e8da703",
+    "createdAt": "2019-11-30T23:19:20Z",
+    "lastSeenAt": "2020-05-16T22:38:45Z",
+    "provides": "server",
+    "ownerId": null,
+    "sourceTitle": null,
+    "publicAddress": "45.72.253.150",
+    "accessToken": "f6Wix62yrsDsJSbR85dN",
+    "owned": true,
+    "home": false,
+    "synced": false,
+    "relay": false,
+    "presence": true,
+    "httpsRequired": false,
+    "publicAddressMatches": true,
+    "dnsRebindingProtection": true,
+    "connections": [
+      {
+        "protocol": "https",
+        "address": "192.168.2.5",
+        "port": 32400,
+        "uri": "https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400",
+        "local": true,
+        "relay": false,
+        "IPv6": false
+      }
+    ]
+  },
+  {
+    "name": "Ipad pro (2)",
+    "product": "Plex for iOS",
+    "productVersion": "6.11.1",
+    "platform": "iOS",
+    "platformVersion": "13.4.1",
+    "device": "iPad",
+    "clientIdentifier": "3A815746-ACA2-41C9-8CDC-A81B415D0D26",
+    "createdAt": "2015-08-12T00:56:50Z",
+    "lastSeenAt": "2020-05-16T03:23:52Z",
+    "provides": "client,controller,sync-target,player,pubsub-player,provider-playback",
+    "ownerId": null,
+    "sourceTitle": null,
+    "publicAddress": "45.72.253.150",
+    "accessToken": null,
+    "owned": true,
+    "home": false,
+    "synced": false,
+    "relay": false,
+    "presence": false,
+    "httpsRequired": false,
+    "publicAddressMatches": true,
+    "connections": [
+      {
+        "protocol": "http",
+        "address": "192.168.2.105",
+        "port": 32500,
+        "uri": "http://192.168.2.105:32500",
+        "local": true,
+        "relay": false,
+        "IPv6": false
+      }
+    ]
+  },
+  {
+    "name": "Chrome",
+    "product": "Plex Web",
+    "productVersion": "4.12.3",
+    "platform": "Chrome",
+    "platformVersion": "81.0",
+    "device": "OSX",
+    "clientIdentifier": "mx1522ibstgkfzp9sabrqi7k",
+    "createdAt": "2019-12-07T15:42:14Z",
+    "lastSeenAt": "2020-05-16T18:43:43Z",
+    "provides": "client,player,pubsub-player",
+    "ownerId": null,
+    "sourceTitle": null,
+    "publicAddress": "45.72.253.150",
+    "accessToken": "f6Wix62yrsDsJSbR85dN",
+    "owned": true,
+    "home": false,
+    "synced": false,
+    "relay": false,
+    "presence": true,
+    "httpsRequired": false,
+    "publicAddressMatches": true,
+    "connections": [
+      {
+        "protocol": "https",
+        "address": "192.168.2.5",
+        "port": 32400,
+        "uri": "https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400",
+        "local": true,
+        "relay": false,
+        "IPv6": false
+      }
+    ]
+  },
+  {
+    "name": "Chrome",
+    "product": "Plex Web",
+    "productVersion": "4.33.1",
+    "platform": "Chrome",
+    "platformVersion": "81.0",
+    "device": "OSX",
+    "clientIdentifier": "iludcirfnapypbiknxn4lzzr",
+    "createdAt": "2020-05-15T22:35:26Z",
+    "lastSeenAt": "2020-05-15T22:35:28Z",
+    "provides": "client,player,pubsub-player",
+    "ownerId": null,
+    "sourceTitle": null,
+    "publicAddress": "45.72.253.150",
+    "accessToken": "f6Wix62yrsDsJSbR85dN",
+    "owned": true,
+    "home": false,
+    "synced": false,
+    "relay": false,
+    "presence": false,
+    "httpsRequired": false,
+    "publicAddressMatches": true,
+    "connections": [
+      {
+        "protocol": "https",
+        "address": "192.168.2.5",
+        "port": 32400,
+        "uri": "https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400",
+        "local": true,
+        "relay": false,
+        "IPv6": false
+      }
+    ]
+  },
+  {
+    "name": "Chrome",
+    "product": "Plex Web",
+    "productVersion": "4.12.3",
+    "platform": "Chrome",
+    "platformVersion": "81.0",
+    "device": "OSX",
+    "clientIdentifier": "3444sr7uakddqa0cpiofgu4q",
+    "createdAt": "2020-05-16T00:43:36Z",
+    "lastSeenAt": "2020-05-16T13:14:30Z",
+    "provides": "client,player,pubsub-player",
+    "ownerId": null,
+    "sourceTitle": null,
+    "publicAddress": "45.72.253.150",
+    "accessToken": "f6Wix62yrsDsJSbR85dN",
+    "owned": true,
+    "home": false,
+    "synced": false,
+    "relay": false,
+    "presence": false,
+    "httpsRequired": false,
+    "publicAddressMatches": true,
+    "connections": [
+      {
+        "protocol": "https",
+        "address": "192.168.2.5",
+        "port": 32400,
+        "uri": "https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400",
+        "local": true,
+        "relay": false,
+        "IPv6": false
+      }
+    ]
+  }
+]

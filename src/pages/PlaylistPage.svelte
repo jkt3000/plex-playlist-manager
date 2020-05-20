@@ -2,22 +2,30 @@
   import { onMount } from 'svelte';
   import {plexToken, plexUser, plexLibraries, currLibId} from './../stores.js';
   import Movie from './../Movie.svelte';
+  import Playlist from './../Playlist.svelte';
   const Plex = document.plex; // only for console access
 
   export let library = null;
   $: promise = loadMovies(library);
-  
+  $: playlist_promise = loadPlaylists(library);
+
   async function loadMovies(lib) {
     let id = lib.key;
     if (id != null) {
       let results = await Plex.Movie.all(id);
-
-    console.log("[loadMovies] for", id, results.size);
+      console.log("[loadMovies] for", id, results.size);
       return results.Metadata;      
     } else {
       return [];
     }
-  }
+  };
+
+  async function loadPlaylists(library) {
+    let results = await Plex.Playlist.all();
+    console.log("[playlists]", results.size);
+    return results.Metadata;      
+  };
+
 </script>
 
 
@@ -36,9 +44,23 @@
     </ul>
   </nav>
   <div class='workarea-right'>
-    <div class='playlist-drop'>
-      <h5>My fav movies</h5>
-    </div>
+    {#await playlist_promise}
+      <div class='p-2 m-2 text-center'>
+        <h2>Loading... <i class="fas fa-spinner fa-spin"></i></h2>
+      </div>
+    {:then playlists}
+      {#if playlists != null}
+        {#each playlists as playlist}
+          <Playlist playlist={playlist}/>
+        {/each}
+      {/if}
+      <p>Error loading...</p>
+    {:catch error}
+      {error}
+      <p>ERROR!</p>
+      }
+    {/await}
+
   </div>
 </div>
 

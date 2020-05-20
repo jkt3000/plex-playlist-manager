@@ -110,6 +110,7 @@ const Plex = {
   // Movie
   //
   Movie: {
+    // by default, load 500 at once
     async all(library_id, options = {}) {
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
       let resp = await Plex.request(url, {method: 'get'});
@@ -138,7 +139,13 @@ const Plex = {
   // Playlist
   //
   Playlist: {
-    all(library_id, options = {}) {},
+    async all(options = {}) {
+      let url = `${Plex.hostUrl}/playlists`;
+      let resp = await Plex.request(url, {method: 'get'});
+      let json = await resp.json();
+      console.log("[plexapi] playlists all", json)
+      return json.MediaContainer;
+    },
     get(id) {},
     addItem() {},
     removeItem() {},
@@ -188,6 +195,8 @@ const Plex = {
   // - what to send in case of failure?
   async request(url, {method = 'get', headers = {}, 
                 options, body, page, page_size, noToken = false} = {}) {
+    page = page || 1;
+    page_size = page_size || 500;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let resp = await fetch(url, {method: method, headers: headers, body: body});
     return resp;

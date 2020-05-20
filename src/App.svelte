@@ -80,10 +80,69 @@
     $plexLibraries = await document.plex.Library.all();
     $currLibId = $plexLibraries[0].key;
     console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
+    console.log($plexLibraries[0])
   };
 
   onMount(() => {
     initPlex();
+
+
+    interact('.mediaCell').draggable({
+      hold: 0,  // need for ipad when having scrollable content
+      inertia: {
+        smoothEndDuration: 200,
+        resistance: 10,
+        minSpeed: 200,
+        endSpeed: 100,
+      },
+      listeners: {
+        start (event) {
+          let el = event.target;
+          el.classList.add('active');
+        },
+        move (event) {
+          let el = event.target;
+          let x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
+          let y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
+          el.style.transform = `translate(${x}px, ${y}px)`;
+          el.setAttribute('data-x',x);
+          el.setAttribute('data-y',y);
+        },
+        end(event) {
+          let el = event.target;
+          el.removeAttribute("data-y");
+          el.removeAttribute("data-x");
+          el.removeAttribute("style");
+
+          el.classList.remove('active');
+        }
+      }
+    });
+
+    interact('.playlist-drop').dropzone({
+      accept: '.mediaCell',
+      overlap: 'pointer',
+      listeners: {
+        dropactivate (event) {
+          event.target.classList.remove('active-drop');
+          event.target.classList.remove('dropped');
+        },
+        dropdeactivate (event) {
+        },
+        dragenter(event) { 
+          event.target.classList.add('active-drop');
+        },
+        dragleave(event) {
+          event.target.classList.remove('active-drop');
+        },
+        drop(event) {
+          event.target.classList.remove('active-drop');
+          event.target.classList.add('dropped');
+          setTimeout(() => event.target.classList.remove('dropped'), 600);
+        }
+      }
+    });    
+
   });
 </script>
 

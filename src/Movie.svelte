@@ -1,6 +1,6 @@
 
 
-<div class='cellItem draggable'>
+<div class='mediaCell'>
   <div class='poster-card'>
     <img src="{Plex.thumbUrl(movie.thumb, width, height)}" class='poster'/>
   </div>
@@ -46,11 +46,11 @@
 }
 
 
-.cellItem {
-  background: inherit;
-  box-sizing: border-box;
+:global(.mediaCell) {
   touch-action: none;
   user-select: none;
+  background: #485058;
+  box-sizing: border-box;
   margin:0.5em 0.5em 0 0;
   display:inline-block;
   width: 150px;
@@ -74,6 +74,7 @@
     height: 100px;
     display:block;
     overflow: hidden;
+    color:  #ccc;
     h5, p, span, a {
       z-index: 1;
       font-size: .9em;
