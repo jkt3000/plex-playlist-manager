@@ -82,6 +82,34 @@ Workflow:
 2. Get the authToken parameter from response (plus any other fields we care about)
 ```
 
+### Playing video in webpage
+
+```
+eg 
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/parts/37348/1370942526/file.mp4?X-Plex-Session-Identifier=c0o1oebfk34kst29ldhmzadz&X-Plex-Product=Plex%20Web&X-Plex-Version=4.12.3&X-Plex-Client-Identifier=mx1522ibstgkfzp9sabrqi7k&X-Plex-Platform=Chrome&X-Plex-Platform-Version=81.0&X-Plex-Sync-Version=2&X-Plex-Features=external-media%2Cindirect-media&X-Plex-Model=bundled&X-Plex-Device=OSX&X-Plex-Device-Name=Chrome&X-Plex-Device-Screen-Resolution=1597x1216%2C2560x1440&X-Plex-Token=_3ZFfNvrYhZ9awqszJ_m&X-Plex-Language=en&Accept-Language=en
+
+url:
+
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/parts/37348/1370942526/file.mp4
+
+params:
+X-Plex-Session-Identifier: c0o1oebfk34kst29ldhmzadz
+X-Plex-Product: Plex Web
+X-Plex-Version: 4.12.3
+X-Plex-Client-Identifier: mx1522ibstgkfzp9sabrqi7k
+X-Plex-Platform: Chrome
+X-Plex-Platform-Version: 81.0
+X-Plex-Sync-Version: 2
+X-Plex-Features: external-media,indirect-media
+X-Plex-Model: bundled
+X-Plex-Device: OSX
+X-Plex-Device-Name: Chrome
+X-Plex-Device-Screen-Resolution: 1597x1216,2560x1440
+X-Plex-Token: _3ZFfNvrYhZ9awqszJ_m
+X-Plex-Language: en
+Accept-Language: en
+
+```
 
 ### Plex Resources (finding the Plex server)
 Find out the IP address of our local Plex Media Server
@@ -658,6 +686,29 @@ URL: /library/sections/<id>
 # Show details of a particular movie/show
 /library/metadata/31448
 
+```
 
+
+### writers,directors, etc.
 
 ```
+list of writers
+
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/writer
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/director
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/actor
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/genre
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/collection
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/country
+https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/library/sections/3/resolution
+
+Not actor => actor! = 123
+is actor  => actor  = 120
+
+
+
+includeExternalMedia: 1
+
+
+Directors
+

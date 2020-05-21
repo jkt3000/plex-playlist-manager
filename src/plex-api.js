@@ -136,7 +136,11 @@ const Plex = {
       let resp = await Plex.requestx(url, {method: 'get'});
       return resp.MediaContainer;
     },
-    get(id) {},
+    async get(id) {
+      let url = `${Plex.hostUrl}/playlists/${id}`;
+      let resp = await Plex.requestx(url, {method: 'get'});
+      return resp.MediaContainer;
+    },
     addItem() {},
     removeItem() {},
     moveItem() {},
@@ -193,9 +197,13 @@ const Plex = {
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let params = {method: method, headers: headers, body: body};
     console.log('Request =>', url);
-    let resp = await fetch(url, params);
+    let resp = await fetch(url, params).catch(e => {
+      throw new Error(`Invalid request [${e.message}]`);
+    });
     console.log("Response <=", resp.status);
-    let data = await resp.json();
+    let data = await resp.json().catch(e => {
+      throw new Error("Bad request or invalid data");
+    });
     return data;
   },
 
