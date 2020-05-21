@@ -12,7 +12,7 @@
 
   async function loadMovies() {
     let results = await Plex.Movie.all(library_id);
-    console.log(results)
+    console.log("[MoviePage] loadMovies() ",results);
     totalSize = results.size;
     return results.Metadata;
   }

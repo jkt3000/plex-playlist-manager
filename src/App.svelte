@@ -46,8 +46,8 @@
     console.log("[App] Log in ", event);
     let email = event.detail.email;
     let password = event.detail.password;
-    let resp = await Plex.Server.login(email, password);
-    await initPlex();
+    await Plex.Server.login(email, password);
+    initPlex();
   };
 
   // logout - clear credentials, clear cache
@@ -76,17 +76,16 @@
 
   async function loadLibraries() {
     if ($plexToken == null) return;
-    let lib = await document.plex.Library.all();
-    $plexLibraries = lib;
-
+    let data = await Plex.Library.all();
+    console.log('[App] loadLibaries() ',data)
+    $plexLibraries = data;
     $currLibId = $plexLibraries[0].key;
-    console.log(`[stores] libraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
-    console.log($plexLibraries[0])
+    console.log(`[App] loadLibraries: ${$plexLibraries.length} currLibId ${$currLibId}`);
+    console.log("[App] Curr Library", $plexLibraries[0])
   };
 
   onMount(() => {
     initPlex();
-
 
     interact('.mediaCell').draggable({
       hold: 0,  // need for ipad when having scrollable content
@@ -143,7 +142,6 @@
         }
       }
     });    
-
   });
 
 </script>

@@ -10,22 +10,17 @@
   $: playlist_promise = loadPlaylists(library);
 
   async function loadMovies(lib) {
-    let id = lib.key;
-    if (id != null) {
-      let results = await Plex.Movie.all(id);
-      console.log("[loadMovies] for", id, results.size);
-      return results.Metadata;      
-    } else {
-      return [];
-    }
+    if (lib == null) { return [] };
+    let results = await Plex.Movie.all(lib.key);
+    console.log("[PlaylistPage] loadMovies()", results);
+    return results.Metadata;
   };
 
   async function loadPlaylists(library) {
     let results = await Plex.Playlist.all();
-    console.log("[playlists]", results.size);
+    console.log("[PlaylistPage] loadPlaylists", results);
     return results.Metadata;      
   };
-
 </script>
 
 
@@ -49,16 +44,13 @@
         <h2>Loading... <i class="fas fa-spinner fa-spin"></i></h2>
       </div>
     {:then playlists}
-      {#if playlists != null}
-        {#each playlists as playlist}
-          <Playlist playlist={playlist}/>
-        {/each}
-      {/if}
-      <p>Error loading...</p>
+      {#each playlists as playlist}
+        <Playlist playlist={playlist}/>
+      {/each}
     {:catch error}
-      {error}
-      <p>ERROR!</p>
-      }
+      <div class='alert alert-warning p-2 m-2'>
+        <p><i class='fas fa-exclamation-triangle'></i> Error: {error}</p>
+      </div>
     {/await}
 
   </div>
@@ -87,14 +79,13 @@
         <h2>Loading... <i class="fas fa-spinner fa-spin"></i></h2>
       </div>
     {:then movies}
-      {#if movies != null}
-        {#each movies as movie}
-          <Movie movie={movie}/>
-        {/each}
-      {/if}
-      <p>Error loading...</p>
+      {#each movies as movie}
+        <Movie movie={movie}/>
+      {/each}
     {:catch error}
-      <p>ERROR!</p>
+      <div class='alert alert-warning p-2 m-2'>
+        <p><i class='fas fa-exclamation-triangle'></i> Error: {error}</p>
+      </div>
     {/await}
   </div>
 </div>

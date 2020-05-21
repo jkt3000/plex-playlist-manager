@@ -42,7 +42,6 @@ const Plex = {
     params.append('height', height);
     params.append('url', thumb);
     params.append('X-Plex-Token', Plex.token);
-    
     let url = `${Plex.hostUrl}/photo/:/transcode?${params.toString()}`;
     return url;
   },
@@ -52,7 +51,7 @@ const Plex = {
   //
   Server: {
     async login(email, password) {
-      console.log(`[Plex] Logging in ${email}:${password}`);
+      console.log(`[Plex] Login ${email}:${password}`);
       let url = Plex.API_PATHS.loginUrl;
       let form = new FormData();
       form.append('login', email);
@@ -61,8 +60,6 @@ const Plex = {
       let resp = await Plex.request(url, {method: 'post', body: form, noToken: true});
       let data = resp.data;
       console.log("[Plex] Login response ", data);
-      console.log(data.authToken, data.thumb, data.username)
-      // assume everything went well - need to handle error conditions
       Plex.setParam('token', data.authToken);
       Plex.setParam('avatar', data.thumb);
       Plex.setParam('name', data.username);
@@ -80,7 +77,6 @@ const Plex = {
       if (server != null) {
         Plex.setParam('machineId', server.clientIdentifier);        
         Plex.setParam('hostUrl', server.connections[0].uri);
-        console.log(Plex.machineId, Plex.hostUrl)
       }
     },
   },
@@ -92,15 +88,12 @@ const Plex = {
     async all() {
       let url = `${Plex.hostUrl}/library/sections`;
       let resp = await Plex.request(url, {method: 'get'});
-      let data = resp.data;
-      let libraries = data.MediaContainer.Directory;
-      console.log("[Plex] Library.all data", data)
+      let libraries = resp.data.MediaContainer.Directory;
       for (let i=0; i<libraries.length; i++){
         let url = `${Plex.hostUrl}/library/sections/${libraries[i].key}/all`;
         let size = await Plex.totalSize(url);
         libraries[i].totalSize = size;
       }
-      console.log(libraries)
       return libraries;
     },
     get(id) {},
@@ -116,8 +109,7 @@ const Plex = {
     async all(library_id, options = {}) {
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
       let resp = await Plex.request(url, {method: 'get'});
-      let data = resp.data;
-      return data.MediaContainer;
+      return resp.data.MediaContainer;
     },
     get(id) {},
     update(id, data) {},
@@ -142,11 +134,9 @@ const Plex = {
   //
   Playlist: {
     async all(options = {}) {
-      let url = `${Plex.hostUrl}/playlists`;
+      let url = `${Plex.hostUrl}/playlistss`;
       let resp = await Plex.request(url, {method: 'get'});
-      let data = resp.data;
-      console.log("[plexapi] playlists all", data)
-      return data.MediaContainer;
+      return resp.data.MediaContainer;
     },
     get(id) {},
     addItem() {},
@@ -203,12 +193,14 @@ const Plex = {
     page = page || 1;
     page_size = page_size || 500;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
-    let resp = await fetch(url, {method: method, headers: headers, body: body});
+    let params = {method: method, headers: headers, body: body};
+    let resp = await fetch(url, params);
     let msg = await resp.json()
       .then(data => {
         return {ok: true, message: resp.statusText, status: resp.status, data: data};
       })
       .catch(error => {
+        console.error("[PLEX] Request Error",error, resp,url, params);
         let response = {ok: false, message: null, status: null, data: null}
         if (resp.status > 299) {
           response.status = resp.status;
