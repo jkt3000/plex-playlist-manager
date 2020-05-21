@@ -13,13 +13,13 @@
     if (lib == null) { return [] };
     let results = await Plex.Movie.all(lib.key);
     console.log("[PlaylistPage] loadMovies()", results);
-    return results.Metadata;
+    return results.Metadata || [];
   };
 
   async function loadPlaylists(library) {
     let results = await Plex.Playlist.all();
     console.log("[PlaylistPage] loadPlaylists", results);
-    return results.Metadata;      
+    return results.Metadata || [];
   };
 </script>
 
@@ -44,9 +44,9 @@
         <h2>Loading... <i class="fas fa-spinner fa-spin"></i></h2>
       </div>
     {:then playlists}
-      {#each playlists as playlist}
-        <Playlist playlist={playlist}/>
-      {/each}
+        {#each playlists as playlist}
+          <Playlist playlist={playlist}/>
+        {/each}
     {:catch error}
       <div class='alert alert-warning p-2 m-2'>
         <p><i class='fas fa-exclamation-triangle'></i> Error: {error}</p>

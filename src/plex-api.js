@@ -57,8 +57,7 @@ const Plex = {
       form.append('login', email);
       form.append('password', password);
 
-      let resp = await Plex.request(url, {method: 'post', body: form, noToken: true});
-      let data = resp.data;
+      let data = await Plex.requestx(url, {method: 'post', body: form, noToken: true});
       console.log("[Plex] Login response ", data);
       Plex.setParam('token', data.authToken);
       Plex.setParam('avatar', data.thumb);
@@ -70,8 +69,7 @@ const Plex = {
     },
     async getServerInfo() {
       let url = Plex.API_PATHS.serverUrl;
-      let resp = await Plex.request(url, {method: 'get'});
-      let data = resp.data;
+      let data = await Plex.requestx(url, {method: 'get'});
       let server = data.find(entry => entry.product === "Plex Media Server");
       console.log("server found", server, server.connections[0]);
       if (server != null) {
@@ -87,8 +85,8 @@ const Plex = {
   Library: {
     async all() {
       let url = `${Plex.hostUrl}/library/sections`;
-      let resp = await Plex.request(url, {method: 'get'});
-      let libraries = resp.data.MediaContainer.Directory;
+      let resp = await Plex.requestx(url, {method: 'get'});
+      let libraries = resp.MediaContainer.Directory;
       for (let i=0; i<libraries.length; i++){
         let url = `${Plex.hostUrl}/library/sections/${libraries[i].key}/all`;
         let size = await Plex.totalSize(url);
@@ -108,8 +106,8 @@ const Plex = {
     // by default, load 500 at once
     async all(library_id, options = {}) {
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
-      let resp = await Plex.request(url, {method: 'get'});
-      return resp.data.MediaContainer;
+      let resp = await Plex.requestx(url, {method: 'get'});
+      return resp.MediaContainer;
     },
     get(id) {},
     update(id, data) {},
@@ -134,9 +132,9 @@ const Plex = {
   //
   Playlist: {
     async all(options = {}) {
-      let url = `${Plex.hostUrl}/playlistss`;
-      let resp = await Plex.request(url, {method: 'get'});
-      return resp.data.MediaContainer;
+      let url = `${Plex.hostUrl}/playlists`;
+      let resp = await Plex.requestx(url, {method: 'get'});
+      return resp.MediaContainer;
     },
     get(id) {},
     addItem() {},
@@ -188,29 +186,57 @@ const Plex = {
   // response format:
   //
   //  {ok: true|false, message: "", status: 201, data: Object }
+  async requestx(url, {method = 'get', headers = {}, 
+                options, body, page, page_size, noToken = false} = {}) {
+    page = page || 1;
+    page_size = page_size || 500;
+    headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
+    let params = {method: method, headers: headers, body: body};
+    console.log('Request =>', url);
+    let resp = await fetch(url, params);
+    console.log("Response <=", resp.status);
+    let data = await resp.json();
+    return data;
+  },
+
   async request(url, {method = 'get', headers = {}, 
                 options, body, page, page_size, noToken = false} = {}) {
     page = page || 1;
     page_size = page_size || 500;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let params = {method: method, headers: headers, body: body};
-    let resp = await fetch(url, params);
-    let msg = await resp.json()
-      .then(data => {
-        return {ok: true, message: resp.statusText, status: resp.status, data: data};
-      })
-      .catch(error => {
-        console.error("[PLEX] Request Error",error, resp,url, params);
-        let response = {ok: false, message: null, status: null, data: null}
-        if (resp.status > 299) {
-          response.status = resp.status;
-          response.message = resp.statusText;
+
+    let response = {ok: null, code: null, message: null, data: null}
+    console.log("Request: ", url);
+    let resp = await fetch(url, params).then(async reply => {
+        console.log("Reply to fetch:", reply.status);
+        response.code    = reply.status;
+        response.ok      = reply.ok;
+        response.message = reply.statusText;
+        if (reply.ok) {
+          let data = await reply.json().then(output => {
+            return output;
+          }).catch(error => {
+            console.log("Error in Fetch", error.message);
+            response.message = error.message;
+            response.ok = false;
+            return null;
+          });
+          response.data = data;
         } else {
-          response.message = error.message;
+          response.data = null;
         }
+        console.log("to json response", response.data)
+        return response;
+      }).catch(error => {
+        console.log("Error on Fetch:", error.message);
+        response.message = error.message;
+        response.ok = false;
+        response.code = null;
+        response.data = null;
         return response;
       });
-    return msg;
+    return resp;
   },
 
 
@@ -218,8 +244,7 @@ const Plex = {
   async totalSize(url, { method = 'get', headers = null, options, body } = {}) {    
     let opts = { method: method, headers: headers, options: options, body: body,
                  page: 1, page_size: 0 };
-    let resp = await Plex.request(url, opts);
-    let data = resp.data;
+    let data = await Plex.requestx(url, opts);
     return data.MediaContainer.totalSize;
   },
 

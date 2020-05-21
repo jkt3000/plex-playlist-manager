@@ -144,6 +144,46 @@
     });    
   });
 
+
+
+  async function myfetch(url) {
+      let resp = await fetch(url).then(async result => {
+          console.log("result", result);
+          if (result.ok) {
+            let data = await resp.json().then( output => {
+              return {status: result.status, message: result.message, data: output}
+            }).catch(e => {
+              return {message: ["error1", e.message], data:null}
+            });
+          } else {
+            return {status: "Not OK", message: result.statusText, data: null }
+          }
+        }).catch(e => {
+            console.log("Error on fetch", e.message);
+            return {status: 'bad', message: ["error1", e.message], data: null}
+        });
+      console.log("output from awaits", resp)
+      return resp;
+
+
+      // }).catch(e => {
+      //   console.log("Catch ",e);
+      //   return e;
+      // });
+      // console.log("Resp is ", resp);
+      // let data = await resp.json().then( result => {
+      //   console.log("result 2", result);
+      //   return result;
+      // }).catch(e => {
+      //   console.log("Catch 2", e);
+      //   return e;
+      // });
+      // return data;
+  }
+
+  document.fetch = myfetch;
+
+
 </script>
 
 
