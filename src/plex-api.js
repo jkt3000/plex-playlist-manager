@@ -193,7 +193,7 @@ const Plex = {
   async requestx(url, {method = 'get', headers = {}, 
                 options, body, page, page_size, noToken = false} = {}) {
     page = page || 1;
-    page_size = page_size || 500;
+    page_size = page_size || 200;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let params = {method: method, headers: headers, body: body};
     console.log('Request =>', url);
