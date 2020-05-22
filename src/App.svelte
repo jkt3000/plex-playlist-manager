@@ -14,32 +14,6 @@
   setTimeout(function() {
     promise = loadLibraries();
   }, 0);
-  //
-  // app functions
-  //
-
-  /*
-    async login       
-      - login from Plex.server and store creds in Plex.storage
-      - getLibraries
-
-    logout           
-      - clear user creds in Plex.storage
-      - clear user creds in stores
-      - clear libraries, currLibId in stores
-      - clear movies,playlists, etc.
-
-    loadPLex
-      - loads creds from Plex.storage => stores.js
-
-    initPlex (onMount)
-      - clears libraries, currLibId, movies, playlists, etc.
-      - loads creds
-
-    async getLibraries (overrides)
-      - loads loads libraries from Plex => stores.js
-      - sets currLibId -> first lib
-  */
 
   // login - login and store credentials
   async function login(event) {
@@ -88,7 +62,7 @@
     initPlex();
 
     interact('.mediaCell').draggable({
-      hold: 0,  // need for ipad when having scrollable content
+      hold: 10,  // need for ipad when having scrollable content
       inertia: {
         smoothEndDuration: 200,
         resistance: 10,
@@ -144,50 +118,9 @@
     });    
   });
 
-
-
-  async function myfetch(url) {
-      let resp = await fetch(url).then(async result => {
-          console.log("result", result);
-          if (result.ok) {
-            let data = await resp.json().then( output => {
-              return {status: result.status, message: result.message, data: output}
-            }).catch(e => {
-              return {message: ["error1", e.message], data:null}
-            });
-          } else {
-            return {status: "Not OK", message: result.statusText, data: null }
-          }
-        }).catch(e => {
-            console.log("Error on fetch", e.message);
-            return {status: 'bad', message: ["error1", e.message], data: null}
-        });
-      console.log("output from awaits", resp)
-      return resp;
-
-
-      // }).catch(e => {
-      //   console.log("Catch ",e);
-      //   return e;
-      // });
-      // console.log("Resp is ", resp);
-      // let data = await resp.json().then( result => {
-      //   console.log("result 2", result);
-      //   return result;
-      // }).catch(e => {
-      //   console.log("Catch 2", e);
-      //   return e;
-      // });
-      // return data;
-  }
-
-  document.fetch = myfetch;
-
-
 </script>
 
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id='header'>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" id='header'>
   <a class="navbar-brand" href="#">
     Plex Tools 
   </a>
@@ -232,13 +165,35 @@
   </div>
 </nav>
 
+<div class='panel'>
+  {#if ($plexToken != null) }
+    {#await promise then libs}
+      <PlaylistPage library={$plexLibraries.find(l => l.key == $currLibId)} />
+    {:catch error}
+      <p>Error!</p>
+    {/await}
+  {:else}
+    <WelcomePage on:login={login} />
+  {/if}
+</div>
 
-{#if ($plexToken != null) }
-  {#await promise then libs}
-    <PlaylistPage library={$plexLibraries.find(l => l.key == $currLibId) }/>
-  {:catch error}
-    <p>Error!</p>
-  {/await}
-{:else}
-  <WelcomePage on:login={login} />
-{/if}
+<style lang='scss'>
+
+#header {
+  background: darken(#343a40, 10%);
+  height: 55px;
+  max-height:55px;
+}
+
+.panel {
+  xborder:  1px solid red;
+  display: block;
+  padding: 0;
+  width:  100vw;
+  height: 100%;
+  margin-top: 55px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+</style>

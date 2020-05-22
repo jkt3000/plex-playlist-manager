@@ -106,7 +106,7 @@ const Plex = {
     // by default, load 500 at once
     async all(library_id, options = {}) {
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
-      let resp = await Plex.requestx(url, {method: 'get'});
+      let resp = await Plex.requestx(url, {method: 'get', page: options.page, page_size: options.page_size});
       return resp.MediaContainer;
     },
     get(id) {},
@@ -193,7 +193,7 @@ const Plex = {
   async requestx(url, {method = 'get', headers = {}, 
                 options, body, page, page_size, noToken = false} = {}) {
     page = page || 1;
-    page_size = page_size || 200;
+    page_size = page_size || Plex.PAGE_SIZE;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let params = {method: method, headers: headers, body: body};
     console.log('Request =>', url);
@@ -209,8 +209,6 @@ const Plex = {
 
   async request(url, {method = 'get', headers = {}, 
                 options, body, page, page_size, noToken = false} = {}) {
-    page = page || 1;
-    page_size = page_size || 500;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
     let params = {method: method, headers: headers, body: body};
 

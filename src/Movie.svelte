@@ -1,6 +1,6 @@
 
 
-<div class='mediaCell'>
+<div class='mediaCell bg-dark'>
   <div class='poster-card'>
     <img src="{Plex.thumbUrl(movie.thumb, width, height)}" class='poster'/>
   </div>
@@ -33,25 +33,11 @@
 </script>
 
 <style lang='scss'>
-.movie {
-  width:  150px;
-  height:  300px;
-  max-height:  300px;
-  overflow: hidden;
-  border:  1px solid #333;
-  padding:  10px;
-  margin:  3px 3px 0 3px;
-  flex-shrink:  1;
-
-}
-
 
 :global(.mediaCell) {
   touch-action: none;
   user-select: none;
-  background: #485058;
-  box-sizing: border-box;
-  margin:0.5em 0.5em 0 0;
+  margin:0 1em 1em 0;
   display:inline-block;
   width: 150px;
   height: 270px;
