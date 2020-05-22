@@ -62,7 +62,7 @@ const Plex = {
       Plex.setParam('token', data.authToken);
       Plex.setParam('avatar', data.thumb);
       Plex.setParam('name', data.username);
-      Plex.Server.getServerInfo();
+      await Plex.Server.getServerInfo();
     },    
     logout() {
       Plex.reset();

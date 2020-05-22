@@ -79,7 +79,7 @@
   </div>
   <InfiniteScroll
     hasMore={newBatch.length == page_size}
-    threshold={500}
+    threshold={1000}
     scrollpos={library ? 0 : 1}
     on:loadMore={() => {page++; loadMovies()}} />
 

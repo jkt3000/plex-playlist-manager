@@ -20,6 +20,7 @@
     let password = event.detail.password;
     await Plex.Server.login(email, password);
     initPlex();
+    loadLibraries();
   };
 
   // logout - clear credentials, clear cache

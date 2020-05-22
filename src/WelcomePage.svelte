@@ -11,7 +11,7 @@
 </script>
 
 <div class='row'>
-  <div class='col-12 text-center p-3'>
+  <div class='col-12 text-center p-3 text-dark'>
     <h2>Welcome to Plex Tools</h2>
 
     <div class="modal-content col-3 m-auto" style='margin-top:4em;'>
