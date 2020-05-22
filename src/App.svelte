@@ -3,10 +3,8 @@
   import {onMount} from 'svelte';
   import {plexToken, plexUser, plexLibraries, currentLibrary, currLibId} from './stores.js';
 
-  import Library from './Library.svelte';
   import WelcomePage from './pages/WelcomePage.svelte';
-  import MoviePage from './pages/MoviePage.svelte';
-  import PlaylistPage from './pages/PlaylistPage.svelte';  
+  import LibraryPage from './pages/LibraryPage.svelte';
   const Plex = document.plex; // only for console access
 
 
@@ -174,7 +172,7 @@
 <div class='panel'>
   {#if ($plexToken != null) }
     {#await promise then libs}
-      <PlaylistPage library={$plexLibraries.find(l => l.key == $currLibId)} />
+      <LibraryPage library={$plexLibraries.find(l => l.key == $currLibId)} />
     {:catch error}
       <p>Error!</p>
     {/await}
