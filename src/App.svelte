@@ -1,10 +1,10 @@
 <script>
   import interact from 'interactjs';
   import {onMount} from 'svelte';
-  import {plexToken, plexUser, plexLibraries, currentLibrary, currLibId} from './stores.js';
+  import {plexToken, plexUser, plexLibraries, currLibId} from './lib/stores.js';
 
-  import WelcomePage from './pages/WelcomePage.svelte';
-  import LibraryPage from './pages/LibraryPage.svelte';
+  import WelcomePage from './WelcomePage.svelte';
+  import LibraryPage from './LibraryPage.svelte';
   const Plex = document.plex; // only for console access
 
 
@@ -24,19 +24,14 @@
 
   // logout - clear credentials, clear cache
   async function logout() {
-    // clear all credentials in Plex
     Plex.Server.logout();
-    // clear all stored credentials
-    // clear all libraries and other cached lists
-    // load blank credentials
-    loadPlex();
+    initPlex();
   };
 
   async function initPlex() {
     console.log("[App] Reset and init stores.js from Plex.params")
-    $plexLibraries = [];
-    $currLibId     = null;
-    // clear movies, playlists, etc.
+    $plexLibraries  = [];
+    $currLibId      = null;
     loadPlex();
   };
 

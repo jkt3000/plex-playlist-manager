@@ -1,10 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-  import InfiniteScroll from "./../InfiniteScroll.svelte";
+  import InfiniteScroll from "/partials/InfiniteScroll.svelte";
 
-  import {plexToken, plexUser, plexLibraries, currLibId} from './../stores.js';
-  import Movie from './../Movie.svelte';
-  import Playlist from './../Playlist.svelte';
+  import {plexToken, plexUser, plexLibraries, currLibId} from '/lib/stores.js';
+  import Movie from '/partials/Movie.svelte';
+  import Playlist from '/partials/Playlist.svelte';
   const Plex = document.plex; // only for console access
 
   export let library = null;

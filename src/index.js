@@ -2,7 +2,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import 'bootstrap';
 import App from "./App.svelte";
-import {Plex} from './plex-api.js';
+import {Plex} from './lib/plex-api.js';
 
 document.plex = Plex;
 document.plex.init();

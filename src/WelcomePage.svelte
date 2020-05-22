@@ -1,3 +1,15 @@
+<script>
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+  
+  let email;
+  let password;
+  
+  function requestLogin() {
+    dispatch('login', {email: email, password: password});
+  }
+</script>
+
 <div class='row'>
   <div class='col-12 text-center p-3'>
     <h2>Welcome to Plex Tools</h2>
@@ -24,15 +36,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
-  
-  let email;
-  let password;
-  
-  function requestLogin() {
-    dispatch('login', {email: email, password: password});
-  }
-</script>
