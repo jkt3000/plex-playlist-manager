@@ -15,7 +15,6 @@
   let showSpinner = false;
 
   async function loadMovies() {
-    console.log("loading page", page);
     showSpinner = true;
     if (library != null) {
       let key = library.key;

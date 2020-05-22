@@ -62,7 +62,7 @@
     initPlex();
 
     interact('.mediaCell').draggable({
-      hold: 10,  // need for ipad when having scrollable content
+      hold: 0,  // need for ipad when having scrollable content
       inertia: {
         smoothEndDuration: 200,
         resistance: 10,
@@ -73,6 +73,8 @@
         start (event) {
           let el = event.target;
           el.classList.add('active');
+          el.classList.remove('tapped');
+          el.classList.remove('doubletapped');
         },
         move (event) {
           let el = event.target;
@@ -92,7 +94,14 @@
         }
       }
     });
-
+    interact('.mediaCell').on('tap', (e) => {
+      e.currentTarget.classList.toggle('tapped');      
+      e.currentTarget.classList.remove('doubletapped');
+    });
+    interact('.mediaCell').on('doubletap', (e) => {
+      e.currentTarget.classList.toggle('doubletapped');
+      e.currentTarget.classList.remove('tapped');
+    });
     interact('.playlist-drop').dropzone({
       accept: '.mediaCell',
       overlap: 'pointer',
@@ -146,9 +155,6 @@
           </li>
         {/each}
       {/if}
-      <li class="nav-item">
-        <span class='nav-link'>| <small>Lib: {$currLibId}</small> </span>
-      </li>
     </ul>
 
     <ul class='navbar-nav'>

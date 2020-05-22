@@ -6,7 +6,12 @@
   </div>
   <div class='poster-text'>
     <h5>{title}</h5>
-    <p>{year} {moment(movie.originallyAvailableAt).format("MMM D, YYYY")}</p>
+    <p class='text-muted'>
+      {year} &middot; 
+      {parseInt(movie.duration/60/1000,10)}m &middot; 
+      <small class='text-warning'><i class='fas fa-star'></i></small> {movie.rating} 
+      
+    </p>
 <!--   Rating: {movie.rating}
   Duration: {parseInt(movie.duration/60/1000,10)}m
   Release: {moment(movie.originallyAvailableAt).format("MMM D, YYYY")}
@@ -34,15 +39,20 @@
 
 <style lang='scss'>
 
+  $cellW:  140px;
+  $cellH:  $cellW * 1.81;
+
 :global(.mediaCell) {
   touch-action: none;
   user-select: none;
-  margin:0 1em 1em 0;
+  margin:0 1.5em 1.5em 0;
   display:inline-block;
-  width: 150px;
-  height: 270px;
+  /* h = 1.81w */
+  width: $cellW;
+  height: $cellH;
   overflow:hidden;
   text-align:left; 
+  border:  1px solid transparent;
   &.active {
     border: 1px solid #aaa;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
@@ -57,11 +67,12 @@
     width: 100%;
   }
   .poster-text {
-    height: 100px;
+    padding:  2px;
+    height: 33%;
     display:block;
     overflow: hidden;
     color:  #ccc;
-    h5, p, span, a {
+    h5, p, a {
       z-index: 1;
       font-size: .9em;
       line-height:1.5em;
@@ -76,7 +87,7 @@
   }
 
   img.poster {
-    width: 150px; 
+    width: 100%;
   }  
 }
 </style>
