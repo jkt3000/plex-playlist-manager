@@ -13,6 +13,7 @@
   let page      = 1;
   let page_size = 200;
   let showSpinner = false;
+  $: showPlaylists = false;
 
   async function loadMovies() {
     showSpinner = true;
@@ -42,32 +43,48 @@
     }
   }
 
+  function togglePlaylists() {
+    showPlaylists = !showPlaylists
+  }
+
 </script>
 
-  {#if library}
-  <nav class="navbar navbar-expand fixed-top panelnav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#"><span class='badge badge-pill badge-primary'>{library.totalSize}</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Filters</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sort Order</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      {#if showSpinner}
-        <li>
-          <i class='fas fa-spinner fa-spin'></i>
-        </li>
-      {/if}
-    </ul>
-  </nav>
-  {/if}
 
-  <div class='workarea'>
+{#if library}
+<nav class="navbar navbar-expand fixed-top panel-header">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><span class='badge badge-pill badge-primary'>{library.totalSize}</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Filters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Sort Order</a>
+    </li>
+  </ul>
+  <ul class="navbar-nav">
+    <li class='nav-item'>
+      <a class='nav-link' href='#'  on:click={togglePlaylists}>
+        <i class="fas fa-chevron-double-{showPlaylists ? 'right' : 'left'}"></i> Playlists
+      </a>
+    </li>
+    {#if showSpinner}
+      <li>
+        <i class='fas fa-spinner fa-spin'></i>
+      </li>
+    {/if}
+  </ul>
+</nav>
+{/if}
+
+<div class='panel-body'>
+  <div class='playlist-panel' class:active={showPlaylists}>
+    <h5><i class="far fa-list-alt"></i> Playlists</h5>
+
+
+  </div>
+  <div class='media-panel' class:active={showPlaylists}>
     {#await promise}
     {:then results }
       {#each movies as movie}
@@ -77,15 +94,15 @@
       <p class='alert alert-danger'>{error.message}</p>
     {/await}
   </div>
-  <InfiniteScroll
-    hasMore={newBatch.length == page_size}
-    threshold={1000}
-    scrollpos={library ? 0 : 1}
+</div>
+<InfiniteScroll hasMore={newBatch.length == page_size}
+    threshold={1000} scrollpos={library ? 0 : 1}
     on:loadMore={() => {page++; loadMovies()}} />
 
-<style lang='scss'>
 
-.panelnav {
+<style lang='scss'>
+.panel-header {
+  position: fixed;
   top:  55px;
   background: black;
   height: 50px;
@@ -93,10 +110,51 @@
   width: inherit;
 }
 
-.workarea {
-  xborder:  1px solid green;
-  padding:  1.5em 2em;
-
+.panel-body {
+  xborder:  1px solid pink;
 }
+
+$sideWidth: 33vw;
+
+@media (min-width: 1200px) {
+  .playlist-panel {
+    width:  25rem !important;
+  }
+  .media-panel {
+    &.active {
+      width:  calc(100% - 25rem) !important;
+      margin-right:  25rem !important;
+    }
+  }
+}
+
+.media-panel {
+  xborder: 1px solid green;
+  width: 100%;
+  padding: 1.5em 2em;
+  transition: all 0.4s;
+  margin-right: 0;
+  &.active {
+    width: calc(100% - #{$sideWidth});
+    margin-right: $sideWidth;
+  }
+}
+.playlist-panel {
+  xborder:  1px solid red;
+  position: fixed;
+  top:  105px;
+  right: 0;
+  bottom:  0;
+  background: lighten(#343a40, 5%);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+  padding:  1em;
+  width:  $sideWidth;
+  transition: all 0.4s;
+  margin-right: -($sideWidth);
+  &.active {
+    margin-right: 0;
+  }
+}
+
 
 </style>

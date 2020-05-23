@@ -77,6 +77,7 @@
           el.style.transform = `translate(${x}px, ${y}px)`;
           el.setAttribute('data-x',x);
           el.setAttribute('data-y',y);
+
         },
         end(event) {
           let el = event.target;
@@ -186,12 +187,11 @@
 }
 
 .panel {
-  xborder:  1px solid red;
   display: block;
   padding: 0;
-  width:  100vw;
+  width:  100%;
   height: 100%;
-  margin-top: 55px;
+  padding-top:  50px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
