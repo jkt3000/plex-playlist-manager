@@ -79,7 +79,7 @@
 
 <div class='panel-body'>
   <div class='playlist-panel' class:active={showPlaylists}>
-    <PlaylistPage />
+    <PlaylistPage library={library}/>
   </div>
 
   <div class='media-panel' class:active={showPlaylists}>
