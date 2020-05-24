@@ -4,15 +4,16 @@
 
   import {plexToken, plexUser, plexLibraries, currLibId} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
-  import Playlist from '/partials/Playlist.svelte';
+  import PlaylistPage from '/PlaylistPage.svelte';
   const Plex = document.plex; // only for console access
 
   export let library = null;
-  let movies    = [];
-  let newBatch  = [];
-  let page      = 1;
-  let page_size = 200;
-  let showSpinner = false;
+  let newBatch     = [];
+  let movies       = [];
+  let page         = 1;
+  let page_size    = 200;
+  let showSpinner  = false;
+  let promise;
   $: showPlaylists = false;
 
   async function loadMovies() {
@@ -20,21 +21,19 @@
     if (library != null) {
       let key = library.key;
       let resp = await Plex.Movie.all(key, {page: page, page_size: page_size});
-      console.log("resp for page", page, resp.size)
-      newBatch = resp.Metadata;
+      newBatch    = resp.Metadata;
       showSpinner = false;
+      movies      = [ ...movies, ...newBatch];
+      console.log("Movies count is ", movies.length);
     }
   };
 
-  let promise;
 
-  $: movies = [ ...movies, ...newBatch];
   $: {
     let el;
-    if (library) {     
+    if (library != null) {
       movies = [];
       page = 1;
-      console.log("library changed");
       el = document.getElementById('workpanel');
       if (el) {
         el.scrollTop = 0;
@@ -80,13 +79,12 @@
 
 <div class='panel-body'>
   <div class='playlist-panel' class:active={showPlaylists}>
-    <h5><i class="far fa-list-alt"></i> Playlists</h5>
-
-
+    <PlaylistPage />
   </div>
+
   <div class='media-panel' class:active={showPlaylists}>
     {#await promise}
-    {:then results }
+    {:then _ }
       {#each movies as movie}
         <Movie movie={movie} />
       {/each}
@@ -150,6 +148,7 @@ $sideWidth: 33vw;
   padding:  1em;
   width:  $sideWidth;
   transition: all 0.4s;
+  overflow-y: scroll;
   margin-right: -($sideWidth);
   &.active {
     margin-right: 0;
