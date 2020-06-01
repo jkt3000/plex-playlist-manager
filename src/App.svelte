@@ -135,7 +135,6 @@
 
 <Navbar on:logout={logout} />
 
-<div class='panel'>
   {#if ($plexToken != null) }
     {#if ($currLibrary != null)}      
       <div class='library-panel' class:active={sidepanel}>
@@ -149,17 +148,13 @@
   {:else}
     <WelcomePage on:login={login} />
   {/if}
-</div>
 
 <style lang='scss'>
 
 .panel {
-  xborder:  1px solid pink;
   display: block;
-  padding: 0;
-  width:  100%;
-  height: 100%;
-  overflow: hidden;
+  border:  1px solid red;
+  margin-top:  110px;
 }
 
 
@@ -178,21 +173,21 @@ $sideWidth: 33vw;
 }
 
 .library-panel {
-  xborder: 1px solid green;
-  width: 100%;
-  height:  100%;
+  position: fixed;
+  top:  110px;
+  left: 0;
+  bottom: 0;
   transition: all 0.4s;
   margin-right: 0;
-  overflow-y: scroll;
+  width: 100%;
   &.active {
     width: calc(100% - #{$sideWidth});
     margin-right: $sideWidth;
   }
 }
 .playlist-panel {
-  xborder:  1px solid red;
   position: fixed;
-  top:  55px;
+  top:  110px;
   right: 0;
   bottom: 0;
   background: lighten(#343a40, 5%);
@@ -205,7 +200,4 @@ $sideWidth: 33vw;
     margin-right: 0;
   }
 }
-
-
-
 </style>

@@ -55,9 +55,12 @@
 
 <style lang='scss'>
 #header {
+  position: fixed;
+  xbackground:  transparent !important;
   background: darken(#343a40, 10%);
   height: 55px;
   max-height:55px;
+  top:  0;
   left: 0; right: 0;
 }
 </style>

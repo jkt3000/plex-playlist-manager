@@ -101,10 +101,11 @@
 .panel-body {
   border:  1px solid orange;
   width: 100%;
+  height: 100%;
   padding: 1.5em 2em;
-  margin-top:50px;
-  
   transition: all 0.4s;
   margin-right: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 </style>

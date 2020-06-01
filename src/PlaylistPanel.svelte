@@ -33,11 +33,81 @@
 </div>
 
 <div class='panel-body'>
-  body
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+  <p>a long listing of something</p>
+
 </div>
 
 
 <style lang="scss">
-  
+
+.panel-header {
+  position: fixed;
+  top:  55px;
+  background: black;
+  height: 50px;
+  max-height:50px !important;
+  width: inherit;
+}
+
+.panel-body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
   
 </style>
