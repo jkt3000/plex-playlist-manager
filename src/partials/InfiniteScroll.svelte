@@ -17,7 +17,9 @@
 
       element.addEventListener("scroll", onScroll);
       element.addEventListener("resize", onScroll);
-      element.scrollTop = 0;
+      if (scrollpos) {
+        element.scrollTop = 0;
+      }
     }
   }
 
@@ -36,6 +38,7 @@
     } else {
       isLoadMore = false;
     }
+    console.log("scroll", e.target, e.target.scrollTop)
   };
 
   onDestroy(() => {

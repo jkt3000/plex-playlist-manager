@@ -78,34 +78,32 @@
   {#each medias as media}
     <Movie movie={media} />
   {/each}
-</div>
-<InfiniteScroll 
+  <InfiniteScroll 
     threshold={1000} 
     hasMore={newBatch.length == page_size} 
     on:loadMore={nextPage} 
     scrollpos={library.key}/>
-
+</div>
 
 
 <style lang='scss'>
+  .panel-header {
+    position: fixed;
+    top:  55px;
+    background: black;
+    height: 50px;
+    max-height:50px !important;
+    width: inherit;
+  }
 
-.panel-header {
-  position: fixed;
-  top:  55px;
-  background: black;
-  height: 50px;
-  max-height:50px !important;
-  width: inherit;
-}
-
-.panel-body {
-  border:  1px solid orange;
-  width: 100%;
-  height: 100%;
-  padding: 1.5em 2em;
-  transition: all 0.4s;
-  margin-right: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
+  .panel-body {
+    border:  1px solid orange;
+    width: 100%;
+    height: 100%;
+    padding: 1.5em 2em;
+    transition: all 0.4s;
+    margin-right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 </style>

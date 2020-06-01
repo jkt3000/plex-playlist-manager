@@ -151,13 +151,6 @@
 
 <style lang='scss'>
 
-.panel {
-  display: block;
-  border:  1px solid red;
-  margin-top:  110px;
-}
-
-
 $sideWidth: 33vw;
 
 @media (min-width: 1200px) {
@@ -174,7 +167,7 @@ $sideWidth: 33vw;
 
 .library-panel {
   position: fixed;
-  top:  110px;
+  top:  105px;
   left: 0;
   bottom: 0;
   transition: all 0.4s;
