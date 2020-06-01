@@ -5,8 +5,11 @@
 
   import Navbar from './partials/Navbar.svelte';
   import WelcomePage from './WelcomePage.svelte';
-  import LibraryPage from './LibraryPage.svelte';
+  import LibraryPanel from './LibraryPanel.svelte';
+  import PlaylistPanel from './PlaylistPanel.svelte';
   const Plex = document.plex; // only for console access
+
+  $: sidepanel = false;
 
   $: {
     if ($plexToken != null) {
@@ -124,14 +127,25 @@
     });    
   });
 
+  function toggleSidePanel() {
+    sidepanel = !sidepanel;
+  };
+
 </script>
 
 <Navbar on:logout={logout} />
 
 <div class='panel'>
   {#if ($plexToken != null) }
-    <LibraryPage library={$currLibrary} />
-    }
+    {#if ($currLibrary != null)}      
+      <div class='library-panel' class:active={sidepanel}>
+        <LibraryPanel library={$currLibrary} showSide={sidepanel} on:toggleSidePanel={toggleSidePanel} />
+      </div>
+    {/if}
+    <div class='playlist-panel' class:active={sidepanel}>
+      <PlaylistPanel />
+      hello
+    </div>
   {:else}
     <WelcomePage on:login={login} />
   {/if}
@@ -139,20 +153,59 @@
 
 <style lang='scss'>
 
-#header {
-  background: darken(#343a40, 10%);
-  height: 55px;
-  max-height:55px;
-}
-
 .panel {
+  xborder:  1px solid pink;
   display: block;
   padding: 0;
   width:  100%;
   height: 100%;
-  padding-top:  50px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
+
+$sideWidth: 33vw;
+
+@media (min-width: 1200px) {
+  .playlist-panel {
+    width:  25rem !important;
+  }
+  .library-panel {
+    &.active {
+      width:  calc(100% - 25rem) !important;
+      margin-right:  25rem !important;
+    }
+  }
+}
+
+.library-panel {
+  xborder: 1px solid green;
+  width: 100%;
+  height:  100%;
+  transition: all 0.4s;
+  margin-right: 0;
+  overflow-y: scroll;
+  &.active {
+    width: calc(100% - #{$sideWidth});
+    margin-right: $sideWidth;
+  }
+}
+.playlist-panel {
+  xborder:  1px solid red;
+  position: fixed;
+  top:  55px;
+  right: 0;
+  bottom: 0;
+  background: lighten(#343a40, 5%);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+  width:  $sideWidth;
+  transition: all 0.4s;
+  overflow-y: scroll;
+  margin-right: -($sideWidth);
+  &.active {
+    margin-right: 0;
+  }
+}
+
+
 
 </style>

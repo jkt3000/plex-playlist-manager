@@ -23,7 +23,7 @@
     <ul class="navbar-nav mr-auto">
       {#if $plexToken == null}
         <li class="nav-item">
-          <a class="nav-link" href='#'><strong>Please login in to start</strong></a>
+          <a class="nav-link" href='#'><strong>Please login in to start {$plexToken}</strong></a>
         </li>
       {:else}
         {#each $plexLibraries as library}
@@ -32,7 +32,7 @@
                href="#" 
                class:active={ $currLibrary == library }
                on:click={ () => $currLibrary = library }>
-              {library.title}
+              {library.title} <small class='text-muted'>({library.totalSize})</small>
             </a>
           </li>
         {/each}
@@ -52,3 +52,12 @@
     </ul>
   </div>
 </nav>
+
+<style lang='scss'>
+#header {
+  background: darken(#343a40, 10%);
+  height: 55px;
+  max-height:55px;
+  left: 0; right: 0;
+}
+</style>

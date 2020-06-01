@@ -1,3 +1,18 @@
+<script context='module'>
+  //import moment from 'moment';
+//  import {plexToken, plexUser, plexLibraries, currentPage, currentLibrary} from './stores.js';
+</script>
+
+<script>
+  export let movie;
+  let width=200;
+  let height=300;
+  let key = movie.ratingKey;
+  let title = movie.title;
+  let year = movie.year;  
+
+  let Plex = document.plex;
+</script>
 
 
 <div class='mediaCell bg-dark'>
@@ -19,23 +34,6 @@
 
   </div>
 </div>
-
-
-<script context='module'>
-  import moment from 'moment';
-//  import {plexToken, plexUser, plexLibraries, currentPage, currentLibrary} from './stores.js';
-</script>
-
-<script>
-  export let movie;
-  let width=200;
-  let height=300;
-  let key = movie.ratingKey;
-  let title = movie.title;
-  let year = movie.year;  
-
-  let Plex = document.plex;
-</script>
 
 <style lang='scss'>
 

@@ -17,6 +17,7 @@
 
       element.addEventListener("scroll", onScroll);
       element.addEventListener("resize", onScroll);
+      element.scrollTop = 0;
     }
   }
 
@@ -38,7 +39,6 @@
   };
 
   onDestroy(() => {
-    console.log("on destory called")
     if (component || elementScroll) {
       const element = elementScroll ? elementScroll : component.parentNode;
 
