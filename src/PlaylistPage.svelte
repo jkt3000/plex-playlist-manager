@@ -2,7 +2,7 @@
 <script>  
   import { onMount } from 'svelte';
 
-  import {plexToken, plexUser, plexLibraries, currLibId} from '/lib/stores.js';
+  import {plexToken, plexUser, plexLibraries, currLibrary} from '/lib/stores.js';
   import Playlist from '/partials/Playlist.svelte';
   const Plex = document.plex; // only for console access
 

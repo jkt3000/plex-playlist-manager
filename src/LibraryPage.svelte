@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import InfiniteScroll from "/partials/InfiniteScroll.svelte";
 
-  import {plexToken, plexUser, plexLibraries, currLibId} from '/lib/stores.js';
+  import {plexToken, plexUser, plexLibraries, currLibrary} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
   import PlaylistPage from '/PlaylistPage.svelte';
   const Plex = document.plex; // only for console access

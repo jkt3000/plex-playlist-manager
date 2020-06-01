@@ -1,0 +1,54 @@
+<script>
+  import {plexToken, plexUser, plexLibraries, currLibrary} from '/lib/stores.js';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+
+  function logout() {
+    dispatch('logout');
+  };
+
+</script>
+
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" id='header'>
+  <a class="navbar-brand" href="/">
+    Plex Tools 
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      {#if $plexToken == null}
+        <li class="nav-item">
+          <a class="nav-link" href='#'><strong>Please login in to start</strong></a>
+        </li>
+      {:else}
+        {#each $plexLibraries as library}
+          <li class="nav-item">
+            <a class="nav-link" 
+               href="#" 
+               class:active={ $currLibrary == library }
+               on:click={ () => $currLibrary = library }>
+              {library.title}
+            </a>
+          </li>
+        {/each}
+      {/if}
+    </ul>
+
+    <ul class='navbar-nav'>
+      <li class='nav-item'>
+        {#if $plexToken}
+          <a href="#" class='nav-link' on:click={logout}>
+            <img src="{$plexUser.avatar}" width=40 class='rounded-circle inline'/>
+            {$plexUser.name} 
+            Logout
+          </a>
+        {/if}
+      </li>
+    </ul>
+  </div>
+</nav>
