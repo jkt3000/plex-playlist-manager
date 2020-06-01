@@ -38,7 +38,6 @@
     } else {
       isLoadMore = false;
     }
-    console.log("scroll", e.target, e.target.scrollTop)
   };
 
   onDestroy(() => {

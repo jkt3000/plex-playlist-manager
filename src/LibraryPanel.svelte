@@ -97,7 +97,8 @@
   }
 
   .panel-body {
-    border:  1px solid orange;
+    z-index:  100;
+    xborder:  1px solid orange;
     width: 100%;
     height: 100%;
     padding: 1.5em 2em;

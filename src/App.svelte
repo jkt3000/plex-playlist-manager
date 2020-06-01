@@ -179,15 +179,17 @@ $sideWidth: 33vw;
   }
 }
 .playlist-panel {
+  z-index:  2;
   position: fixed;
-  top:  110px;
+  top:  105px;
   right: 0;
   bottom: 0;
+  transition: all 0.4s;
+  border-left:  1px solid #000;
   background: lighten(#343a40, 5%);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
+  xbox-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
   width:  $sideWidth;
   transition: all 0.4s;
-  overflow-y: scroll;
   margin-right: -($sideWidth);
   &.active {
     margin-right: 0;

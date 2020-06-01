@@ -103,9 +103,13 @@
   height: 50px;
   max-height:50px !important;
   width: inherit;
+  padding:  0 .5em;
 }
 
-.panel-body {
+.panel-body {    
+  width: 100%;
+  height: 100%;
+  padding: .5em .5em;
   overflow-y: scroll;
   overflow-x: hidden;
 }

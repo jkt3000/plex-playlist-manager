@@ -41,6 +41,7 @@
   $cellH:  $cellW * 1.81;
 
 :global(.mediaCell) {
+  z-index:  1000;
   touch-action: none;
   user-select: none;
   margin:0 1.5em 1.5em 0;
