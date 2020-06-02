@@ -103,17 +103,27 @@ const Plex = {
   // Movie
   //
   Movie: {
-    // by default, load 500 at once
     async all(library_id, options = {}) {
+      console.log("All movies options", options)
+      let sanitizedOptions = this.sanitizeOptions(options);
+      console.log("Search options", sanitizedOptions);
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
-      let resp = await Plex.requestx(url, {method: 'get', page: options.page, page_size: options.page_size});
+      let resp = await Plex.requestx(url, {method: 'get', page: options.page, page_size: options.page_size, options: sanitizedOptions});
       return resp.MediaContainer;
     },
     get(id) {},
     update(id, data) {},
     addTag() {},
     removeTag() {},
-    updateTag() {}
+    updateTag() {},
+    // build sort and filter params
+    sanitizeOptions(options) {
+      let params = {};
+      if (options.sort != null) {
+        params.sort = options.sort;
+      }
+      return params;
+    }
   },
 
   //
@@ -195,7 +205,10 @@ const Plex = {
     page = page || 1;
     page_size = page_size || Plex.PAGE_SIZE;
     headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
-    let params = {method: method, headers: headers, body: body};
+    let queryParams = Plex._sanitizeQueryParams(options);
+
+    url = url + "?" + queryParams;
+    let params = {method: method, headers: headers, body: body};  
     console.log('Request =>', url);
     let resp = await fetch(url, params).catch(e => {
       throw new Error(`Invalid request [${e.message}]`);
@@ -206,45 +219,6 @@ const Plex = {
     });
     return data;
   },
-
-  async request(url, {method = 'get', headers = {}, 
-                options, body, page, page_size, noToken = false} = {}) {
-    headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
-    let params = {method: method, headers: headers, body: body};
-
-    let response = {ok: null, code: null, message: null, data: null}
-    console.log("Request: ", url);
-    let resp = await fetch(url, params).then(async reply => {
-        console.log("Reply to fetch:", reply.status);
-        response.code    = reply.status;
-        response.ok      = reply.ok;
-        response.message = reply.statusText;
-        if (reply.ok) {
-          let data = await reply.json().then(output => {
-            return output;
-          }).catch(error => {
-            console.log("Error in Fetch", error.message);
-            response.message = error.message;
-            response.ok = false;
-            return null;
-          });
-          response.data = data;
-        } else {
-          response.data = null;
-        }
-        console.log("to json response", response.data)
-        return response;
-      }).catch(error => {
-        console.log("Error on Fetch:", error.message);
-        response.message = error.message;
-        response.ok = false;
-        response.code = null;
-        response.data = null;
-        return response;
-      });
-    return resp;
-  },
-
 
    // same as request, but just want totalSize
   async totalSize(url, { method = 'get', headers = null, options, body } = {}) {    
@@ -265,6 +239,9 @@ const Plex = {
       delete headers["X-Plex-Token"];
     }
     return headers;
+  },
+  _sanitizeQueryParams(params = {}) {
+    return new URLSearchParams(params).toString();
   },
 
   get defaultHeaders() {

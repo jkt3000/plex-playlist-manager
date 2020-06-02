@@ -9,12 +9,14 @@
   import PlaylistPanel from './PlaylistPanel.svelte';
   const Plex = document.plex; // only for console access
 
+  $: playlists = [];
   $: sidepanel = false;
 
   $: {
     if ($plexToken != null) {
       if ($currLibrary == null) {
         loadLibraries();
+        loadPlaylists();
       } 
     }
   }
@@ -55,6 +57,12 @@
     $plexLibraries = data;
     $currLibrary = $plexLibraries[0];
     console.log("[App] Curr Library", $currLibrary)
+  };
+
+  async function loadPlaylists() {
+    if ($plexToken == null) return;
+    let resp = await Plex.Playlist.all();
+    playlists = resp.Metadata;
   };
 
   onMount(() => {
@@ -142,8 +150,7 @@
       </div>
     {/if}
     <div class='playlist-panel' class:active={sidepanel}>
-      <PlaylistPanel />
-      hello
+      <PlaylistPanel playlists={playlists} />
     </div>
   {:else}
     <WelcomePage on:login={login} />

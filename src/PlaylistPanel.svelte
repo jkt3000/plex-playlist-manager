@@ -1,24 +1,24 @@
 <script>
-  
+  import Playlist from './partials/Playlist.svelte';
+
+  export let playlists = [];
+  let listType = 'all';  
 
 </script>
 
 
 
 <div class='panel-header'>
-  <nav class='navbar navbar-expand m-0 p-0'>
-    <span class='navbar-brand'>
-      <i class="far fa-list-alt"></i> Playlists
-    </span>
+  <nav class='navbar navbar-expand navbar-dark m-0 p-0'>
     <ul class='navbar-nav'>
       <li class='nav-item'>
-        <a href='#' class='nav-link'>All</a>
+        <a href='#' class='nav-link' class:active={listType === 'all'} on:click={ () => listType = 'all' }>All</a>
       </li>
       <li class='nav-item'>
-        <a href='#' class='nav-link'>Smart</a>
+        <a href='#' class='nav-link' class:active={listType === 'smart'} on:click={ () => listType = 'smart' }>Smart</a>
       </li>
       <li class='nav-item'>
-        <a href='#' class='nav-link'>Regular</a>    
+        <a href='#' class='nav-link' class:active={listType === 'regular'} on:click={ () => listType = 'regular' }>Regular</a>    
       </li>
     </ul>  
     <ul class='navbar-nav'>
@@ -27,70 +27,13 @@
           <i class='fas fa-plus-circle fa-lg text-white'></i>
         </a>
       </li>
-    </ul>
-
-  </nav>
+    </ul>  </nav>
 </div>
 
 <div class='panel-body'>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-  <p>a long listing of something</p>
-
+  {#each playlists as playlist}
+    <Playlist playlist={playlist} listType={listType}/>
+  {/each}
 </div>
 
 
@@ -109,7 +52,7 @@
 .panel-body {    
   width: 100%;
   height: 100%;
-  padding: .5em .5em;
+  padding: 1em;
   overflow-y: scroll;
   overflow-x: hidden;
 }

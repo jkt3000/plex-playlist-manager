@@ -1,17 +1,12 @@
 <script context='module'>
-  //import moment from 'moment';
-//  import {plexToken, plexUser, plexLibraries, currentPage, currentLibrary} from './stores.js';
+  import moment from 'moment';
 </script>
 
 <script>
   export let movie;
-  let width=200;
-  let height=300;
-  let key = movie.ratingKey;
-  let title = movie.title;
-  let year = movie.year;  
-
-  let Plex = document.plex;
+  let width  = 200;
+  let height = 300;
+  let Plex   = document.plex;
 </script>
 
 
@@ -20,18 +15,16 @@
     <img src="{Plex.thumbUrl(movie.thumb, width, height)}" class='poster'/>
   </div>
   <div class='poster-text'>
-    <h5>{title}</h5>
+    <h5>{movie.title}</h5>
     <p class='text-muted'>
-      {year} &middot; 
+      {movie.year} &middot; 
       {parseInt(movie.duration/60/1000,10)}m &middot; 
       <small class='text-warning'><i class='fas fa-star'></i></small> {movie.rating} 
-      
     </p>
 <!--   Rating: {movie.rating}
   Duration: {parseInt(movie.duration/60/1000,10)}m
   Release: {moment(movie.originallyAvailableAt).format("MMM D, YYYY")}
- -->  
-
+ -->
   </div>
 </div>
 
