@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {    
     "clean": "rm -rf ./dist/* && rm -rf ./.cache/*",
-    "start": "parcel -p 5000 src/index.html",
-    "dev": "parcel -p 5000 src/index.html",
+    "start": "parcel -p 4000 src/index.html",
+    "dev": "parcel -p 4000 src/index.html",
     "build": "parcel build src/index.html",
     "postbuild": "cp -r public/* dist/"    
   },
