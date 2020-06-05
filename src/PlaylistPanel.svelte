@@ -2,7 +2,7 @@
   import Playlist from './partials/Playlist.svelte';
 
   export let playlists = [];
-  let listType = 'all';  
+  let listType = 'regular';  
 
 </script>
 
@@ -41,7 +41,7 @@
   position: absolute;
   top:  0px;
   z-index: 1000;
-  background: black;
+  background: #111;
   height: 50px;
   max-height:50px !important;
   width: inherit;

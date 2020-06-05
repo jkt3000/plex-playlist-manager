@@ -186,10 +186,9 @@ $sideWidth: 33vw;
 }
 .playlist-panel {
   position: fixed;
+  background:  #222;
   z-index: 100;
-  top:  55px;
-  bottom: 0;
-  right: 0;
+  top: 55px; bottom: 0; right: 0;
   order: 2;
   border-left:  1px solid #000;
   width:  $sideWidth;

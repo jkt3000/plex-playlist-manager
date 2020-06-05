@@ -33,9 +33,10 @@
     {#if playlist.smart}
       <i class='fas fa-cog text-success fa-lg'></i>
     {/if}
-    <img src={imgurl} class='playlist-thumb'/>
+    <img src={imgurl} on:click={ () => expanded = !expanded } class='pointer playlist-thumb'/>
     <div class='header-content'>
-      <h5 on:click={ () => expanded = !expanded }>{playlist.title} 
+      <h5>
+        <a href='#' class='text-light' on:click={ () => expanded = !expanded }>{playlist.title}</a>
         <span class='text-muted'>({playlist.leafCount})</span>
       </h5>
       <span>Duration: {moment.utc(playlist.duration).format('H[hrs] m[m]')}</span>

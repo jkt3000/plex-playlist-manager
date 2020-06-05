@@ -170,7 +170,7 @@
   .panel-header {
     position: fixed;
     top:  55px;
-    background: black;
+    background: #111;
     height: 50px;
     max-height:50px !important;
     width: inherit;
