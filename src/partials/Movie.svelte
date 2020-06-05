@@ -34,26 +34,23 @@
   $cellH:  $cellW * 1.81;
 
 :global(.mediaCell) {
-  z-index:  1000;
   touch-action: none;
   user-select: none;
   margin:0 1.5em 1.5em 0;
-  display:inline-block;
   /* h = 1.81w */
   width: $cellW;
   height: $cellH;
-  overflow:hidden;
   text-align:left; 
-  border:  1px solid transparent;
   &.active {
+    z-index:  1000;
     border: 1px solid #aaa;
-    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
+    xbox-shadow: 5px 5px 10px 5px rgba(0,0,0,0.5);
   }
   &.tapped {
     border: 1px solid red;
   }
   &.doubletapped {
-    box-shadow: 0px 0px 10px 5px rgba(255,255,0,0.75);
+    xbox-shadow: 0px 0px 10px 5px rgba(255,255,0,0.75);
   }
   .poster-card {
     width: 100%;
@@ -62,7 +59,6 @@
     padding:  2px;
     height: 33%;
     display:block;
-    overflow: hidden;
     color:  #ccc;
     h5, p, a {
       z-index: 1;

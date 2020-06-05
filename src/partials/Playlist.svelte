@@ -18,6 +18,7 @@
 
     }
   }
+
   function showList() {
     if (listType === 'all') return true;
     if (listType === 'smart') return playlist.smart;
@@ -27,14 +28,13 @@
 </script>
 
 
-<div class='playlist-drop text-muted {klass}'>
+<div class='playlist-drop text-muted {klass}' class:droppable={!playlist.smart}>
   <div class='playlist-header'>
     {#if playlist.smart}
       <i class='fas fa-cog text-success fa-lg'></i>
     {/if}
     <img src={imgurl} class='playlist-thumb'/>
     <div class='header-content'>
-      {listType}
       <h5 on:click={ () => expanded = !expanded }>{playlist.title} 
         <span class='text-muted'>({playlist.leafCount})</span>
       </h5>
@@ -56,11 +56,10 @@
 <style lang='scss'>
 
 :global(.playlist-drop) {
+  border: 1px solid #ddd;
   display: block;
   position: relative;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  background: rgba(0,0,0,0.5);
+  xbackground: rgba(0,0,0,0.5);
   width: 100%;
   margin-bottom: 1em;
   padding: 0;
@@ -72,7 +71,10 @@
   }
   
   &.active-drop {
-    border: 1px solid red;
+    border: 1px solid red !important;
+  }
+  &.available {
+    border:  1px dashed orange;
   }
   &.dropped {
     background: orange;

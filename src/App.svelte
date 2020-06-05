@@ -82,6 +82,8 @@
           el.classList.add('active');
           el.classList.remove('tapped');
           el.classList.remove('doubletapped');
+          let drops = document.getElementsByClassName('droppable');
+          drops.forEach(drop => { drop.classList.add('available')})
         },
         move (event) {
           let el = event.target;
@@ -99,6 +101,8 @@
           el.removeAttribute("style");
 
           el.classList.remove('active');
+          let drops = document.getElementsByClassName('droppable');
+          drops.forEach(drop => { drop.classList.remove('available')})
         }
       }
     });
@@ -110,7 +114,7 @@
       e.currentTarget.classList.toggle('doubletapped');
       e.currentTarget.classList.remove('tapped');
     });
-    interact('.playlist-drop').dropzone({
+    interact('.playlist-drop.droppable').dropzone({
       accept: '.mediaCell',
       overlap: 'pointer',
       listeners: {
@@ -142,64 +146,56 @@
 </script>
 
 <Navbar on:logout={logout} />
-
+<div class='workspace'>
+  <div class='playlist-panel' class:active={sidepanel}>
+    <PlaylistPanel playlists={playlists} />
+  </div>
   {#if ($plexToken != null) }
     {#if ($currLibrary != null)}      
       <div class='library-panel' class:active={sidepanel}>
         <LibraryPanel library={$currLibrary} showSide={sidepanel} on:toggleSidePanel={toggleSidePanel} />
       </div>
     {/if}
-    <div class='playlist-panel' class:active={sidepanel}>
-      <PlaylistPanel playlists={playlists} />
-    </div>
   {:else}
     <WelcomePage on:login={login} />
   {/if}
+</div>
 
 <style lang='scss'>
 
 $sideWidth: 33vw;
 
-@media (min-width: 1200px) {
-  .playlist-panel {
-    width:  25rem !important;
-  }
-  .library-panel {
-    &.active {
-      width:  calc(100% - 25rem) !important;
-      margin-right:  25rem !important;
-    }
-  }
+.workspace {
+  display:flex;
+  flow-flow:column nowrap;
+  align-items:stretch;
+  top:55px;
+  bottom:0;
+  left:0;
+  right:0;
 }
 
 .library-panel {
-  position: fixed;
-  top:  105px;
-  left: 0;
-  bottom: 0;
-  transition: all 0.4s;
-  margin-right: 0;
-  width: 100%;
+  position: relative;
+  z-index:100;
+  order: 1;
+  top: 105px;
   &.active {
     width: calc(100% - #{$sideWidth});
-    margin-right: $sideWidth;
   }
 }
 .playlist-panel {
-  z-index:  2;
   position: fixed;
-  top:  105px;
-  right: 0;
+  z-index: 100;
+  top:  55px;
   bottom: 0;
-  transition: all 0.4s;
+  right: 0;
+  order: 2;
   border-left:  1px solid #000;
-  background: lighten(#343a40, 5%);
-  xbox-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
   width:  $sideWidth;
-  transition: all 0.4s;
-  margin-right: -($sideWidth);
+  right: -($sideWidth);
   &.active {
-    margin-right: 0;
+    right: 0;
   }
 }
 </style>

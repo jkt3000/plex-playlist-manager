@@ -7,28 +7,26 @@
 </script>
 
 
-
-<div class='panel-header'>
-  <nav class='navbar navbar-expand navbar-dark m-0 p-0'>
-    <ul class='navbar-nav'>
-      <li class='nav-item'>
-        <a href='#' class='nav-link' class:active={listType === 'all'} on:click={ () => listType = 'all' }>All</a>
-      </li>
-      <li class='nav-item'>
-        <a href='#' class='nav-link' class:active={listType === 'smart'} on:click={ () => listType = 'smart' }>Smart</a>
-      </li>
-      <li class='nav-item'>
-        <a href='#' class='nav-link' class:active={listType === 'regular'} on:click={ () => listType = 'regular' }>Regular</a>    
-      </li>
-    </ul>  
-    <ul class='navbar-nav'>
-      <li class='nav-link'>
-        <a href='#' class='nav-link'>
-          <i class='fas fa-plus-circle fa-lg text-white'></i>
-        </a>
-      </li>
-    </ul>  </nav>
-</div>
+<nav class='navbar navbar-expand navbar-dark m-0 p-0 panel-header'>
+  <ul class='navbar-nav'>
+    <li class='nav-item'>
+      <a href='#' class='nav-link' class:active={listType === 'all'} on:click={ () => listType = 'all' }>All</a>
+    </li>
+    <li class='nav-item'>
+      <a href='#' class='nav-link' class:active={listType === 'smart'} on:click={ () => listType = 'smart' }>Smart</a>
+    </li>
+    <li class='nav-item'>
+      <a href='#' class='nav-link' class:active={listType === 'regular'} on:click={ () => listType = 'regular' }>Regular</a>    
+    </li>
+  </ul>  
+  <ul class='navbar-nav'>
+    <li class='nav-link'>
+      <a href='#' class='nav-link'>
+        <i class='fas fa-plus-circle fa-lg text-white'></i>
+      </a>
+    </li>
+  </ul>  
+</nav>
 
 <div class='panel-body'>
   {#each playlists as playlist}
@@ -40,17 +38,17 @@
 <style lang="scss">
 
 .panel-header {
-  position: fixed;
-  top:  55px;
+  position: absolute;
+  top:  0px;
+  z-index: 1000;
   background: black;
   height: 50px;
   max-height:50px !important;
   width: inherit;
-  padding:  0 .5em;
 }
 
-.panel-body {    
-  width: 100%;
+.panel-body {
+  margin-top: 55px;
   height: 100%;
   padding: 1em;
   overflow-y: scroll;
