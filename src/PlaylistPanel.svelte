@@ -38,8 +38,8 @@
 <style lang="scss">
 
 .panel-header {
-  position: absolute;
-  top:  0px;
+  position: fixed;
+  top:  55px;
   z-index: 1000;
   background: #111;
   height: 50px;
@@ -51,8 +51,6 @@
   margin-top: 55px;
   height: 100%;
   padding: 1em;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
   
 </style>

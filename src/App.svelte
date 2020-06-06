@@ -201,6 +201,8 @@ $sideWidth: 33vw;
 }
 .playlist-panel {
   position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background:  #222;
   z-index: 100;
   top: 55px; bottom: 0; right: 0;
