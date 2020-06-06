@@ -57,7 +57,7 @@ const Plex = {
       form.append('login', email);
       form.append('password', password);
 
-      let data = await Plex.requestx(url, {method: 'post', body: form, noToken: true});
+      let data = await Plex.request(url, {method: 'post', body: form, noToken: true});
       console.log("[Plex] Login response ", data);
       Plex.setParam('token', data.authToken);
       Plex.setParam('avatar', data.thumb);
@@ -69,7 +69,7 @@ const Plex = {
     },
     async getServerInfo() {
       let url = Plex.API_PATHS.serverUrl;
-      let data = await Plex.requestx(url, {method: 'get'});
+      let data = await Plex.request(url, {method: 'get'});
       let server = data.find(entry => entry.product === "Plex Media Server");
       console.log("server found", server, server.connections[0]);
       if (server != null) {
@@ -85,7 +85,7 @@ const Plex = {
   Library: {
     async all() {
       let url = `${Plex.hostUrl}/library/sections`;
-      let resp = await Plex.requestx(url, {method: 'get'});
+      let resp = await Plex.request(url, {method: 'get'});
       let libraries = resp.MediaContainer.Directory;
       for (let i=0; i<libraries.length; i++){
         let url = `${Plex.hostUrl}/library/sections/${libraries[i].key}/all`;
@@ -94,9 +94,11 @@ const Plex = {
       }
       return libraries;
     },
-    get(id) {},
-    update() {},
-    create() { return; },    
+    async get(id) {
+      let url = `${Plex.hostUrl}/library/sections/${id}`;
+      let data = await Plex.request(url, {method: 'get'});
+      return data.MediaContainer;
+    }   
   },
 
   //
@@ -104,12 +106,10 @@ const Plex = {
   //
   Movie: {
     async all(library_id, options = {}) {
-      console.log("All movies options", options)
-      let sanitizedOptions = this.sanitizeOptions(options);
-      console.log("Search options", sanitizedOptions);
+      options = this.sanitizeOptions(options);
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
-      let resp = await Plex.requestx(url, {method: 'get', page: options.page, page_size: options.page_size, options: sanitizedOptions});
-      return resp.MediaContainer;
+      let data = await Plex.request(url, {method: 'get', options: options});
+      return data.MediaContainer;
     },
     get(id) {},
     update(id, data) {},
@@ -143,24 +143,28 @@ const Plex = {
   Playlist: {
     async all(options = {}) {
       let url = `${Plex.hostUrl}/playlists`;
-      let resp = await Plex.requestx(url, {method: 'get'});
-      return resp.MediaContainer;
+      let data = await Plex.request(url, {method: 'get'});
+      return data.MediaContainer;
     },
     async get(id) {
       let url = `${Plex.hostUrl}/playlists/${id}`;
-      let resp = await Plex.requestx(url, {method: 'get'});
-      return resp.MediaContainer;
+      let data = await Plex.request(url, {method: 'get'});
+      return data.MediaContainer;
+    },
+    async getItems(id) {
+      let url = `${Plex.hostUrl}/playlists/${id}/items`;
+      let data = await Plex.request(url, {method: 'get'});
+      return data.MediaContainer;      
     },
 
-  //PUT https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/playlists/29271/items
-
-//  uri: server://623cbfe8a679d4d8c68a6ffe3608aca44e8da703/com.plexapp.plugins.library/library/metadata/14277
-//  includeExternalMedia: 1
     async addItem(id, mediaId) {
       let url = `${Plex.hostUrl}/playlists/${id}/items`;
-      let uri = `server://${Plex.machineId}/com.plexapp.plugins.library/library/metadata/${mediaId}`;
-      let resp = await Plex.request(url, {method:'put', options:{uri: uri}});
-      return resp.MediaContainer;
+      let options = {
+        'uri': `server://${Plex.machineId}/com.plexapp.plugins.library/library/metadata/${mediaId}`,
+        'includeExternalMedia': 1
+      };
+      let data = await Plex.request(url, {method:'put', options:options});
+      return data.MediaContainer;
     },
     removeItem() {},
     moveItem() {},
@@ -203,79 +207,35 @@ const Plex = {
     window.localStorage.removeItem("plex-"+key);
   },
 
-  //
-  // async fetch promise 
-  // - need to handle failure conditions
-  // - what to send in case of failure?
-  // response format:
-  //
-  //  {ok: true|false, message: "", status: 201, data: Object }
-  async requestx(url, {method = 'get', headers = {}, 
-                options, body, page, page_size, noToken = false} = {}) {
-    page = page || 1;
-    page_size = page_size || Plex.PAGE_SIZE;
-    headers = Plex._sanitizeHeaders(headers, method, options, page, page_size, noToken);
-    let queryParams = Plex._sanitizeQueryParams(options);
-
-    url = url + "?" + queryParams;
-    let params = {method: method, headers: headers, body: body};  
-    console.log('Request =>', url);
-    let resp = await fetch(url, params).catch(e => {
-      throw new Error(`Invalid request [${e.message}]`);
-    });
-    console.log("Response <=", resp.status);
-    let data = await resp.json().catch(e => {
-      throw new Error("Bad request or invalid data");
-    });
-    return data;
-  },
 
   async request(url, {method = 'get', options = {}, headers = {}, body = null} = {}) {
     headers = Plex._buildHeaders(headers);
-    let paramsString = Plex._sanitizeOptions(options);
-    console.log("paramsString", paramsString);
-    if (paramsString.length > 0) {
-      url = `${url}?${paramsString}`
+    let params = Plex._sanitizeOptions(options);
+    console.log(`[PLEX] Request: ${url}`, {params: params} );
+    if (params.length > 0) {
+      url = `${url}?${params}`
     } 
     let resp = await fetch(url, {method: method, headers: headers, body: body}).catch(e => {
       throw new Error(`Invalid request [${e.message}]`);
     });
-    console.log("Response <=", resp.status);
     let data = await resp.json().catch(e => {
       throw new Error("Bad request or invalid data");
     });
+    console.log("[PLEX] Response <=", resp.status, data);
     return data;
   },
 
   async totalSize(url) {    
-    let data = await Plex.requestx(url, { method: 'get', page: 1, page_size: 0 });
+    let data = await Plex.request(url, { method: 'get', options: {page: 1, page_size: 0} });
     return data.MediaContainer.totalSize;
   },
 
-  _sanitizeHeaders(headers, method, options, page, page_size, noToken) {
-    headers = {...Plex.defaultHeaders, ...headers};
-    if (method === 'get') {
-      if (page != null) {
-        let per_page = (page_size == null) ? Plex.PAGE_SIZE : parseInt(page_size, 10);
-        headers["X-Plex-Container-Size"]  = per_page;
-        headers["X-Plex-Container-Start"] = (parseInt(page,10) - 1) * per_page;
-      }      
-    }
-    if (noToken === true) {
-      delete headers["X-Plex-Token"];
-    }
-    return headers;
-  },
-  
-  _sanitizeQueryParams(params = {}) {
-    return new URLSearchParams(params).toString();
-  },
-
   _sanitizeOptions(options = {}) {
-    let default_options = {
-      'X-Plex-Client-Identifier': 'plex-api',
-      'X-Plex-Token' : Plex.token
+    let default_options = {'X-Plex-Client-Identifier': 'plex-api'}
+    if (Plex.token != null) {
+      default_options['X-Plex-Token'] = Plex.token;
     };
+
     if (options.page != null) {
       let page_size = (options.page_size == null) ? Plex.PAGE_SIZE : parseInt(options.page_size, 10);
       default_options["X-Plex-Container-Size"]  = page_size;
@@ -283,25 +243,14 @@ const Plex = {
       delete options['page'];
       delete options['page_size'];
     }
-    let params = {...default_options, ...options};
-    return new URLSearchParams(params).toString();
+    return new URLSearchParams({...default_options, ...options}).toString();
   },
 
   _buildHeaders(headers = {}) {
     let params = {'Accept': 'application/json'};
     params = {...params, ...headers};
     return params;
-  },
-
-  get defaultHeaders() {
-    let headers = {
-      'X-Plex-Client-Identifier': 'plex-api',
-      'Accept': 'application/json',
-      "X-Plex-Token" : Plex.token 
-    };
-    return headers;
   }
-
 }
 
 export {Plex};

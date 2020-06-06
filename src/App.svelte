@@ -53,10 +53,8 @@
   async function loadLibraries() {
     if ($plexToken == null) return;
     let data = await Plex.Library.all();
-    console.log('[App] loadLibaries() ',data)
     $plexLibraries = data;
     $currLibrary = $plexLibraries[0];
-    console.log("[App] Curr Library", $currLibrary)
   };
 
   async function loadPlaylists() {
