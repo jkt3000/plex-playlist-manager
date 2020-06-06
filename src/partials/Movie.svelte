@@ -10,7 +10,7 @@
 </script>
 
 
-<div class='mediaCell bg-dark'>
+<div class='mediaCell bg-dark' data-id={movie.ratingKey}>
   <div class='poster-card'>
     <img src="{Plex.thumbUrl(movie.thumb, width, height)}" class='poster'/>
   </div>

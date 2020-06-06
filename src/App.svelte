@@ -131,13 +131,28 @@
           event.target.classList.remove('active-drop');
         },
         drop(event) {
-          event.target.classList.remove('active-drop');
-          event.target.classList.add('dropped');
-          setTimeout(() => event.target.classList.remove('dropped'), 600);
+          let mediaEl = event.relatedTarget;
+          let listEl  = event.target;
+          listEl.classList.remove('active-drop');
+          listEl.classList.add('dropped');
+          setTimeout(() => listEl.classList.remove('dropped'), 600);          
+          addToPlaylist(listEl.dataset.id, mediaEl.dataset.id);
         }
       }
     });    
   });
+
+  async function addToPlaylist(playlistId, mediaId) {
+    console.log("Add movie", mediaId, "to list ", playlistId);
+    let resp = await Plex.Playlist.addItem(playlistId, mediaId);
+    let playlist = resp.Metadata[0];
+    for (let i=0;i<playlists.length; i++) {
+      if (playlists[i].ratingKey === playlist.ratingKey) {
+        playlists[i] = playlist;
+      }
+    }
+    playlists = [...playlists];
+  };
 
   function toggleSidePanel() {
     sidepanel = !sidepanel;

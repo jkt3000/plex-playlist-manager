@@ -28,7 +28,7 @@
 </script>
 
 
-<div class='playlist-drop text-muted {klass}' class:droppable={!playlist.smart}>
+<div class='playlist-drop text-muted {klass}' class:droppable={!playlist.smart} data-id={playlist.ratingKey}>
   <div class='playlist-header'>
     {#if playlist.smart}
       <i class='fas fa-cog text-success fa-lg'></i>

@@ -151,7 +151,17 @@ const Plex = {
       let resp = await Plex.requestx(url, {method: 'get'});
       return resp.MediaContainer;
     },
-    addItem() {},
+
+  //PUT https://192-168-2-5.fd260bceec114882b0b2db343469745c.plex.direct:32400/playlists/29271/items
+
+//  uri: server://623cbfe8a679d4d8c68a6ffe3608aca44e8da703/com.plexapp.plugins.library/library/metadata/14277
+//  includeExternalMedia: 1
+    async addItem(id, mediaId) {
+      let url = `${Plex.hostUrl}/playlists/${id}/items`;
+      let uri = `server://${Plex.machineId}/com.plexapp.plugins.library/library/metadata/${mediaId}`;
+      let resp = await Plex.request(url, {method:'put', options:{uri: uri}});
+      return resp.MediaContainer;
+    },
     removeItem() {},
     moveItem() {},
     update(id) {},
@@ -204,7 +214,7 @@ const Plex = {
                 options, body, page, page_size, noToken = false} = {}) {
     page = page || 1;
     page_size = page_size || Plex.PAGE_SIZE;
-    headers = Plex._sanitizeHeaders(headers, options, page, page_size, noToken);
+    headers = Plex._sanitizeHeaders(headers, method, options, page, page_size, noToken);
     let queryParams = Plex._sanitizeQueryParams(options);
 
     url = url + "?" + queryParams;
@@ -220,28 +230,67 @@ const Plex = {
     return data;
   },
 
-   // same as request, but just want totalSize
-  async totalSize(url, { method = 'get', headers = null, options, body } = {}) {    
-    let opts = { method: method, headers: headers, options: options, body: body,
-                 page: 1, page_size: 0 };
-    let data = await Plex.requestx(url, opts);
+  async request(url, {method = 'get', options = {}, headers = {}, body = null} = {}) {
+    headers = Plex._buildHeaders(headers);
+    let paramsString = Plex._sanitizeOptions(options);
+    console.log("paramsString", paramsString);
+    if (paramsString.length > 0) {
+      url = `${url}?${paramsString}`
+    } 
+    let resp = await fetch(url, {method: method, headers: headers, body: body}).catch(e => {
+      throw new Error(`Invalid request [${e.message}]`);
+    });
+    console.log("Response <=", resp.status);
+    let data = await resp.json().catch(e => {
+      throw new Error("Bad request or invalid data");
+    });
+    return data;
+  },
+
+  async totalSize(url) {    
+    let data = await Plex.requestx(url, { method: 'get', page: 1, page_size: 0 });
     return data.MediaContainer.totalSize;
   },
 
-  _sanitizeHeaders(headers, options, page, page_size, noToken) {
+  _sanitizeHeaders(headers, method, options, page, page_size, noToken) {
     headers = {...Plex.defaultHeaders, ...headers};
-    if (page != null) {
-      let per_page = (page_size == null) ? Plex.PAGE_SIZE : parseInt(page_size, 10);
-      headers["X-Plex-Container-Size"]  = per_page;
-      headers["X-Plex-Container-Start"] = (parseInt(page,10) - 1) * per_page;
+    if (method === 'get') {
+      if (page != null) {
+        let per_page = (page_size == null) ? Plex.PAGE_SIZE : parseInt(page_size, 10);
+        headers["X-Plex-Container-Size"]  = per_page;
+        headers["X-Plex-Container-Start"] = (parseInt(page,10) - 1) * per_page;
+      }      
     }
     if (noToken === true) {
       delete headers["X-Plex-Token"];
     }
     return headers;
   },
+  
   _sanitizeQueryParams(params = {}) {
     return new URLSearchParams(params).toString();
+  },
+
+  _sanitizeOptions(options = {}) {
+    let default_options = {
+      'X-Plex-Client-Identifier': 'plex-api',
+      'X-Plex-Token' : Plex.token
+    };
+    if (options.page != null) {
+      let page_size = (options.page_size == null) ? Plex.PAGE_SIZE : parseInt(options.page_size, 10);
+      default_options["X-Plex-Container-Size"]  = page_size;
+      default_options["X-Plex-Container-Start"] = (parseInt(options.page, 10) - 1) * page_size;
+      delete options['page'];
+      delete options['page_size'];
+    }
+    let params = {...default_options, ...options};
+    return new URLSearchParams(params).toString();
+  },
+
+  _buildHeaders(headers = {}) {
+    let params = {'Accept': 'application/json'};
+    params = {...params, ...headers};
+    return params;
   },
 
   get defaultHeaders() {
