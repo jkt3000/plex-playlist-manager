@@ -10,13 +10,13 @@
   let height = 100;
   let Plex   = document.plex;
   $: imgurl = Plex.thumbUrl(playlist.composite, width, height);
-  $: expanded = false;
+  let expanded = false;
   $: klass = 'show-'+listType+"-"+ (playlist.smart ? 'smart' : 'regular');
+  $: entries = [];
   $: {
-    if (listType) {
+    if (listType) {}
+  };
 
-    }
-  }
 
   function showList() {
     if (listType === 'all') return true;
@@ -24,6 +24,26 @@
     if (listType === 'regular') return !playlist.smart;
     return true;
   };
+
+  async function togglePlaylist() {
+    expanded = !expanded;
+    if (expanded) {
+      console.log("Run loadItems...")
+      await loadItems();
+    }
+  }
+
+  async function loadItems() {
+    let data = await Plex.Playlist.getItems(playlist.ratingKey);
+    entries = data.Metadata;
+  }
+
+  async function removeItem(id) {
+    let data = await Plex.Playlist.removeItem(playlist.ratingKey, id);
+    playlist = data.Metadata[0];
+    await loadItems();
+  }
+
 </script>
 
 
@@ -32,23 +52,23 @@
     {#if playlist.smart}
       <i class='fas fa-cog text-success fa-lg'></i>
     {/if}
-    <img src={imgurl} on:click={ () => expanded = !expanded } class='pointer playlist-thumb'/>
+    <img src={imgurl} on:click={togglePlaylist} class='pointer playlist-thumb'/>
     <div class='header-content'>
       <h5>
-        <a href='#' class='text-light' on:click={ () => expanded = !expanded }>{playlist.title}</a>
+        <a href='#' class='text-light' on:click={togglePlaylist}>{playlist.title} {playlist.ratingKey}</a>
         <span class='text-muted'>({playlist.leafCount})</span>
       </h5>
       <span>Duration: {moment.utc(playlist.duration).format('H[hrs] m[m]')}</span>
     </div>
   </div>
   <div class='playlist-body' class:expanded>
-    <!-- regular list of movies here -->
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    {#each entries as entry}
+
+      <p>{entry.title} ({entry.year}) {entry.playlistItemID}
+        <a href="#" class='text-danger' on:click={() => removeItem(entry.playlistItemID) }><i class='fas fa-trash-alt'></i></a>
+      </p>
+    {/each}
   </div>
 </div>
 

@@ -152,6 +152,7 @@ const Plex = {
       return data.MediaContainer;
     },
     async getItems(id) {
+      console.log("[PLEX] get playlist items")
       let url = `${Plex.hostUrl}/playlists/${id}/items`;
       let data = await Plex.request(url, {method: 'get'});
       return data.MediaContainer;      
@@ -166,11 +167,14 @@ const Plex = {
       let data = await Plex.request(url, {method:'put', options:options});
       return data.MediaContainer;
     },
-    removeItem() {},
+    async removeItem(id, itemId) {
+      let url = `${Plex.hostUrl}/playlists/${id}/items/${itemId}`;
+      let data = await Plex.request(url, {method:'delete'});
+      return data.MediaContainer;
+    },
     moveItem() {},
     update(id) {},
     updateContent() {}, // for smart playlist
-    getItems() {},        
     create() {},
   },
 
