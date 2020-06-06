@@ -9,9 +9,8 @@
   let width  = 100;
   let height = 100;
   let Plex   = document.plex;
-  let imgurl = Plex.thumbUrl(playlist.composite, width, height);
+  $: imgurl = Plex.thumbUrl(playlist.composite, width, height);
   $: expanded = false;
-
   $: klass = 'show-'+listType+"-"+ (playlist.smart ? 'smart' : 'regular');
   $: {
     if (listType) {
@@ -60,7 +59,6 @@
   border: 1px solid #ddd;
   display: block;
   position: relative;
-  xbackground: rgba(0,0,0,0.5);
   width: 100%;
   margin-bottom: 1em;
   padding: 0;
@@ -84,7 +82,6 @@
     height:  77px; 
     display: flex;
     flex-flow:  row nowrap;
-    xborder:  1px solid red;
     .header-content {
       width:  100%;
       height:  75px;
