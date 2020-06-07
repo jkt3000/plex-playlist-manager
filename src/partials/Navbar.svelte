@@ -25,17 +25,6 @@
         <li class="nav-item">
           <a class="nav-link" href='#'><strong>Please login in to start {$plexToken}</strong></a>
         </li>
-      {:else}
-        {#each $plexLibraries as library}
-          <li class="nav-item">
-            <a class="nav-link" 
-               href="#" 
-               class:active={ $currLibrary == library }
-               on:click={ () => $currLibrary = library }>
-              {library.title} <small class='text-muted'>({library.totalSize})</small>
-            </a>
-          </li>
-        {/each}
       {/if}
     </ul>
 

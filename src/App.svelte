@@ -3,7 +3,8 @@
   import {onMount} from 'svelte';
   import {plexToken, plexUser, plexLibraries, currLibrary} from './lib/stores.js';
 
-  import Navbar from './partials/Navbar.svelte';
+  import Navbar  from './partials/Navbar.svelte';
+  import Sidebar from './partials/Sidebar.svelte';
   import WelcomePage from './WelcomePage.svelte';
   import LibraryPanel from './LibraryPanel.svelte';
   import PlaylistPanel from './PlaylistPanel.svelte';
@@ -112,7 +113,7 @@
       e.currentTarget.classList.toggle('doubletapped');
       e.currentTarget.classList.remove('tapped');
     });
-    interact('.playlist-drop.droppable').dropzone({
+    interact('.droppable').dropzone({
       accept: '.mediaCell',
       overlap: 'pointer',
       listeners: {
@@ -159,6 +160,8 @@
 </script>
 
 <Navbar on:logout={logout} />
+<Sidebar libraries={$plexLibraries} playlists={playlists} />
+
 <div class='workspace'>
   <div class='playlist-panel' class:active={sidepanel}>
     <PlaylistPanel playlists={playlists} />
@@ -179,13 +182,12 @@
 $sideWidth: 33vw;
 
 .workspace {
-  display:flex;
-  flow-flow:column nowrap;
-  align-items:stretch;
-  top:55px;
-  bottom:0;
-  left:0;
-  right:0;
+  position:relative;
+  margin-top:55px;
+  margin-left: 15vw;
+  &.slideout {
+    margin-left:40vw;
+  }
 }
 
 .library-panel {

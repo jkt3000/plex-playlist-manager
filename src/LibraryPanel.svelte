@@ -169,6 +169,7 @@
 <style lang='scss'>
   .panel-header {
     position: fixed;
+    left:  15vw;
     top:  55px;
     background: #111;
     height: 50px;
