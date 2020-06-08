@@ -1,7 +1,7 @@
 <script>
   import interact from 'interactjs';
   import {onMount} from 'svelte';
-  import {plexToken, plexUser, plexLibraries, currLibrary, currPlaylist} from './lib/stores.js';
+  import {plexToken, plexUser, plexLibraries, plexPlaylists, currLibrary, currPlaylist} from './lib/stores.js';
 
   import Navbar  from './partials/Navbar.svelte';
   import Sidebar from './partials/Sidebar.svelte';
@@ -12,6 +12,24 @@
 
   $: playlists = [];
   $: sidepanel = false;
+
+  // current playlist id changed
+  $: {
+    if ($currPlaylist) {
+      console.log("Current Playlist got updated", $currPlaylist, 'reload playlists')
+      loadPlaylists();
+    }
+  }
+
+  // playlists got updated
+
+  $: {
+    if ($plexPlaylists) {
+      // update curr playlist
+      console.log("Playlists got updated")
+      resetCurrPlaylist();
+    }
+  }
 
   $: {
     if ($plexToken != null) {
@@ -61,7 +79,16 @@
   async function loadPlaylists() {
     if ($plexToken == null) return;
     let resp = await Plex.Playlist.all();
-    playlists = resp.Metadata;
+    $plexPlaylists = resp.Metadata;
+  };
+
+  function resetCurrPlaylist() {
+    if ($currPlaylist == null) { return }
+    for (let i=0;i<$plexPlaylists.length; i++) {
+      if ($plexPlaylists[i].ratingKey === currPlaylist.ratingKey) {
+        $currPlaylist = $plexPlaylists[i];
+      }
+    }
   };
 
   onMount(() => {
@@ -143,12 +170,12 @@
     console.log("Add movie", mediaId, "to list ", playlistId);
     let resp = await Plex.Playlist.addItem(playlistId, mediaId);
     let playlist = resp.Metadata[0];
-    for (let i=0;i<playlists.length; i++) {
-      if (playlists[i].ratingKey === playlist.ratingKey) {
-        playlists[i] = playlist;
+    for (let i=0;i<$plexPlaylists.length; i++) {
+      if ($plexPlaylists[i].ratingKey === playlist.ratingKey) {
+        $plexPlaylists[i] = playlist;
       }
     }
-    playlists = [...playlists];
+    $plexPlaylists = [...$plexPlaylists];
   };
 
   function toggleSidePanel() {
@@ -159,12 +186,12 @@
 
 <Navbar on:logout={logout} />
 
-<Sidebar libraries={$plexLibraries} playlists={playlists} />
+<Sidebar/>
 
 
 <div class='playlist-panel' class:active={$currPlaylist != null}>
   {#if ($currPlaylist != null)}
-  <Playlist playlist={$currPlaylist} />
+  <Playlist />
   {/if}
 </div>
 

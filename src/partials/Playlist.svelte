@@ -1,8 +1,16 @@
-<script>
+<script context='module'>
   import moment from 'moment';
+  import interact from 'interactjs';
+</script>
+
+<script>
+  import {onMount} from "svelte";
+  import {plexPlaylists, currPlaylist} from './../lib/stores.js';
+
+
   let Plex   = document.plex;
 
-  export let playlist;
+  $: playlist = $currPlaylist;
 
   $: entries = [];  
   $: {
@@ -18,7 +26,7 @@
 
   async function removeItem(id) {
     let data = await Plex.Playlist.removeItem(playlist.ratingKey, id);
-    playlist = data.Metadata[0];
+    $currPlaylist = data.Metadata[0];
     await loadItems();
   };
 
@@ -26,13 +34,13 @@
     console.log("moveAboveItem")
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'before');
-    playlist = data.Metadata[0];
+    $currPlaylist = data.Metadata[0];
   };
 
   async function moveBelowItem(itemId, targetId) {
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'after');
-    playlist = data.Metadata[0];
+    $currPlaylist = data.Metadata[0];
   };
 
   async function moveToTop(itemId) {
@@ -44,8 +52,15 @@
     let bottom = entries[entries.length-1];
     await moveBelowItem(itemId, bottom.playlistItemID);
   };
-  
+
   async function updateList() {}
+
+  onMount(() => {
+    console.log("module playlist mounted")
+    interact('.playlist-entry').draggable({
+
+    });
+  });
 
 </script>
 
@@ -58,9 +73,9 @@
 
 <h6 class='text-light'>{playlist.leafCount} Videos</h6>
 
-<table class='table table-striped table-sm table-dark droppable' id='playlist-table'>
+<table class='table table-striped table-sm table-dark droppable' id='playlist-table' data-id={playlist.ratingKey}>
 {#each entries as movie, i}
-  <tr data-id={movie.playlistItemID}>
+  <tr class='playlist-entry' data-id={movie.playlistItemID}>
     <td class='handle text-muted'>
       <i class='fas fa-bars'></i>
     </td>

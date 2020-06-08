@@ -1,15 +1,6 @@
 <script>
-  import {currLibrary, currPlaylist} from './../lib/stores.js';
+  import {plexLibraries, plexPlaylists, currLibrary, currPlaylist} from './../lib/stores.js';
   const Plex = document.plex; // only for console access
-
-  export let libraries;
-  export let playlists;
-
-
-  async function loadPlaylist(key) {
-    let data = await Plex.Playlist.get(key);
-    $currPlaylist = data.Metadata[0];
-  };
 </script>
 
 <nav class='sidebar text-muted' id='sidebar'>
@@ -17,9 +8,9 @@
 
     <h6>Libraries</h6>
 
-    {#if (libraries != null)}
+    {#if ($plexLibraries != null)}
     <ul class='nav flex-column'>
-      {#each libraries as library}
+      {#each $plexLibraries as library}
         <li class="nav-item">
           <a class="nav-link" 
              href="#" 
@@ -37,11 +28,11 @@
       <a href='#' class='float-right text-success'><i class='fas fa-plus-circle'></i></a>
     </h6>
 
-    {#if (playlists != null)}
+    {#if ($plexPlaylists != null)}
     <ul class='nav flex-column'>
-      {#each playlists as playlist}
+      {#each $plexPlaylists as playlist, i}
       <li class='nav-item' class:droppable={!playlist.smart} data-id={playlist.ratingKey}>
-        <a href="#" class='nav-link' on:click={() => {loadPlaylist(playlist.ratingKey)} }>
+        <a href="#" class='nav-link' on:click={() => { $currPlaylist = playlist} }>
           {#if playlist.smart}<i class='fas fa-cog text-muted'></i>{/if}
           {playlist.title}
           <small class='text-muted'>({playlist.leafCount})</small>
