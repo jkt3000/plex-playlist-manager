@@ -6,11 +6,9 @@
 <script>
   import {onMount} from "svelte";
   import {plexPlaylists, currPlaylist} from './../lib/stores.js';
-
-
   let Plex   = document.plex;
 
-  $: playlist = $currPlaylist;
+  export let playlist;
 
   $: entries = [];  
   $: {
@@ -26,39 +24,74 @@
 
   async function removeItem(id) {
     let data = await Plex.Playlist.removeItem(playlist.ratingKey, id);
-    $currPlaylist = data.Metadata[0];
-    await loadItems();
+    updatePlaylists(data.Metadata[0]);
   };
 
   async function moveAboveItem(itemId, targetId) {
-    console.log("moveAboveItem")
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'before');
-    $currPlaylist = data.Metadata[0];
+    updatePlaylists(data.Metadata[0]);
   };
 
   async function moveBelowItem(itemId, targetId) {
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'after');
-    $currPlaylist = data.Metadata[0];
+    updatePlaylists(data.Metadata[0]);
   };
 
   async function moveToTop(itemId) {
-    let top = entries[0];
-    await moveAboveItem(itemId, top.playlistItemID);
+    await moveAboveItem(itemId, entries[0].playlistItemID);
   };
 
   async function moveToBottom(itemId) {
-    let bottom = entries[entries.length-1];
-    await moveBelowItem(itemId, bottom.playlistItemID);
+    await moveBelowItem(itemId, entries[entries.length-1].playlistItemID);
   };
 
   async function updateList() {}
 
+
+  function updatePlaylists(list) {
+    for (let i=0; i<$plexPlaylists.length; i++) {
+      if ($plexPlaylists[i].ratingKey === list.ratingKey) {
+        $plexPlaylists[i] = list;
+      }
+    }
+    $plexPlaylists = [...$plexPlaylists];
+    $currPlaylist = list;
+  };
+
+
   onMount(() => {
     console.log("module playlist mounted")
-    interact('.playlist-entry').draggable({
+    interact('.handle').draggable({
+      lockAxis: 'y',
+      modifiers: [
+        interact.modifiers.restrict({
+          restriction: '.table'
+        })
+      ],
+      listeners: {
+        start (event) {
+          let el = event.target;
+          console.log("Start dragging", el)
+        },
+        move (event) {
+          let el = event.target.parentNode; // the TR
+          let x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
+          let y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
+          el.style.transform = `translate(${x}px, ${y}px)`;
+          el.setAttribute('data-x',x);
+          el.setAttribute('data-y',y);
+        },
+        end(event) {
+          let el = event.target.parentNode;
+          el.removeAttribute("data-y");
+          el.removeAttribute("data-x");
+          el.removeAttribute("style");
 
+          el.classList.remove('active');
+        }
+      }
     });
   });
 
@@ -115,7 +148,11 @@
     border: 1px dashed red !important;
     background: rgba(0,0,0,0.9);
   }
-  .handle { text-align:left; width: 16px; }
+  .handle { text-align:left; width: 16px; 
+    touch-action: none;
+    user-select: none;
+    
+  }
   .position { text-align:left;  width: 16px; }
   .movie-thumb {
     width: 30px; 

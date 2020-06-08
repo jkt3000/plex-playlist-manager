@@ -10,27 +10,7 @@
   import Playlist from './partials/Playlist.svelte';
   const Plex = document.plex; // only for console access
 
-  $: playlists = [];
   $: sidepanel = false;
-
-  // current playlist id changed
-  $: {
-    if ($currPlaylist) {
-      console.log("Current Playlist got updated", $currPlaylist, 'reload playlists')
-      loadPlaylists();
-    }
-  }
-
-  // playlists got updated
-
-  $: {
-    if ($plexPlaylists) {
-      // update curr playlist
-      console.log("Playlists got updated")
-      resetCurrPlaylist();
-    }
-  }
-
   $: {
     if ($plexToken != null) {
       if ($currLibrary == null) {
@@ -39,6 +19,21 @@
       } 
     }
   }
+  $: {
+    if ($plexPlaylists != null) {
+      updateCurrentPlaylist();
+    }
+  };
+
+  function updateCurrentPlaylist() {
+    if ($currPlaylist == null ) { return }
+    for (let i=0; i < $plexPlaylists.length; i++) {
+      if ($currPlaylist.ratingKey === $plexPlaylists[i].ratingKey) {
+        console.log("updated current playlist")
+        $currPlaylist = $plexPlaylists[i];
+      }
+    }
+  };
 
   // login - login and store credentials
   async function login(event) {
@@ -82,14 +77,6 @@
     $plexPlaylists = resp.Metadata;
   };
 
-  function resetCurrPlaylist() {
-    if ($currPlaylist == null) { return }
-    for (let i=0;i<$plexPlaylists.length; i++) {
-      if ($plexPlaylists[i].ratingKey === currPlaylist.ratingKey) {
-        $currPlaylist = $plexPlaylists[i];
-      }
-    }
-  };
 
   onMount(() => {
     initPlex();
@@ -167,7 +154,6 @@
   });
 
   async function addToPlaylist(playlistId, mediaId) {
-    console.log("Add movie", mediaId, "to list ", playlistId);
     let resp = await Plex.Playlist.addItem(playlistId, mediaId);
     let playlist = resp.Metadata[0];
     for (let i=0;i<$plexPlaylists.length; i++) {
@@ -186,12 +172,12 @@
 
 <Navbar on:logout={logout} />
 
-<Sidebar/>
+<Sidebar />
 
 
 <div class='playlist-panel' class:active={$currPlaylist != null}>
   {#if ($currPlaylist != null)}
-  <Playlist />
+  <Playlist playlist={$currPlaylist} />
   {/if}
 </div>
 

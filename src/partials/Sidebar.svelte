@@ -44,10 +44,7 @@
   </div>        
 </nav>
 
-
-
 <style lang='scss'>
-
   .nav-link { 
     color: #aaa; 
     margin-left: -8px;
