@@ -1,13 +1,13 @@
 <script>
   import interact from 'interactjs';
   import {onMount} from 'svelte';
-  import {plexToken, plexUser, plexLibraries, currLibrary} from './lib/stores.js';
+  import {plexToken, plexUser, plexLibraries, currLibrary, currPlaylist} from './lib/stores.js';
 
   import Navbar  from './partials/Navbar.svelte';
   import Sidebar from './partials/Sidebar.svelte';
   import WelcomePage from './WelcomePage.svelte';
   import LibraryPanel from './LibraryPanel.svelte';
-  import PlaylistPanel from './PlaylistPanel.svelte';
+  import Playlist from './partials/Playlist.svelte';
   const Plex = document.plex; // only for console access
 
   $: playlists = [];
@@ -118,8 +118,6 @@
       overlap: 'pointer',
       listeners: {
         dropactivate (event) {
-          event.target.classList.remove('active-drop');
-          event.target.classList.remove('dropped');
         },
         dropdeactivate (event) {
         },
@@ -160,58 +158,27 @@
 </script>
 
 <Navbar on:logout={logout} />
+
 <Sidebar libraries={$plexLibraries} playlists={playlists} />
 
-<div class='workspace'>
-  <div class='playlist-panel' class:active={sidepanel}>
-    <PlaylistPanel playlists={playlists} />
-  </div>
+
+<div class='playlist-panel' class:active={$currPlaylist != null}>
+  {#if ($currPlaylist != null)}
+  <Playlist playlist={$currPlaylist} />
+  {/if}
+</div>
+
   {#if ($plexToken != null) }
     {#if ($currLibrary != null)}      
-      <div class='library-panel' class:active={sidepanel}>
-        <LibraryPanel library={$currLibrary} showSide={sidepanel} on:toggleSidePanel={toggleSidePanel} />
+      <div class='library-panel' class:active={$currPlaylist != null}>
+        <LibraryPanel library={$currLibrary} />
       </div>
     {/if}
   {:else}
     <WelcomePage on:login={login} />
   {/if}
-</div>
+
 
 <style lang='scss'>
 
-$sideWidth: 33vw;
-
-.workspace {
-  position:relative;
-  margin-top:55px;
-  margin-left: 15vw;
-  &.slideout {
-    margin-left:40vw;
-  }
-}
-
-.library-panel {
-  position: relative;
-  z-index:100;
-  order: 1;
-  top: 105px;
-  &.active {
-    width: calc(100% - #{$sideWidth});
-  }
-}
-.playlist-panel {
-  position: fixed;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  background:  #222;
-  z-index: 100;
-  top: 55px; bottom: 0; right: 0;
-  order: 2;
-  border-left:  1px solid #000;
-  width:  $sideWidth;
-  right: -($sideWidth);
-  &.active {
-    right: 0;
-  }
-}
 </style>

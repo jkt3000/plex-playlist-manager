@@ -4,6 +4,7 @@ export const plexUser       = writable(null);
 export const plexToken      = writable(null);
 export const plexLibraries  = writable([]);
 export const currLibrary    = writable(null);
+export const currPlaylist   = writable(null);
 
 export const sortBy     = writable('titleSort');
 export const sortDesc   = writable(false);

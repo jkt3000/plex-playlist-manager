@@ -1,35 +1,13 @@
-<script context='module'>
-  import moment from 'moment';
-</script>
-
 <script>
-  export let playlist;
-  export let listType = 'all';
-
-  let width  = 100;
-  let height = 100;
+  import moment from 'moment';
   let Plex   = document.plex;
-  $: imgurl = Plex.thumbUrl(playlist.composite, width, height);
-  let expanded = false;
-  $: klass = 'show-'+listType+"-"+ (playlist.smart ? 'smart' : 'regular');
-  $: entries = [];
+
+  export let playlist;
+
+  $: entries = [];  
   $: {
-    if (listType) {}
-  };
-
-
-  function showList() {
-    if (listType === 'all') return true;
-    if (listType === 'smart') return playlist.smart;
-    if (listType === 'regular') return !playlist.smart;
-    return true;
-  };
-
-  async function togglePlaylist() {
-    expanded = !expanded;
-    if (expanded) {
-      console.log("Run loadItems...")
-      await loadItems();
+    if (playlist != null) {
+      loadItems();
     }
   }
 
@@ -44,86 +22,96 @@
     await loadItems();
   }
 
+  async function moveAboveItem(itemId, targetId) {
+    console.log("moveAboveItem")
+    let id = playlist.ratingKey;
+    let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'before');
+    playlist = data.Metadata[0];
+  }
+  async function moveBelowItem(itemId, targetId) {}
+  async function moveToTop(itemId) {
+    //get top item
+    let top = entries[0];
+    await moveAboveItem(itemId, top.playlistItemID);
+  }
+  async function moveToBottom(itemId) {
+    let bottom = entries[entries.length-1];
+    await moveBelowItem(itemId, bottom.playlistItemID);
+    console.log("Move to bottom of list", itemId)
+  }
+  async function updateList() {}
+
 </script>
 
+<img src={Plex.thumbUrl(playlist.composite, 100, 100)} class='pointer playlist-thumb'/>
 
-<div class='playlist-drop text-muted {klass}' class:droppable={!playlist.smart} data-id={playlist.ratingKey}>
-  <div class='playlist-header'>
+<h3 class='text-light'>{playlist.title} </h3>
     {#if playlist.smart}
       <i class='fas fa-cog text-success fa-lg'></i>
     {/if}
-    <img src={imgurl} on:click={togglePlaylist} class='pointer playlist-thumb'/>
-    <div class='header-content'>
-      <h5>
-        <a href='#' class='text-light' on:click={togglePlaylist}>{playlist.title} {playlist.ratingKey}</a>
-        <span class='text-muted'>({playlist.leafCount})</span>
-      </h5>
-      <span>Duration: {moment.utc(playlist.duration).format('H[hrs] m[m]')}</span>
-    </div>
-  </div>
-  <div class='playlist-body' class:expanded>
 
-    {#each entries as entry}
+<h6 class='text-light'>{playlist.leafCount} Videos</h6>
 
-      <p>{entry.title} ({entry.year}) {entry.playlistItemID}
-        <a href="#" class='text-danger' on:click={() => removeItem(entry.playlistItemID) }><i class='fas fa-trash-alt'></i></a>
-      </p>
-    {/each}
-  </div>
-</div>
-
+<table class='table table-striped table-sm table-dark droppable' id='playlist-table'>
+{#each entries as movie, i}
+  <tr data-id={movie.playlistItemID}>
+    <td class='handle text-muted'>
+      <i class='fas fa-bars'></i>
+    </td>
+    <td class='position text-muted'>{ i + 1 }</td>
+    <td class='movie-thumb'>
+      <img src="{Plex.thumbUrl(movie.thumb, 30)}"/>
+    </td>
+    <td class='movie-details'>
+      <h6>{movie.title}</h6>
+      <span class='text-muted'>
+        {parseInt(movie.duration/60/1000,10)}m  &middot; 
+        <small class='text-warning'><i class='fas fa-star'></i></small> {movie.rating} &middot; {movie.librarySectionTitle} 
+      </span>
+      <div class='actions'>
+        <a href='#' class='text-muted' on:click={() => moveToTop(movie.playlistItemID)}>
+          <i class="fas fa-arrow-to-top"></i>
+        </a>
+        <a href='#' class='text-muted' on:click={() => moveToBottom(movie.playlistItemID)}>
+          <i class="fas fa-arrow-to-bottom"></i>
+        </a>
+        <a href='#' class='text-danger' on:click={() => removeItem(movie.playlistItemID)}>
+          <i class='far fa-trash-alt'></i>
+        </a>
+      </div>
+    </td> 
+  </tr>
+{/each}     
+</table>
 
 <style lang='scss'>
 
-:global(.playlist-drop) {
-  border: 1px solid #ddd;
-  display: block;
-  position: relative;
-  width: 100%;
-  margin-bottom: 1em;
-  padding: 0;
-  &.show-smart-regular {
-    display: none;
+#playlist-table {
+  td {
+    vertical-align: middle;
   }
-  &.show-regular-smart {
-    display: none;
-  }
-  
   &.active-drop {
-    border: 1px solid red !important;
+    border: 1px dashed red !important;
+    background: rgba(0,0,0,0.9);
   }
-  &.available {
-    border:  1px dashed orange;
-  }
-  &.dropped {
-    background: orange;
-  }
-  .playlist-header {
-    height:  77px; 
-    display: flex;
-    flex-flow:  row nowrap;
-    .header-content {
-      width:  100%;
-      height:  75px;
-      padding:  5px;
+  .handle { text-align:left; width: 16px; }
+  .position { text-align:left;  width: 16px; }
+  .movie-thumb {
+    width: 30px; 
+    img {
+      width:  30px;
     }
-    .playlist-thumb {
-      width:  75px;
-      height:  75px;
-    }
-    .fa-cog {
-      position: absolute; top:  10px; right:  5px;
-    }
-    h5 { color:  #ccc; 
-      font-size:  1.0em;}
   }
-  .playlist-body {
-    padding:  10px;
-    border:  1px solid blue;
-    display: none;
-    &.expanded { display: block; }
+  .movie-details {
+    h6 { margin: 0;  }
+    width:  100%;
+    .actions {
+      position: relative; bottom:  0; right:  0; text-align: right;
+      float: right;
+    }
   }
 }
+
 </style>
 
 

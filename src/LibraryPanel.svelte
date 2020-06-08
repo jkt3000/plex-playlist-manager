@@ -101,7 +101,7 @@
 
 </script>
 
-<nav class="navbar navbar-expand fixed-top panel-header">
+<nav class="navbar navbar-expand sticky-top panel-header">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <a class="nav-link" href="#"><span class='badge badge-pill badge-primary'>{library.totalSize}</span></a>
@@ -168,9 +168,6 @@
 
 <style lang='scss'>
   .panel-header {
-    position: fixed;
-    left:  15vw;
-    top:  55px;
     background: #111;
     height: 50px;
     max-height:50px !important;
@@ -185,12 +182,8 @@
   .panel-body {
     z-index: 2000;
     height: auto;
+    width: 100%;
     padding: 1.5em;
     margin-right: 0;
-    display: flex;
-    flex-flow:  row wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
   }
 </style>

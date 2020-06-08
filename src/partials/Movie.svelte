@@ -36,6 +36,7 @@
 :global(.mediaCell) {
   touch-action: none;
   user-select: none;
+  display: inline-block;
   margin:0 1.5em 1.5em 0;
   /* h = 1.81w */
   width: $cellW;

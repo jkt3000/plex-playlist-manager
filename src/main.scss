@@ -12,7 +12,60 @@ body {
   width:100%; height:100%;
   margin:0; padding:0;
 }
-
 .pointer {
   cursor: pointer;
+}
+
+$headerHeight: 55px;
+$sidebarWidth: 20vw;
+$playlistWidth: 25vw;
+
+.sidebar {
+  position: fixed;
+  width:  $sidebarWidth;
+  left: 0;
+  top: $headerHeight;
+  bottom:0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  border-right:  1px solid #000;
+}
+
+.library-panel {
+  display:block;
+  position: relative;
+  z-index:100;
+  order: 1;
+  top:$headerHeight; 
+  bottom:0;
+  margin-left: $sidebarWidth; 
+  right:0;
+  &.active {
+    margin-left: calc(#{$sidebarWidth} + #{$playlistWidth});
+  }
+}
+.playlist-panel {
+  position: fixed;
+  display:none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background:  rgba(0,0,0,0.2);
+  top: $headerHeight;
+  bottom: 0;
+  width:0;
+  left:0; 
+  padding: 1em;
+  border-right:  1px solid #000;
+  xtransition: all 0.5s;
+  &.active {
+    display:block;
+    width:  $playlistWidth;
+    left: $sidebarWidth;
+  }
+}
+
+.droppable.active-drop {
+  background: rgba(0,0,0,0.7) !important;
+  border: 1px dashed red !important;
+
 }
