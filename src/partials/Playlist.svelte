@@ -14,31 +14,37 @@
   async function loadItems() {
     let data = await Plex.Playlist.getItems(playlist.ratingKey);
     entries = data.Metadata;
-  }
+  };
 
   async function removeItem(id) {
     let data = await Plex.Playlist.removeItem(playlist.ratingKey, id);
     playlist = data.Metadata[0];
     await loadItems();
-  }
+  };
 
   async function moveAboveItem(itemId, targetId) {
     console.log("moveAboveItem")
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'before');
     playlist = data.Metadata[0];
-  }
-  async function moveBelowItem(itemId, targetId) {}
+  };
+
+  async function moveBelowItem(itemId, targetId) {
+    let id = playlist.ratingKey;
+    let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'after');
+    playlist = data.Metadata[0];
+  };
+
   async function moveToTop(itemId) {
-    //get top item
     let top = entries[0];
     await moveAboveItem(itemId, top.playlistItemID);
-  }
+  };
+
   async function moveToBottom(itemId) {
     let bottom = entries[entries.length-1];
     await moveBelowItem(itemId, bottom.playlistItemID);
-    console.log("Move to bottom of list", itemId)
-  }
+  };
+  
   async function updateList() {}
 
 </script>

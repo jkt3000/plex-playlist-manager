@@ -172,10 +172,10 @@ const Plex = {
       let data = await Plex.request(url, {method:'delete'});
       return data.MediaContainer;
     },
-    async moveItem(id, itemId, targetId, after = true) {
+    async moveItem(id, itemId, targetId, pos = 'after') {
       let url = `${Plex.hostUrl}/playlists/${id}/items/${itemId}/move`;
       let options = {};
-      options[(after == true ? 'after' : 'before')] = targetId;
+      options[pos] = targetId;
       let data = await Plex.request(url, {method:'put', options: options});
       return data.MediaContainer;
     },
