@@ -138,20 +138,6 @@
       </div>
     </li>
   </ul>
-  <ul class="navbar-nav">
-    {#if showSpinner}
-      <li>
-        <a class='nav-link'>
-          <i class='fas fa-spinner fa-spin'></i>
-        </a>
-      </li>
-    {/if}
-    <li class='nav-item'>
-      <a class='nav-link' href='#'  on:click={toggleSidePanel}>
-        <i class="fas fa-chevron-double-{showSide ? 'right' : 'left'}"></i>
-      </a>
-    </li>
-  </ul>
 </nav>
 
 <div class='panel-body' id='medias-list'>

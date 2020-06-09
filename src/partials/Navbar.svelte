@@ -2,6 +2,7 @@
   import {plexToken, plexUser, plexLibraries, currLibrary} from '/lib/stores.js';
   import { createEventDispatcher } from 'svelte';
 
+  let showSpinner = false;
   const dispatch = createEventDispatcher();
 
   function logout() {
@@ -14,6 +15,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" id='header'>
   <a class="navbar-brand" href="/">
     Plex Tools 
+    {#if showSpinner}&nbsp; <i class='fas fa-spinner fa-sm text-warning fa-spin'></i>{/if}
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
