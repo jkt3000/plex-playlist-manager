@@ -105,7 +105,6 @@
           el.style.transform = `translate(${x}px, ${y}px)`;
           el.setAttribute('data-x',x);
           el.setAttribute('data-y',y);
-
         },
         end(event) {
           let el = event.target;

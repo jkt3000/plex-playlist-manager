@@ -27,24 +27,24 @@
     updatePlaylists(data.Metadata[0]);
   };
 
-  async function moveAboveItem(itemId, targetId) {
+  async function moveBeforeItem(itemId, targetId) {
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'before');
     updatePlaylists(data.Metadata[0]);
   };
 
-  async function moveBelowItem(itemId, targetId) {
+  async function moveAfterItem(itemId, targetId) {
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'after');
     updatePlaylists(data.Metadata[0]);
   };
 
   async function moveToTop(itemId) {
-    await moveAboveItem(itemId, entries[0].playlistItemID);
+    await moveBeforeItem(itemId, entries[0].playlistItemID);
   };
 
   async function moveToBottom(itemId) {
-    await moveBelowItem(itemId, entries[entries.length-1].playlistItemID);
+    await moveAfterItem(itemId, entries[entries.length-1].playlistItemID);
   };
 
   async function updateList() {}
@@ -60,8 +60,9 @@
     $currPlaylist = list;
   };
 
-
   onMount(() => {
+    let node;
+    let topY;
     console.log("module playlist mounted")
     interact('.handle').draggable({
       lockAxis: 'y',
@@ -72,8 +73,9 @@
       ],
       listeners: {
         start (event) {
-          let el = event.target;
-          console.log("Start dragging", el)
+          let el = event.target.parentNode;
+          topY = el.offsetTop;
+          node = null;
         },
         move (event) {
           let el = event.target.parentNode; // the TR
@@ -82,33 +84,67 @@
           el.style.transform = `translate(${x}px, ${y}px)`;
           el.setAttribute('data-x',x);
           el.setAttribute('data-y',y);
+
+          let currY = el.offsetTop + y;
+          if ((currY > topY) && (currY < (topY + el.offsetHeight))) { return; }
+
+          let entries = Array.from(el.parentNode.childNodes);
+          node =entries[0];
+          let curr = 0;
+          topY = 0;
+          for (let i=0; i<entries.length; i++) {
+            // get entry top corner is in.
+            if (currY > (entries[i].offsetTop + (entries[i].offsetHeight/2))) {              
+              topY = entries[i].offsetTop
+              curr = i;
+            }
+          }
+          if (curr > 0) { node = entries[curr]}
         },
         end(event) {
           let el = event.target.parentNode;
+
           el.removeAttribute("data-y");
           el.removeAttribute("data-x");
           el.removeAttribute("style");
-
           el.classList.remove('active');
+
+          moveAfterItem(el.dataset.id, node.dataset.id);
+          node = null;
         }
       }
     });
   });
 
+  function duration(dur) {
+    let x = moment.duration(dur);
+    let reply = x.days() == 0 ? "" : `${x.days()}d `;
+    reply += `${x.hours()}h ${x.minutes()}m`;
+    return reply;
+  }
 </script>
 
-<img src={Plex.thumbUrl(playlist.composite, 100, 100)} class='pointer playlist-thumb'/>
+<div class='clearfix'>
+  <img src={Plex.thumbUrl(playlist.composite, 100, 100)} class='composite'/>
+  <h3 class='text-light'>
+  {playlist.title} 
+  </h3>
+  {#if playlist.smart}
+    <small><i class='fas fa-cog text-success fa-lg'></i></small>
+  {/if}
+</div>
 
-<h3 class='text-light'>{playlist.title} </h3>
-    {#if playlist.smart}
-      <i class='fas fa-cog text-success fa-lg'></i>
-    {/if}
+<div class='clearfix'>
 
-<h6 class='text-light'>{playlist.leafCount} Videos</h6>
+  <h6 class='text-light'>
+    {playlist.leafCount} Videos
+    <span class='float-right text-muted'>{duration(playlist.duration)}</span>
+  </h6>
+</div>
 
 <table class='table table-striped table-sm table-dark droppable' id='playlist-table' data-id={playlist.ratingKey}>
 {#each entries as movie, i}
-  <tr class='playlist-entry' data-id={movie.playlistItemID}>
+  <tr class='playlist-entry' data-id={movie.playlistItemID} data-pos={i} data-title={movie.title}>
     <td class='handle text-muted'>
       <i class='fas fa-bars'></i>
     </td>
@@ -140,6 +176,12 @@
 
 <style lang='scss'>
 
+.composite {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  border: 1px solid #333;
+  float: left;
+}
 #playlist-table {
   td {
     vertical-align: middle;
@@ -164,7 +206,7 @@
     h6 { margin: 0;  }
     width:  100%;
     .actions {
-      position: relative; bottom:  0; right:  0; text-align: right;
+      position: relative; top:  0; right:  0; text-align: right;
       float: right;
     }
   }
