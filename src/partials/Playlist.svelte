@@ -5,6 +5,9 @@
 
 <script>
   import {onMount} from "svelte";
+  import SortableList from 'svelte-sortable-list';
+  import PlaylistItem from './PlaylistItem.svelte';
+
   import {plexPlaylists, currPlaylist} from './../lib/stores.js';
   let Plex   = document.plex;
 
@@ -63,7 +66,6 @@
   onMount(() => {
     let node;
     let topY;
-    console.log("module playlist mounted")
     interact('.handle').draggable({
       lockAxis: 'y',
       modifiers: [
@@ -122,6 +124,23 @@
     reply += `${x.hours()}h ${x.minutes()}m`;
     return reply;
   }
+
+let list = [
+  {id: 1, name: 'First Item'},
+  {id: 2, name: 'Second Item'},
+  {id: 3, name: 'Third Item'},
+  {id: 4, name: 'Fourth Item'},
+  {id: 5, name: 'Fifth Item'},
+  {id: 6, name: 'Sxith Item'},
+  {id: 7, name: 'Sventh Item'}
+
+];
+
+
+function sortList(ev) {
+  console.log(ev.detail)
+  entries = ev.detail;
+}
 </script>
 
 <div class='clearfix'>
@@ -174,6 +193,17 @@
 {/each}     
 </table>
 
+
+
+<SortableList 
+    list={entries} 
+    key="playlistItemID" 
+    on:sort={sortList}
+    let:item 
+    let:index
+>
+    <PlaylistItem {item} {index} />
+</SortableList>
 <style lang='scss'>
 
 .composite {

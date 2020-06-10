@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {    
+  "scripts": {
     "clean": "rm -rf ./dist/* && rm -rf ./.cache/*",
     "start": "parcel -p 4000 src/index.html",
     "dev": "parcel -p 4000 src/index.html",
     "build": "parcel build src/index.html",
-    "postbuild": "cp -r public/* dist/"    
+    "postbuild": "cp -r public/* dist/"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -28,6 +28,7 @@
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
     "svelte-infinite-scroll": "^1.4.0",
-    "svelte-preprocess": "^3.7.4"
+    "svelte-preprocess": "^3.7.4",
+    "svelte-sortable-list": "^1.1.0"
   }
 }
