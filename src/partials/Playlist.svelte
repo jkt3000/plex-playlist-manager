@@ -133,6 +133,9 @@
   }
 
 </script>
+  <a class='float-right' href='#' on:click={() => $currPlaylist = null }>
+    <i class='fas fa-times text-primary fa-lg'></i>
+  </a>
 
 <div class='clearfix'>
   <img src={Plex.thumbUrl(playlist.composite, 100, 100)} class='composite'/>
