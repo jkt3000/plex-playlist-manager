@@ -62,6 +62,7 @@
   onMount(() => {
     let destIndex = null;
     interact('.handle').draggable({
+      hold: 0,
       lockAxis: 'y',
       modifiers: [
         interact.modifiers.restrict({
@@ -151,7 +152,7 @@
   </h6>
 </div>
 
-<ul class='list-group' id='playlist-entries' data-id={playlist.ratingKey}>
+<ul class='list-group droppable' id='playlist-entries' data-id={playlist.ratingKey}>
 {#each entries as movie, i}
   <li class='list-group-item text-muted bg-dark' data-id={movie.playlistItemID} data-title={movie.title}>
     <div class='handle'>
@@ -164,8 +165,9 @@
     <div class='movie-details'>
       <h6>{movie.title}</h6>
       <span class='text-muted'>
+        {movie.year} &middot;
         {parseInt(movie.duration/60/1000,10)}m  &middot; 
-        <small class='text-warning'><i class='fas fa-star'></i></small> {movie.rating} &middot; {movie.librarySectionTitle} 
+        <small class='text-warning'><i class='fas fa-star'></i></small> {movie.rating}
       </span>
       <div class='actions'>
         <a href='#' class='text-muted' on:click={() => moveToTop(movie.playlistItemID)}>
@@ -210,10 +212,20 @@
     z-index:  1000;
 }
 
-.handle { width:  20px;  align-self: center; flex: 1;}
-.position { width:  20px;  align-self: center; flex: 1;}
+.handle { 
+  width:  20px;  align-self: center; flex: 1;
+  touch-action: none;
+  user-select: none;
+}
+.position { 
+  width:  20px;  align-self: center; flex: 1;
+  touch-action: none;
+  user-select: none;
+}
 .movie-thumb { width:  40px;  flex:  2;
   align-self:center;
+  touch-action: none;
+  user-select: none;
 }
 .movie-details { 
   flex:  10;
