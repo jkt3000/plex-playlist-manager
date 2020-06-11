@@ -5,9 +5,7 @@
 
 <script>
   import {onMount} from "svelte";
-  import SortableList from 'svelte-sortable-list';
   import PlaylistItem from './PlaylistItem.svelte';
-
   import {plexPlaylists, currPlaylist} from './../lib/stores.js';
   let Plex   = document.plex;
 
@@ -50,9 +48,6 @@
     await moveAfterItem(itemId, entries[entries.length-1].playlistItemID);
   };
 
-  async function updateList() {}
-
-
   function updatePlaylists(list) {
     for (let i=0; i<$plexPlaylists.length; i++) {
       if ($plexPlaylists[i].ratingKey === list.ratingKey) {
@@ -61,23 +56,23 @@
     }
     $plexPlaylists = [...$plexPlaylists];
     $currPlaylist = list;
+    playlist = list;
   };
 
   onMount(() => {
-    let node;
-    let topY;
+    let destIndex = null;
     interact('.handle').draggable({
       lockAxis: 'y',
       modifiers: [
         interact.modifiers.restrict({
-          restriction: '.table'
+          restriction: 'ul'
         })
       ],
       listeners: {
         start (event) {
           let el = event.target.parentNode;
-          topY = el.offsetTop;
-          node = null;
+          el.classList.add('dragged');
+          el.style.zIndex = 1000;
         },
         move (event) {
           let el = event.target.parentNode; // the TR
@@ -87,32 +82,43 @@
           el.setAttribute('data-x',x);
           el.setAttribute('data-y',y);
 
-          let currY = el.offsetTop + y;
-          if ((currY > topY) && (currY < (topY + el.offsetHeight))) { return; }
-
+          let currY = parseInt(el.offsetTop + y);
           let entries = Array.from(el.parentNode.childNodes);
-          node =entries[0];
-          let curr = 0;
-          topY = 0;
-          for (let i=0; i<entries.length; i++) {
-            // get entry top corner is in.
-            if (currY > (entries[i].offsetTop + (entries[i].offsetHeight/2))) {              
-              topY = entries[i].offsetTop
-              curr = i;
-            }
+          destIndex = entries.findIndex(e => {
+            let top = parseInt(e.offsetTop);
+            let bot = parseInt(e.offsetTop + e.offsetHeight);
+            if ((currY >= top) && (currY <= bot)) { return true }
+          });
+
+          // highlight active node, clear rest
+          entries.forEach(e => e.classList.remove('active'));
+          el.parentNode.classList.remove('movetotop');
+          if (destIndex >= 0) {
+            entries[destIndex].classList.add('active');
+          } else {
+            el.parentNode.classList.add('movetotop');
           }
-          if (curr > 0) { node = entries[curr]}
         },
         end(event) {
           let el = event.target.parentNode;
+          let ul = el.parentNode;
+          if (destIndex != null) {          
+            if (destIndex == -1) {
+              moveToTop(el.dataset.id);
+            } else {
+              moveAfterItem(el.dataset.id, entries[destIndex].playlistItemID);
+            }
+          }
+
+          // reset el
+          el.parentNode.childNodes.forEach(e => e.classList.remove('active'));
+          el.parentNode.classList.remove('movetotop');
 
           el.removeAttribute("data-y");
           el.removeAttribute("data-x");
           el.removeAttribute("style");
-          el.classList.remove('active');
-
-          moveAfterItem(el.dataset.id, node.dataset.id);
-          node = null;
+          el.classList.remove('dragged');
+          el.style.zIndex = null;
         }
       }
     });
@@ -125,22 +131,6 @@
     return reply;
   }
 
-let list = [
-  {id: 1, name: 'First Item'},
-  {id: 2, name: 'Second Item'},
-  {id: 3, name: 'Third Item'},
-  {id: 4, name: 'Fourth Item'},
-  {id: 5, name: 'Fifth Item'},
-  {id: 6, name: 'Sxith Item'},
-  {id: 7, name: 'Sventh Item'}
-
-];
-
-
-function sortList(ev) {
-  console.log(ev.detail)
-  entries = ev.detail;
-}
 </script>
 
 <div class='clearfix'>
@@ -161,17 +151,17 @@ function sortList(ev) {
   </h6>
 </div>
 
-<table class='table table-striped table-sm table-dark droppable' id='playlist-table' data-id={playlist.ratingKey}>
+<ul class='list-group' id='playlist-entries' data-id={playlist.ratingKey}>
 {#each entries as movie, i}
-  <tr class='playlist-entry' data-id={movie.playlistItemID} data-pos={i} data-title={movie.title}>
-    <td class='handle text-muted'>
+  <li class='list-group-item text-muted bg-dark' data-id={movie.playlistItemID} data-title={movie.title}>
+    <div class='handle'>
       <i class='fas fa-bars'></i>
-    </td>
-    <td class='position text-muted'>{ i + 1 }</td>
-    <td class='movie-thumb'>
+    </div>
+    <div class='position'>{ i + 1 }</div>
+    <div class='movie-thumb'>
       <img src="{Plex.thumbUrl(movie.thumb, 30)}"/>
-    </td>
-    <td class='movie-details'>
+    </div>
+    <div class='movie-details'>
       <h6>{movie.title}</h6>
       <span class='text-muted'>
         {parseInt(movie.duration/60/1000,10)}m  &middot; 
@@ -188,22 +178,11 @@ function sortList(ev) {
           <i class='far fa-trash-alt'></i>
         </a>
       </div>
-    </td> 
-  </tr>
+    </div>
+  </li>
 {/each}     
-</table>
+</ul>
 
-
-
-<SortableList 
-    list={entries} 
-    key="playlistItemID" 
-    on:sort={sortList}
-    let:item 
-    let:index
->
-    <PlaylistItem {item} {index} />
-</SortableList>
 <style lang='scss'>
 
 .composite {
@@ -212,35 +191,45 @@ function sortList(ev) {
   border: 1px solid #333;
   float: left;
 }
-#playlist-table {
-  td {
-    vertical-align: middle;
-  }
-  &.active-drop {
-    border: 1px dashed red !important;
-    background: rgba(0,0,0,0.9);
-  }
-  .handle { text-align:left; width: 16px; 
-    touch-action: none;
-    user-select: none;
-    
-  }
-  .position { text-align:left;  width: 16px; }
-  .movie-thumb {
-    width: 30px; 
-    img {
-      width:  30px;
-    }
-  }
-  .movie-details {
-    h6 { margin: 0;  }
-    width:  100%;
-    .actions {
-      position: relative; top:  0; right:  0; text-align: right;
-      float: right;
-    }
+
+:global(.movetotop) {
+  border-top: 4px solid #007bff !important;
+}
+
+#playlist-entries {
+  li {
+    display: flex;    
+    margin: 0; padding: 5px;
+    z-index: 1;
   }
 }
+
+:global(.dragged) {
+    border:  1px solid red !important;
+    opacity:  0.7;
+    z-index:  1000;
+}
+
+.handle { width:  20px;  align-self: center; flex: 1;}
+.position { width:  20px;  align-self: center; flex: 1;}
+.movie-thumb { width:  40px;  flex:  2;
+  align-self:center;
+}
+.movie-details { 
+  flex:  10;
+  width:  100%;
+  display: block;
+  overflow: hidden;
+  h6 { color:  #ccc; }
+}
+
+.actions {
+  float: right; 
+  display: block;
+  position: relative;
+  top: 0; right: 0;
+}
+
 
 </style>
 
