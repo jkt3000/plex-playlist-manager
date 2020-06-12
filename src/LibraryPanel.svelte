@@ -130,25 +130,46 @@
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#" on:click={() => setSort('title') }>
-            Title
+            Title 
+            {#if $sortBy === 'titleSort'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
           <a class="dropdown-item" href="#" on:click={() => setSort('year') }>
             Year
+            {#if $sortBy === 'year'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
           <a class="dropdown-item" href="#" on:click={() => setSort('releasedAt') }>
             Release Date
+            {#if $sortBy === 'originallyAvailableAt'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
           <a class="dropdown-item" href="#" on:click={() => setSort('rating') }>
             Rating
+            {#if $sortBy === 'rating'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
           <a class="dropdown-item" href="#" on:click={() => setSort('duration') }>
             Duration
+            {#if $sortBy === 'duration'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
           <a class="dropdown-item" href="#" on:click={() => setSort('addedAt') }>
             Date Added
+            {#if $sortBy === 'addedAt'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
           <a class="dropdown-item" href="#" on:click={() => setSort('viewedAt') }>
             Date Viewed
+            {#if $sortBy === 'lastViewedAt'}
+              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
+            {/if}
           </a>
         </div>
       </div>
