@@ -28,7 +28,6 @@
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1",
     "svelte-infinite-scroll": "^1.4.0",
-    "svelte-preprocess": "^3.7.4",
-    "svelte-sortable-list": "^1.1.0"
+    "svelte-preprocess": "^3.7.4"
   }
 }

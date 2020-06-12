@@ -104,7 +104,9 @@
 <nav class="navbar navbar-expand sticky-top panel-header">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><span class='badge badge-pill badge-primary'>{library.totalSize}</span></a>
+      <div class='btn-group'>
+        <span class='btn btn-sm btn-success'>{library.totalSize}</span>
+      </div>
     </li>
     <li class="nav-item">
       <div class="btn-group">

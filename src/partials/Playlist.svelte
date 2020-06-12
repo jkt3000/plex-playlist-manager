@@ -5,7 +5,6 @@
 
 <script>
   import {onMount} from "svelte";
-  import PlaylistItem from './PlaylistItem.svelte';
   import {plexPlaylists, currPlaylist} from './../lib/stores.js';
   let Plex   = document.plex;
 
@@ -133,9 +132,11 @@
   }
 
 </script>
-  <a class='float-right' href='#' on:click={() => $currPlaylist = null }>
-    <i class='fas fa-times text-primary fa-lg'></i>
-  </a>
+
+
+<a class='float-right' href='#' on:click={() => $currPlaylist = null }>
+  <i class='fas fa-times text-primary fa-lg'></i>
+</a>
 
 <div class='clearfix'>
   <img src={Plex.thumbUrl(playlist.composite, 100, 100)} class='composite'/>

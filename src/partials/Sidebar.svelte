@@ -1,6 +1,5 @@
 <script>
   import {plexLibraries, plexPlaylists, currLibrary, currPlaylist} from './../lib/stores.js';
-  const Plex = document.plex; // only for console access
 </script>
 
 <nav class='sidebar text-muted' id='sidebar'>
@@ -25,7 +24,7 @@
 
     <h6>
       Playlists  
-      <a href='#' class='float-right text-success'><i class='fas fa-plus-circle'></i></a>
+      <a href='#' class='float-right text-primary'><i class='fas fa-plus-circle fa-lg'></i></a>
     </h6>
 
     {#if ($plexPlaylists != null)}
