@@ -7,7 +7,7 @@
   import Sidebar from './partials/Sidebar.svelte';
   import WelcomePage from './WelcomePage.svelte';
   import LibraryPanel from './LibraryPanel.svelte';
-  import Playlist from './partials/Playlist.svelte';
+  import PlaylistPanel from './PlaylistPanel.svelte';
   const Plex = document.plex; // only for console access
 
   $: sidepanel = false;
@@ -176,7 +176,7 @@
 
 <div class='playlist-panel' class:active={$currPlaylist != null}>
   {#if ($currPlaylist != null)}
-  <Playlist playlist={$currPlaylist} />
+  <PlaylistPanel playlist={$currPlaylist} />
   {/if}
 </div>
 

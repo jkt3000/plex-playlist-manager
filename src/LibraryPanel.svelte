@@ -103,7 +103,7 @@
 
 <nav class="navbar navbar-expand sticky-top panel-header">
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
+    <li>
       <div class='btn-group'>
         <span class='btn btn-sm btn-success'>{library.totalSize}</span>
       </div>
@@ -129,13 +129,27 @@
           {sortLabel($sortBy)} <i class="fas fa-angle-{$sortDesc ? 'down' : 'up'}"></i> &nbsp;
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#" on:click={() => setSort('title') }>Title</a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('year') }>Year</a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('releasedAt') }>Release Date</a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('rating') }>Rating</a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('duration') }>Duration</a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('addedAt') }>Date Added</a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('viewedAt') }>Date Viewed</a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('title') }>
+            Title
+          </a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('year') }>
+            Year
+          </a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('releasedAt') }>
+            Release Date
+          </a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('rating') }>
+            Rating
+          </a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('duration') }>
+            Duration
+          </a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('addedAt') }>
+            Date Added
+          </a>
+          <a class="dropdown-item" href="#" on:click={() => setSort('viewedAt') }>
+            Date Viewed
+          </a>
         </div>
       </div>
     </li>
