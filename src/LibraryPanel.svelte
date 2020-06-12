@@ -4,7 +4,7 @@
 <script>
   import {createEventDispatcher} from 'svelte';
   import InfiniteScroll from "/partials/InfiniteScroll.svelte";
-  import {plexUser, sortBy, sortDesc, sortFilter} from '/lib/stores.js';
+  import {plexUser, sortBy, sortDesc, sortFilter, showSpinner} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
 
   export let library;
@@ -13,7 +13,6 @@
   const Plex      = document.plex; // only for console access
   const dispatch  = createEventDispatcher();
   let newBatch    = [];
-  let showSpinner = false;
   let page        = 1;
   let page_size   = 100;
   $: medias       = [];
@@ -26,23 +25,23 @@
   }
 
   async function loadMedia() {
-    showSpinner = true;
+    $showSpinner = true;
     page = 1;
     let options = {page: page, page_size: page_size, sort: $sortFilter};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     medias = [...newBatch];
-    showSpinner = false;
+    $showSpinner = false;
   };
 
   async function nextPage() {
-    showSpinner = true;
+    $showSpinner = true;
     page++;
     let options = {page: page, page_size: page_size, sort: $sortFilter};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     medias = [...medias, ...newBatch];
-    showSpinner = false;
+    $showSpinner = false;
   };
 
   function toggleSidePanel() {

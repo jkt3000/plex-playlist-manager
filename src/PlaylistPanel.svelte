@@ -5,7 +5,7 @@
 
 <script>
   import {onMount} from "svelte";
-  import {plexPlaylists, currPlaylist} from './lib/stores.js';
+  import {plexPlaylists, currPlaylist, showSpinner} from './lib/stores.js';
   let Plex   = document.plex;
 
   export let playlist;
@@ -18,25 +18,34 @@
   }
 
   async function loadItems() {
+    $showSpinner = true;
     let data = await Plex.Playlist.getItems(playlist.ratingKey);
     entries = data.Metadata;
+    $showSpinner = false;
   };
 
   async function removeItem(id) {
+    $showSpinner = true;
     let data = await Plex.Playlist.removeItem(playlist.ratingKey, id);
     updatePlaylists(data.Metadata[0]);
+    $showSpinner = false;
   };
 
   async function moveBeforeItem(itemId, targetId) {
+    $showSpinner = true;
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'before');
     updatePlaylists(data.Metadata[0]);
+    $showSpinner = false;
+    
   };
 
   async function moveAfterItem(itemId, targetId) {
+    $showSpinner = true;
     let id = playlist.ratingKey;
     let data = await Plex.Playlist.moveItem(id, itemId, targetId, 'after');
     updatePlaylists(data.Metadata[0]);
+    $showSpinner = false;
   };
 
   async function moveToTop(itemId) {
@@ -177,19 +186,17 @@
       </span>
     {#if (!playlist.smart)}
       <div class='actions'>
-        <p>
-          <a href='#' class='text-danger' on:click={() => removeItem(movie.playlistItemID)}>
-            <i class='far fa-trash-alt'></i>
-          </a>
-        </p>
-        <p>
         <a href='#' class='text-muted' on:click={() => moveToTop(movie.playlistItemID)}>
           <i class="fas fa-arrow-to-top"></i>
-        </a> &nbsp;
+        </a> 
+        &nbsp;
         <a href='#' class='text-muted' on:click={() => moveToBottom(movie.playlistItemID)}>
           <i class="fas fa-arrow-to-bottom "></i>
         </a>
-        </p>
+        &nbsp;
+        <a href='#' class='text-danger' on:click={() => removeItem(movie.playlistItemID)}>
+          <i class='far fa-trash-alt'></i>
+        </a>
       </div>
     {/if}
     </div>
@@ -254,7 +261,7 @@
   float: right; 
   display: block;
   position: absolute;
-  top: 0; right: 0;
+  bottom: 5px; right: 5px;
 }
 
 
