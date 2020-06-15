@@ -8,13 +8,13 @@
   import Movie from '/partials/Movie.svelte';
 
   export let library;
-  export let showSide;
 
   const Plex      = document.plex; // only for console access
   const dispatch  = createEventDispatcher();
   let newBatch    = [];
   let page        = 1;
   let page_size   = 100;
+  $: totalSize   = 0;
   $: medias       = [];
   $: mediaInfo    = null;
 
@@ -30,6 +30,7 @@
     let options = {page: page, page_size: page_size, sort: $sortFilter};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
+    totalSize = resp.totalSize;
     medias = [...newBatch];
     $showSpinner = false;
   };
@@ -104,7 +105,7 @@
   <ul class="navbar-nav mr-auto">
     <li>
       <div class='btn-group'>
-        <span class='btn btn-sm btn-success'>{library.totalSize}</span>
+        <span class='btn btn-sm btn-success'>{totalSize}</span>
       </div>
     </li>
     <li class="nav-item">
@@ -181,7 +182,7 @@
     <Movie movie={media} />
   {/each}
   <InfiniteScroll 
-    threshold={1000} 
+    threshold={5000} 
     hasMore={newBatch.length == page_size} 
     on:loadMore={nextPage} 
     scrollpos={`${library.key}${$sortFilter}`}/>
