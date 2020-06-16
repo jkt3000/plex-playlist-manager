@@ -29,7 +29,12 @@
   async function loadMedia() {
     $showSpinner = true;
     page = 1;
-    let options = {page: page, page_size: page_size, sort: $libraryFilters.sort};
+    let options = {
+      page: page, 
+      page_size: page_size, 
+      sort: $libraryFilters.sort, 
+      filters: $libraryFilters.filters
+    };
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     totalSize = resp.totalSize;
@@ -40,7 +45,12 @@
   async function nextPage() {
     $showSpinner = true;
     page++;
-    let options = {page: page, page_size: page_size, sort: $libraryFilters.sort};
+    let options = {
+      page: page, 
+      page_size: page_size, 
+      sort: $libraryFilters.sort, 
+      filters: $libraryFilters.filters
+    };
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     medias = [...medias, ...newBatch];

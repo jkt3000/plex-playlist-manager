@@ -41,6 +41,7 @@ $playlistWidth: 25vw;
   bottom:0;
   margin-left: $sidebarWidth; 
   right:0;
+  left:0;
   overflow:hidden;
   &.active {
     margin-left: calc(#{$sidebarWidth} + #{$playlistWidth});

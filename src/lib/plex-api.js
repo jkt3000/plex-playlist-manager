@@ -239,10 +239,12 @@ const Plex = {
 
   _sanitizeOptions(options = {}) {
     let default_options = {'X-Plex-Client-Identifier': 'plex-api'}
+    // add token
     if (Plex.token != null) {
       default_options['X-Plex-Token'] = Plex.token;
     };
 
+    // build pagination
     if (options.page != null) {
       let page_size = (options.page_size == null) ? Plex.PAGE_SIZE : parseInt(options.page_size, 10);
       default_options["X-Plex-Container-Size"]  = page_size;
@@ -250,6 +252,15 @@ const Plex = {
       delete options['page'];
       delete options['page_size'];
     }
+
+    // build filters
+    if (options.filters != null) {
+      options.filters.forEach(el => {
+        default_options[el.key] = el.values;
+      });
+      delete options['filters'];
+    }
+    // build sort
     return new URLSearchParams({...default_options, ...options}).toString();
   },
 
