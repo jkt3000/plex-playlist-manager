@@ -5,19 +5,22 @@
   export let horizontal = false;
   export let elementScroll;
   export let hasMore = true;
-  export let scrollpos = 0;
+  export let scrollTop;
 
   const dispatch = createEventDispatcher();
   let isLoadMore = false;
   let component;
+  let currScrollTop;
 
   $: {
     if (component || elementScroll) {
       const element = elementScroll ? elementScroll : component.parentNode;
 
+      console.log(element)
       element.addEventListener("scroll", onScroll);
       element.addEventListener("resize", onScroll);
-      if (scrollpos) {
+      if (scrollTop != currScrollTop) {
+        currScrollTop = scrollTop;
         element.scrollTop = 0;
       }
     }
@@ -25,6 +28,7 @@
 
   const onScroll = e => {
     const element = e.target;
+    console.log("[scroll] ",e)
 
     const offset = horizontal
       ? e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft

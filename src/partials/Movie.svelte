@@ -4,15 +4,17 @@
 
 <script>
   export let movie;
-  let width  = 200;
-  let height = 300;
   let Plex   = document.plex;
+
+  function thumbnail(movie) {
+    return Plex.thumbUrl(movie.thumb, 200, 300);
+  }
 </script>
 
 
 <div class='mediaCell bg-dark' data-id={movie.ratingKey}>
   <div class='poster-card'>
-    <img src="{Plex.thumbUrl(movie.thumb, width, height)}" class='poster'/>
+    <img src={thumbnail(movie)} class='poster'/>
   </div>
   <div class='poster-text'>
     <h5>{movie.title}</h5>
@@ -21,10 +23,6 @@
       {parseInt(movie.duration/60/1000,10)}m &middot; 
       <small class='text-warning'><i class='fas fa-star'></i></small> {movie.rating} 
     </p>
-<!--   Rating: {movie.rating}
-  Duration: {parseInt(movie.duration/60/1000,10)}m
-  Release: {moment(movie.originallyAvailableAt).format("MMM D, YYYY")}
- -->
   </div>
 </div>
 

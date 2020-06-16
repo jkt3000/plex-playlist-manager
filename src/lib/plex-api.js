@@ -106,7 +106,6 @@ const Plex = {
   //
   Movie: {
     async all(library_id, options = {}) {
-      options = this.sanitizeOptions(options);
       let url = `${Plex.hostUrl}/library/sections/${library_id}/all`;
       let data = await Plex.request(url, {method: 'get', options: options});
       return data.MediaContainer;

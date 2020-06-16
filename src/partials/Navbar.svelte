@@ -1,8 +1,7 @@
 <script>
-  import {plexToken, plexUser, plexLibraries, currLibrary} from '/lib/stores.js';
+  import {plexToken, plexUser, plexLibraries, currLibrary, showSpinner} from '/lib/stores.js';
   import { createEventDispatcher } from 'svelte';
 
-  let showSpinner = false;
   const dispatch = createEventDispatcher();
 
   function logout() {
@@ -14,8 +13,8 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top" id='header'>
   <a class="navbar-brand" href="/">
-    Plex Tools 
-    {#if showSpinner}&nbsp; <i class='fas fa-spinner fa-sm text-warning fa-spin'></i>{/if}
+    Plex Tools &nbsp; 
+    {#if $showSpinner}<i class='fas fa-spinner fa-sm text-warning fa-spin'></i>{/if}
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -34,9 +33,8 @@
       <li class='nav-item'>
         {#if $plexToken}
           <a href="#" class='nav-link' on:click={logout}>
-            <img src="{$plexUser.avatar}" width=40 class='rounded-circle inline'/>
-            {$plexUser.name} 
-            Logout
+            <img src="{$plexUser.avatar}" width=40 class='rounded-circle inline'/>&nbsp;
+            logout
           </a>
         {/if}
       </li>
@@ -47,11 +45,11 @@
 <style lang='scss'>
 #header {
   position: fixed;
-  xbackground:  transparent !important;
   background: darken(#343a40, 10%);
   height: 55px;
   max-height:55px;
-  top:  0;
-  left: 0; right: 0;
+  top: 0;
+  left: 0; 
+  right: 0;
 }
 </style>

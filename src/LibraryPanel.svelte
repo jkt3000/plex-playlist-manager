@@ -4,20 +4,19 @@
 <script>
   import {createEventDispatcher} from 'svelte';
   import InfiniteScroll from "/partials/InfiniteScroll.svelte";
-  import {plexUser, sortBy, sortDesc, sortFilter} from '/lib/stores.js';
+  import {plexUser, sortBy, sortDesc, sortFilter, showSpinner} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
 
   export let library;
-  export let showSide;
 
-  const Plex      = document.plex; // only for console access
-  const dispatch  = createEventDispatcher();
-  let newBatch    = [];
-  let showSpinner = false;
-  let page        = 1;
-  let page_size   = 100;
-  $: medias       = [];
-  $: mediaInfo    = null;
+  const Plex     = document.plex; // only for console access
+  const dispatch = createEventDispatcher();
+  let newBatch   = [];
+  let page       = 1;
+  let page_size  = 100;
+  $: totalSize   = 0;
+  $: medias      = [];
+  $: mediaInfo   = null;
 
   $: if (library != null) {
     if ($sortFilter) {
@@ -26,23 +25,24 @@
   }
 
   async function loadMedia() {
-    showSpinner = true;
+    $showSpinner = true;
     page = 1;
     let options = {page: page, page_size: page_size, sort: $sortFilter};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
+    totalSize = resp.totalSize;
     medias = [...newBatch];
-    showSpinner = false;
+    $showSpinner = false;
   };
 
   async function nextPage() {
-    showSpinner = true;
+    $showSpinner = true;
     page++;
     let options = {page: page, page_size: page_size, sort: $sortFilter};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     medias = [...medias, ...newBatch];
-    showSpinner = false;
+    $showSpinner = false;
   };
 
   function toggleSidePanel() {
@@ -101,11 +101,11 @@
 
 </script>
 
-<nav class="navbar navbar-expand sticky-top panel-header">
+<nav class="navbar navbar-expand panel-header">
   <ul class="navbar-nav mr-auto">
     <li>
       <div class='btn-group'>
-        <span class='btn btn-sm btn-success'>{library.totalSize}</span>
+        <span class='btn btn-sm btn-success'>{totalSize}</span>
       </div>
     </li>
     <li class="nav-item">
@@ -182,10 +182,10 @@
     <Movie movie={media} />
   {/each}
   <InfiniteScroll 
-    threshold={1000} 
+    threshold={1000}
     hasMore={newBatch.length == page_size} 
     on:loadMore={nextPage} 
-    scrollpos={`${library.key}${$sortFilter}`}/>
+    scrollTop={`${library.key}${$sortFilter}`}/>
 </div>
 
 
@@ -194,8 +194,6 @@
     background: #111;
     height: 50px;
     max-height:50px !important;
-    width: inherit;
-
     .btn-group {
       margin-top:  5px;
       margin-right:  5px;
@@ -204,9 +202,11 @@
 
   .panel-body {
     z-index: 2000;
-    height: auto;
     width: 100%;
+    height: 100%;
     padding: 1.5em;
     margin-right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 </style>
