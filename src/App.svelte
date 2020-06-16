@@ -108,11 +108,7 @@
         },
         end(event) {
           let el = event.target;
-          el.removeAttribute("data-y");
-          el.removeAttribute("data-x");
-          el.removeAttribute("style");
-
-          el.classList.remove('active');
+          el.remove();
           let drops = document.getElementsByClassName('droppable');
           drops.forEach(drop => { drop.classList.remove('available')});
         }

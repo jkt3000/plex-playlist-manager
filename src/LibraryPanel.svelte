@@ -101,7 +101,7 @@
 
 </script>
 
-<nav class="navbar navbar-expand sticky-top panel-header">
+<nav class="navbar navbar-expand panel-header">
   <ul class="navbar-nav mr-auto">
     <li>
       <div class='btn-group'>
@@ -194,8 +194,6 @@
     background: #111;
     height: 50px;
     max-height:50px !important;
-    width: inherit;
-
     .btn-group {
       margin-top:  5px;
       margin-right:  5px;
@@ -205,7 +203,10 @@
   .panel-body {
     z-index: 2000;
     width: 100%;
+    height: 100%;
     padding: 1.5em;
     margin-right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 </style>
