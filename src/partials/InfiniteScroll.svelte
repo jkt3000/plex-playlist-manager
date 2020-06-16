@@ -16,6 +16,7 @@
     if (component || elementScroll) {
       const element = elementScroll ? elementScroll : component.parentNode;
 
+      console.log(element)
       element.addEventListener("scroll", onScroll);
       element.addEventListener("resize", onScroll);
       if (scrollTop != currScrollTop) {
@@ -27,6 +28,7 @@
 
   const onScroll = e => {
     const element = e.target;
+    console.log("[scroll] ",e)
 
     const offset = horizontal
       ? e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft

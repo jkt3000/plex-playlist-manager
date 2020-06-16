@@ -9,9 +9,10 @@ html {
 *, *:before, *:after { box-sizing:inherit; }
 
 body {
-  width:100%; height:100%;
+  width:100%; height:100vh;
   margin:0; padding:0;
-  overflow:hidden;
+  // overflow-x:hidden;
+  // overflow-y:scroll;
 }
 .pointer {
   cursor: pointer;
@@ -39,12 +40,14 @@ $playlistWidth: 25vw;
   order: 1;
   top:$headerHeight; 
   bottom:0;
-  height:100%;
+  height:100vh;
   margin-left: $sidebarWidth; 
   right:0;
   &.active {
     margin-left: calc(#{$sidebarWidth} + #{$playlistWidth});
   }
+  overflow:hidden;
+  overflow-y:scroll;
 }
 .playlist-panel {
   position: fixed;

@@ -204,10 +204,8 @@
 
   .panel-body {
     z-index: 2000;
-    height: calc(100vh - 105px);
     width: 100%;
     padding: 1.5em;
     margin-right: 0;
-    overflow-y: scroll;
   }
 </style>
