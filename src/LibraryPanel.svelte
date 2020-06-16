@@ -9,14 +9,14 @@
 
   export let library;
 
-  const Plex      = document.plex; // only for console access
-  const dispatch  = createEventDispatcher();
-  let newBatch    = [];
-  let page        = 1;
-  let page_size   = 100;
+  const Plex     = document.plex; // only for console access
+  const dispatch = createEventDispatcher();
+  let newBatch   = [];
+  let page       = 1;
+  let page_size  = 100;
   $: totalSize   = 0;
-  $: medias       = [];
-  $: mediaInfo    = null;
+  $: medias      = [];
+  $: mediaInfo   = null;
 
   $: if (library != null) {
     if ($sortFilter) {
@@ -182,10 +182,10 @@
     <Movie movie={media} />
   {/each}
   <InfiniteScroll 
-    threshold={5000} 
+    threshold={1000}
     hasMore={newBatch.length == page_size} 
     on:loadMore={nextPage} 
-    scrollpos={`${library.key}${$sortFilter}`}/>
+    scrollTop={`${library.key}${$sortFilter}`}/>
 </div>
 
 
@@ -204,9 +204,10 @@
 
   .panel-body {
     z-index: 2000;
-    height: auto;
+    height: calc(100vh - 105px);
     width: 100%;
     padding: 1.5em;
     margin-right: 0;
+    overflow-y: scroll;
   }
 </style>
