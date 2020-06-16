@@ -80,7 +80,6 @@
 
   onMount(() => {
     initPlex();
-
     interact('.mediaCell').draggable({
       hold: 0,  // need for ipad when having scrollable content
       inertia: {
@@ -89,6 +88,7 @@
         minSpeed: 200,
         endSpeed: 100,
       },
+      manualStart: true,
       listeners: {
         start (event) {
           let el = event.target;
@@ -114,10 +114,39 @@
 
           el.classList.remove('active');
           let drops = document.getElementsByClassName('droppable');
-          drops.forEach(drop => { drop.classList.remove('available')})
+          drops.forEach(drop => { drop.classList.remove('available')});
         }
       }
+    }).on('move', function(event){
+      const { currentTarget, interaction } = event;
+      let element = currentTarget;
+
+      // If we are dragging an item from the sidebar, its transform value will be ''
+      // We need to clone it, and then start moving the clone
+      if (
+        interaction.pointerIsDown &&
+        !interaction.interacting() &&
+        currentTarget.style.transform === ""
+      ) {
+        element = currentTarget.cloneNode(true);
+
+        let domRect = currentTarget.getBoundingClientRect();
+        // Add absolute positioning so that cloned object lives
+        // right on top of the original object
+        element.style.position = "absolute";
+        element.style.zIndex = 9999;
+        element.style.left = `${domRect.left}px`;
+        element.style.top = `${domRect.top}px`;
+
+        // Add the cloned object to the document
+        const container = document.body;
+        container && container.appendChild(element);
+      }
+
+      // Start the drag event
+      interaction.start({ name: "drag" }, event.interactable, element);
     });
+
     interact('.mediaCell').on('tap', (e) => {
       e.currentTarget.classList.toggle('tapped');      
       e.currentTarget.classList.remove('doubletapped');
