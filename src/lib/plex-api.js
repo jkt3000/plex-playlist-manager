@@ -98,7 +98,13 @@ const Plex = {
       let url = `${Plex.hostUrl}/library/sections/${id}`;
       let data = await Plex.request(url, {method: 'get'});
       return data.MediaContainer;
-    }   
+    },
+    // returns possible filter values for a given type (year, decade, genre,....)
+    async filterValues(id, type) {
+      let url = `${Plex.hostUrl}/library/sections/${id}/${type}`;
+      let data = await Plex.request(url, {method: 'get'});
+      return data.MediaContainer;
+    }
   },
 
   //
@@ -115,14 +121,6 @@ const Plex = {
     addTag() {},
     removeTag() {},
     updateTag() {},
-    // build sort and filter params
-    sanitizeOptions(options) {
-      let params = {};
-      if (options.sort != null) {
-        params.sort = options.sort;
-      }
-      return params;
-    }
   },
 
   //

@@ -4,7 +4,7 @@
 <script>
   import {createEventDispatcher} from 'svelte';
   import InfiniteScroll from "/partials/InfiniteScroll.svelte";
-  import {plexUser, sortBy, sortDesc, sortFilter, showSpinner} from '/lib/stores.js';
+  import {plexUser, sortBy, sortDesc, sortFilter, libraryFilters, showSpinner} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
 
   export let library;
@@ -19,15 +19,17 @@
   $: mediaInfo   = null;
 
   $: if (library != null) {
-    if ($sortFilter) {
-      loadMedia();
-    }
+    $libraryFilters = { sort: 'titleSort' };
+  }
+  $: if ($libraryFilters) {
+    console.log("Librayr filters changed", $libraryFilters);
+    loadMedia();
   }
 
   async function loadMedia() {
     $showSpinner = true;
     page = 1;
-    let options = {page: page, page_size: page_size, sort: $sortFilter};
+    let options = {page: page, page_size: page_size, sort: $libraryFilters.sort};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     totalSize = resp.totalSize;
@@ -38,7 +40,7 @@
   async function nextPage() {
     $showSpinner = true;
     page++;
-    let options = {page: page, page_size: page_size, sort: $sortFilter};
+    let options = {page: page, page_size: page_size, sort: $libraryFilters.sort};
     let resp = await Plex.Movie.all(library.key, options);
     newBatch = resp.Metadata;
     medias = [...medias, ...newBatch];
@@ -47,6 +49,13 @@
 
   function toggleSidePanel() {
     dispatch("toggleSidePanel");
+  };
+
+  async function filterValues(type) {
+    let resp = await Plex.Library.filterValues(library.key, type);
+    // resp.title2 => 'by Decade'
+    // resp.Directory => [{fastKey:, key:, title: }]
+    console.log(resp);
   };
 
   function setSort(key) {
@@ -84,6 +93,7 @@
         $sortBy   = 'titleSort';
         break;
     }
+    $libraryFilters.sort = $sortFilter;
   }
 
   function sortLabel(key) {
@@ -115,7 +125,7 @@
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Year</a>
-          <a class="dropdown-item" href="#">Decade</a>
+          <a class="dropdown-item" href="#" on:click={() => filterValues('decade')}>Decade</a>
           <a class="dropdown-item" href="#">Genre</a>
           <a class="dropdown-item" href="#">Actor</a>
           <a class="dropdown-item" href="#">Director</a>
