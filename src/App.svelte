@@ -95,8 +95,6 @@
           el.classList.add('active');
           el.classList.remove('tapped');
           el.classList.remove('doubletapped');
-          let drops = document.getElementsByClassName('droppable');
-          drops.forEach(drop => { drop.classList.add('available')})
         },
         move (event) {
           let el = event.target;
@@ -109,8 +107,6 @@
         end(event) {
           let el = event.target;
           el.remove();
-          let drops = document.getElementsByClassName('droppable');
-          drops.forEach(drop => { drop.classList.remove('available')});
         }
       }
     }).on('move', function(event){
