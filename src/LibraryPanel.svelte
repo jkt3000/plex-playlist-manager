@@ -4,7 +4,7 @@
 <script>
   import {createEventDispatcher} from 'svelte';
   import InfiniteScroll from "/partials/InfiniteScroll.svelte";
-  import {plexUser, sortBy, sortDesc, sortFilter, libraryFilters, showSpinner} from '/lib/stores.js';
+  import {plexUser, libraryFilters, showSpinner} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
 
   export let library;
@@ -17,6 +17,19 @@
   $: totalSize   = 0;
   $: medias      = [];
   $: mediaInfo   = null;
+  let sortFilter = { sort: 'titleSort', desc: false};
+
+  const sortMap = {
+    'titleSort': "Title",
+    'year': "Year",
+    'originallyAvailableAt': "Release Date",
+    'duration': "Duration",
+    'rating': "Rating",
+    'addedAt': "Date Added",
+    'lastViewedAt': "Last Viewed"
+  };
+
+
 
   $: if (library != null) {
     $libraryFilters = { sort: 'titleSort' };
@@ -59,55 +72,25 @@
   };
 
   function setSort(key) {
-    switch (key) {
-      case 'title':
-        $sortDesc = ($sortBy === 'titleSort') ? !$sortDesc : false;
-        $sortBy   = 'titleSort';
-        break;
-      case 'year':
-        $sortDesc = ($sortBy === 'year') ? !$sortDesc : true;
-        $sortBy   = 'year';
-        break;
-      case 'releasedAt':
-        $sortDesc = ($sortBy === 'originallyAvailableAt') ? !$sortDesc : true;
-        $sortBy   = 'originallyAvailableAt';
-        break;
-      case 'duration':
-        $sortDesc = ($sortBy === 'duration') ? !$sortDesc : true;
-        $sortBy   = 'duration';
-        break;
-      case 'rating':
-        $sortDesc = ($sortBy === 'rating') ? !$sortDesc : true;
-        $sortBy   = 'rating';
-        break;
-      case 'addedAt':
-        $sortDesc = ($sortBy === 'addedAt') ? !$sortDesc : true;
-        $sortBy   = 'addedAt';
-        break;
-      case 'viewedAt':
-        $sortDesc = ($sortBy === 'lastViewedAt') ? !$sortDesc : true;
-        $sortBy   = 'lastViewedAt';
-        break;
-      default:
-        $sortDesc = ($sortBy === 'titleSort') ? !$sortDesc : false;
-        $sortBy   = 'titleSort';
-        break;
+    if (sortKey($libraryFilters.sort) == key) {
+      $libraryFilters.sort = (sortDesc($libraryFilters.sort)) ? key : `${key}:desc`;
+    } else {
+      $libraryFilters.sort = (key == 'titleSort') ? key : `${key}:desc`;
     }
-    $libraryFilters.sort = $sortFilter;
+    $libraryFilters = {...$libraryFilters};
   }
 
-  function sortLabel(key) {
-    const label = {
-      'titleSort': "By Title",
-      'year': "By Year",
-      'originallyAvailableAt': "By Release Date",
-      'duration': "By Duration",
-      'rating': "By Rating",
-      'addedAt': "By Date Added",
-      'lastViewedAt': "By Last Viewed"
-    };
-    return label[key];
+  function sortLabel(sort) {
+    let [key,desc]= sort.split(":");
+    return sortMap[key];
   };
+
+  function sortKey(sort) {
+    return sort.split(":")[0];
+  }
+  function sortDesc(sort) {
+    return (sort.split(":")[1] == 'desc');
+  }
 
 </script>
 
@@ -136,51 +119,19 @@
     <li class="nav-item">
       <div class="btn-group">
         <button class="btn btn-secondary btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {sortLabel($sortBy)} <i class="fas fa-angle-{$sortDesc ? 'down' : 'up'}"></i> &nbsp;
+          By {sortLabel($libraryFilters.sort)}
+          {#if sortDesc($libraryFilters.sort)}
+            <i class="fas fa-angle-down"></i>
+          {:else}
+            <i class="fas fa-angle-up"></i>
+          {/if}
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#" on:click={() => setSort('title') }>
-            Title 
-            {#if $sortBy === 'titleSort'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('year') }>
-            Year
-            {#if $sortBy === 'year'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('releasedAt') }>
-            Release Date
-            {#if $sortBy === 'originallyAvailableAt'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('rating') }>
-            Rating
-            {#if $sortBy === 'rating'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('duration') }>
-            Duration
-            {#if $sortBy === 'duration'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('addedAt') }>
-            Date Added
-            {#if $sortBy === 'addedAt'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
-          <a class="dropdown-item" href="#" on:click={() => setSort('viewedAt') }>
-            Date Viewed
-            {#if $sortBy === 'lastViewedAt'}
-              <i class='fas fa-caret-{$sortDesc ? 'down' : 'up'}'></i>
-            {/if}
-          </a>
+          {#each Object.keys(sortMap) as key}
+            <a class="dropdown-item" href="#" on:click={() => setSort(key) }>
+              {sortMap[key]}
+            </a>
+          {/each}
         </div>
       </div>
     </li>
@@ -195,7 +146,7 @@
     threshold={1000}
     hasMore={newBatch.length == page_size} 
     on:loadMore={nextPage} 
-    scrollTop={`${library.key}${$sortFilter}`}/>
+    scrollTop={`${library.key}${$libraryFilters.sort}`}/>
 </div>
 
 
