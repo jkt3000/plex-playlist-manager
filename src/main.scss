@@ -23,10 +23,10 @@ $playlistWidth: 25vw;
 
 .sidebar {
   position: fixed;
-  width:  $sidebarWidth;
-  left: 0;
   top: $headerHeight;
   bottom:0;
+  left: 0;
+  width:  $sidebarWidth;
   overflow-y:scroll;
   overflow-x:hidden;
   border-right:  1px solid #000;
@@ -36,35 +36,30 @@ $playlistWidth: 25vw;
   display:block;
   position: fixed;
   z-index:100;
-  order: 1;
   top:$headerHeight; 
-  bottom:0;
-  margin-left: $sidebarWidth; 
   right:0;
   left:0;
+  bottom:0;
+  margin-left: $sidebarWidth; 
   overflow:hidden;
+  transition: all 0.3s;  
   &.active {
     margin-left: calc(#{$sidebarWidth} + #{$playlistWidth});
   }
-  .panel-header {
-    display:fixed;
-    margin-left: 0;
-    top: 0;
-  }
 }
 .playlist-panel {
-  position: fixed;
   display:none;
+  position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
-  background:  rgba(0,0,0,0.2);
+  background: darken(#343a40, 5%);
   top: $headerHeight;
   bottom: 0;
   width:0;
   left:0; 
   padding: 1em;
   border-right:  1px solid #000;
-  xtransition: all 0.5s;
+  transition: all 0.3s;
   &.active {
     display:block;
     width:  $playlistWidth;

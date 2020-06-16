@@ -1,8 +1,4 @@
-<script context='module'>
-
-</script>
 <script>
-  import {createEventDispatcher} from 'svelte';
   import InfiniteScroll from "/partials/InfiniteScroll.svelte";
   import {plexUser, libraryFilters, showSpinner} from '/lib/stores.js';
   import Movie from '/partials/Movie.svelte';
@@ -11,7 +7,6 @@
   export let library;
 
   const Plex     = document.plex; // only for console access
-  const dispatch = createEventDispatcher();
   let newBatch   = [];
   let page       = 1;
   let page_size  = 100;
@@ -56,15 +51,9 @@
     medias = [...medias, ...newBatch];
     $showSpinner = false;
   };
-
-  function toggleSidePanel() {
-    dispatch("toggleSidePanel");
-  };
-
 </script>
 
 <LibraryFilterBar size={totalSize}/>
-
 <div class='panel-body' id='medias-list'>
   {#each medias as media}
     <Movie movie={media} />
@@ -78,11 +67,10 @@
 
 
 <style lang='scss'>
-
   .panel-body {
     z-index: 2000;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 105px);
     padding: 1.5em;
     margin-right: 0;
     overflow-y: scroll;

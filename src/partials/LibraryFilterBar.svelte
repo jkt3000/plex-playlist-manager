@@ -34,18 +34,6 @@
     filterKey    = type; 
   };
 
-  // filters
-  // actors
-    // key:
-    // thumb: "http://image.tmdb.org/t/p/original/u5JjnRMr9zKEVvOP7k3F6gdcwT6.jpg"
-    // title: "Aaron Eckhart"
-  // genres
-    // key, title
-  // decades, years
-    // key, title
-  // rating
-    // 
-
 
   function resetFilters() {
     delete $libraryFilters.filters;    
@@ -62,6 +50,7 @@
     filterKey = null;
     filterValues = [];
   };
+
 
   function setSort(key) {
     if (sortKey($libraryFilters.sort) == key) {
@@ -147,6 +136,9 @@
 
 <style lang='scss'>
   .panel-header {
+    xposition:fixed;
+    margin-left: 0;
+    top: 0;
     background: #111;
     height: 50px;
     max-height:50px !important;
