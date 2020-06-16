@@ -1,10 +1,10 @@
 <script>
   import { onMount, onDestroy, createEventDispatcher } from "svelte";
 
-  export let threshold = 0;
+  export let threshold  = 0;
   export let horizontal = false;
+  export let hasMore    = true;
   export let elementScroll;
-  export let hasMore = true;
   export let scrollTop;
 
   const dispatch = createEventDispatcher();
@@ -15,8 +15,6 @@
   $: {
     if (component || elementScroll) {
       const element = elementScroll ? elementScroll : component.parentNode;
-
-      console.log(element)
       element.addEventListener("scroll", onScroll);
       element.addEventListener("resize", onScroll);
       if (scrollTop != currScrollTop) {
@@ -28,8 +26,6 @@
 
   const onScroll = e => {
     const element = e.target;
-    console.log("[scroll] ",e)
-
     const offset = horizontal
       ? e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft
       : e.target.scrollHeight - e.target.clientHeight - e.target.scrollTop;
