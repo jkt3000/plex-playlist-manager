@@ -6,7 +6,10 @@
 <script>
   import {onMount} from "svelte";
   import {plexPlaylists, currPlaylist, showSpinner} from './lib/stores.js';
-  let Plex   = document.plex;
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+  let Plex       = document.plex;
 
   export let playlist;
 
@@ -66,6 +69,12 @@
     $currPlaylist = list;
     playlist = list;
   };
+
+  async function deletePlaylist() {
+    await Plex.Playlist.destroy(playlist.ratingKey);
+    $currPlaylist = null;
+    dispatch('loadPlaylists');
+  }
 
   onMount(() => {
     let destIndex = null;
@@ -203,6 +212,10 @@
   </li>
 {/each}     
 </ul>
+
+<div class="text-center mt-2">
+  <a class='btn btn-danger btn-sm' on:click={deletePlaylist}><i class='fas fa-trash'></i> Delete</a>
+</div>
 
 <style lang='scss'>
 

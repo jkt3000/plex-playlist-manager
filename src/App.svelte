@@ -197,7 +197,7 @@
 
 <div class='playlist-panel' class:active={$currPlaylist != null}>
   {#if ($currPlaylist != null)}
-  <PlaylistPanel playlist={$currPlaylist} />
+  <PlaylistPanel playlist={$currPlaylist} on:loadPlaylists={loadPlaylists} />
   {/if}
 </div>
 

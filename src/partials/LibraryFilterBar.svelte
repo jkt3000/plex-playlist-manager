@@ -88,7 +88,9 @@
         <a class="dropdown-item" href="#" on:click={() => filters('decade')}>Decade</a>
         <a class="dropdown-item" href="#" on:click={() => filters('genre')}>Genre</a>
         <a class="dropdown-item" href="#" on:click={() => filters('actor')}>Actor</a>
-        <a class="dropdown-item" href="#" on:click={() => filters('director')}>Director</a>
+        <a class="dropdown-item" href="#" on:click={() => filters('director')}>Director</a>        
+        <a class="dropdown-item" href="#" on:click={() => filters('studio')}>Studio</a>
+        <a class="dropdown-item" href="#" on:click={() => filters('country')}>Country</a>
         <a class="dropdown-item" href="#" on:click={() => filters('rating')}>Content Rating</a>
       </div>
     </li>
@@ -136,12 +138,11 @@
 
 <style lang='scss'>
   .panel-header {
-    xposition:fixed;
-    margin-left: 0;
     top: 0;
-    background: #111;
+    margin-left: 0;
     height: 50px;
     max-height:50px !important;
+    background: #111;
     .btn-group {
       margin-top:  5px;
       margin-right:  5px;
