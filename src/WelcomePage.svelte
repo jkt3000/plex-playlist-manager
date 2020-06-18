@@ -10,12 +10,12 @@
   }
 </script>
 
-<div class='container'>
+<div class='container' style='margin-top:60px'>
 <div class='row'>
-  <div class='col-12 text-center p-3 text-dark'>
+  <div class='col-12 text-center p-3'>
     <h2>Welcome to Plex Tools</h2>
 
-    <div class="modal-content col-3 m-auto" style='margin-top:4em;'>
+    <div class="modal-content col-6 m-auto mt-3 text-dark">
       <div class="modal-header">
         <h5 class="modal-title">Login</h5>
       </div>

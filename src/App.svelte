@@ -197,7 +197,9 @@
 </script>
 
 <Navbar on:logout={logout} />
+{#if $plexToken}
 <Sidebar on:newPlaylist={createPlaylist} />
+{/if}
 <div class='playlist-panel' class:active={$currPlaylist != null}>
   {#if ($currPlaylist != null)}
   <PlaylistPanel playlist={$currPlaylist} on:loadPlaylists={loadPlaylists} />

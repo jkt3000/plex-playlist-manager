@@ -22,11 +22,6 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      {#if $plexToken == null}
-        <li class="nav-item">
-          <a class="nav-link" href='#'><strong>Please login in to start {$plexToken}</strong></a>
-        </li>
-      {/if}
     </ul>
 
     <ul class='navbar-nav'>
