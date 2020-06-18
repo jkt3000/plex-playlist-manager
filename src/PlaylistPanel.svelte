@@ -13,6 +13,8 @@
 
   export let playlist;
 
+  $: showEdit = false;
+
   $: entries = [];  
   $: {
     if (playlist != null) {
@@ -23,7 +25,7 @@
   async function loadItems() {
     $showSpinner = true;
     let data = await Plex.Playlist.getItems(playlist.ratingKey);
-    entries = data.Metadata;
+    entries = data.Metadata || [];
     $showSpinner = false;
   };
 
@@ -74,7 +76,15 @@
     await Plex.Playlist.destroy(playlist.ratingKey);
     $currPlaylist = null;
     dispatch('loadPlaylists');
-  }
+  };
+
+  async function updatePlaylist() {
+    let title   = document.getElementById('playlist[title]').value;
+    let summary = document.getElementById('playlist[summary]').value;
+    await Plex.Playlist.update(playlist.ratingKey, {title: title, summary: summary});
+    dispatch('loadPlaylists');
+    showEdit = false;
+  };
 
   onMount(() => {
     let destIndex = null;
@@ -152,29 +162,46 @@
 </script>
 
 
-<a class='float-right' href='#' on:click={() => $currPlaylist = null }>
+<a class='close-btn' href='#' on:click={() => $currPlaylist = null }>
   <i class='fas fa-times text-primary fa-lg'></i>
 </a>
 
-<div class='clearfix'>
+<div class='clearfix pt-2'>
   <img src={Plex.thumbUrl(playlist.composite, 100, 100)} class='composite'/>
-  <h3 class='text-light'>
-  {playlist.title} 
-  </h3>
+  {#if showEdit }
+      <div class='form-group'>
+        <input id="playlist[title]"type='text' name='title' value="{playlist.title}">
+        <textarea id="playlist[summary]">{playlist.summary}</textarea>
+      </div>
+      <div class='form-group'>
+        <button class='btn btn-sm btn-primary' on:click={updatePlaylist}>Save</button>
+        <button class='btn btn-sm btn-secondary' on:click={() => showEdit = false}>Cancel</button>
+      </div>
+  {:else}
+    <h3 class='text-light'>
+      {playlist.title}       
+    </h3>
+    <p class='text-muted'>{playlist.summary}</p>
+    <a class='text-muted' href='#' on:click={() => showEdit = true }>
+      <i class='fas fa-pencil'></i>
+    </a>
+  {/if}
   {#if playlist.smart}
     <small><i class='fas fa-cog text-success fa-lg'></i></small>
   {/if}
 </div>
 
-<div class='clearfix'>
-
+<div class='clearfix mt-3'>
   <h6 class='text-light'>
     {playlist.leafCount} Videos
     <span class='float-right text-muted'>{duration(playlist.duration)}</span>
   </h6>
 </div>
 
-<ul class='list-group' class:droppable={!playlist.smart} id='playlist-entries' data-id={playlist.ratingKey}>
+<ul class='list-group mt-2 mb-2' class:droppable={!playlist.smart} id='playlist-entries' data-id={playlist.ratingKey}>
+{#if entries.length == 0}
+  <p class='text-center text-muted p-2'>Drag and drop media here to add to Playlist</p>
+{:else}
 {#each entries as movie, index}
   <li class='list-group-item text-muted bg-dark' class:list-item={!playlist.smart} data-id={movie.playlistItemID} data-title={movie.title}>
     {#if (!playlist.smart)}
@@ -211,18 +238,26 @@
     </div>
   </li>
 {/each}     
+{/if}
 </ul>
 
-<div class="text-center mt-2">
-  <a class='btn btn-danger btn-sm' on:click={deletePlaylist}><i class='fas fa-trash'></i> Delete</a>
+<div class="text-center mt-2 pt-2">
+  <a class='btn btn-danger btn-sm' on:click={deletePlaylist}><i class='fas fa-trash'></i> Delete Playlist</a>
 </div>
 
 <style lang='scss'>
-
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 .composite {
+  width: 100px;
+  height: 100px;
   margin-bottom: 20px;
   margin-right: 10px;
-  border: 1px solid #333;
+  border: 1px solid #222;
+  background:  #222;
   float: left;
 }
 
@@ -231,6 +266,8 @@
 }
 
 #playlist-entries {
+  min-height:  60px;
+  background: darken(#343a40, 10%);
   li {
     touch-action: none;
     user-select: none;

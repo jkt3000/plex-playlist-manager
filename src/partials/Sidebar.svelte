@@ -1,12 +1,15 @@
 <script>
   import {plexLibraries, plexPlaylists, currLibrary, currPlaylist} from './../lib/stores.js';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+
 </script>
 
 <nav class='sidebar text-muted' id='sidebar'>
   <div class='sidebar-sticky'>
 
     <h6>Libraries</h6>
-
     {#if ($plexLibraries != null)}
     <ul class='nav flex-column'>
       {#each $plexLibraries as library}
@@ -24,9 +27,8 @@
 
     <h6>
       Playlists  
-      <a href='#' class='float-right text-primary'><i class='fas fa-plus-circle fa-lg'></i></a>
+      <a href='#' class='float-right text-primary' on:click={() => dispatch('newPlaylist')}><i class='fas fa-plus-circle fa-lg'></i></a>
     </h6>
-
     {#if ($plexPlaylists != null)}
     <ul class='nav flex-column'>
       {#each $plexPlaylists as playlist, i}
@@ -40,6 +42,7 @@
       {/each}
     </ul>
     {/if}
+    
   </div>        
 </nav>
 

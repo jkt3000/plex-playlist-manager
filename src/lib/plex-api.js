@@ -176,14 +176,23 @@ const Plex = {
       let data = await Plex.request(url, {method:'put', options: options});
       return data.MediaContainer;
     },
-    update(id) {},
-    updateContent() {}, // for smart playlist
-    create() {},
+    async update(id, options = {}) {
+      let url = `${Plex.hostUrl}/playlists/${id}`;
+      let data = await Plex.request(url, {method:'put', options: options});
+      return data.MediaContainer;
+    },
+    updateContent() {
+      // for smart playlist
+    }, 
+    async create(title, uri = "") {
+      let url = `${Plex.hostUrl}/playlists`;
+      let options = {title: title, uri: uri, smart: 0, type: 'video', includeExternalMedia: 1};
+      let data = await Plex.request(url, {method: 'post', options: options});
+      return data.MediaContainer;
+    },
     async destroy(id) {
-      //DELETE /playlists/<id>
       let url = `${Plex.hostUrl}/playlists/${id}`;
       let data = await Plex.request(url, {method:'delete'});
-
       return data.MediaContainer;
     }
   },
@@ -232,9 +241,9 @@ const Plex = {
     let resp = await fetch(url, {method: method, headers: headers, body: body}).catch(e => {
       throw new Error(`Invalid request [${e.message}]`);
     });
-    //console.log("Response", resp);
     let data = await resp.json().catch(e => {
       if (resp.status == 200) {
+        console.log(resp)
         return {}
       } else {
         throw new Error("Bad request or invalid data");
@@ -273,7 +282,7 @@ const Plex = {
       delete options['filters'];
     }
     // build sort
-    return new URLSearchParams({...default_options, ...options}).toString();
+    return new URLSearchParams({...options, ...default_options }).toString();
   },
 
   _buildHeaders(headers = {}) {

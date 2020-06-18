@@ -188,28 +188,31 @@
     sidepanel = !sidepanel;
   };
 
+  async function createPlaylist() {
+    let resp = await Plex.Playlist.create("New Playlist", "");
+    $currPlaylist = resp.Metadata[0];
+    await loadPlaylists();
+  };
+
 </script>
 
 <Navbar on:logout={logout} />
-
-<Sidebar />
-
-
+<Sidebar on:newPlaylist={createPlaylist} />
 <div class='playlist-panel' class:active={$currPlaylist != null}>
   {#if ($currPlaylist != null)}
   <PlaylistPanel playlist={$currPlaylist} on:loadPlaylists={loadPlaylists} />
   {/if}
 </div>
 
-  {#if ($plexToken != null) }
-    {#if ($currLibrary != null)}      
-      <div class='library-panel' class:active={$currPlaylist != null}>
-        <LibraryPanel library={$currLibrary} />
-      </div>
-    {/if}
-  {:else}
-    <WelcomePage on:login={login} />
+{#if ($plexToken != null) }
+  {#if ($currLibrary != null)}      
+    <div class='library-panel' class:active={$currPlaylist != null}>
+      <LibraryPanel library={$currLibrary} />
+    </div>
   {/if}
+{:else}
+  <WelcomePage on:login={login} />
+{/if}
 
 
 <style lang='scss'>
