@@ -853,4 +853,4 @@ var e,t=arguments[3];!function(t,n){"object"==typeof exports&&"undefined"!=typeo
 },{}],"Focm":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0,require("core-js/stable"),require("regenerator-runtime/runtime"),require("bootstrap");var e=t(require("./App.svelte")),r=require("./lib/plex-api.js");function t(e){return e&&e.__esModule?e:{default:e}}document.plex=r.Plex,document.plex.init(),console.log("[index.js] Attaching Plex library to document");var o=new e.default({target:document.body}),u=o;exports.default=u;
 },{"core-js/stable":"XqIO","regenerator-runtime/runtime":"QVnC","bootstrap":"BQpi","./App.svelte":"YJzu","./lib/plex-api.js":"vYRA"}]},{},["Focm"], null)
-//# sourceMappingURL=/src.16926f9d.js.map
+//# sourceMappingURL=src.16926f9d.js.map

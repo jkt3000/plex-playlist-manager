@@ -7,7 +7,7 @@
     "clean": "rm -rf ./dist/* && rm -rf ./.cache/*",
     "start": "parcel -p 4000 src/index.html",
     "dev": "parcel -p 4000 src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url .",
     "postbuild": "cp -r public/* dist/"
   },
   "devDependencies": {
