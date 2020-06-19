@@ -33,7 +33,10 @@
     <ul class='nav flex-column'>
       {#each $plexPlaylists as playlist, i}
       <li class='nav-item' class:droppable={!playlist.smart} data-id={playlist.ratingKey}>
-        <a href="#" class='nav-link' on:click={() => { $currPlaylist = playlist} }>
+        <a href="#" 
+           class='nav-link' 
+           class:active={ $currPlaylist == playlist }
+           on:click={() => { $currPlaylist = playlist} }>
           {#if playlist.smart}<i class='fas fa-cog text-muted'></i>{/if}
           {playlist.title}
           <small class='text-muted'>({playlist.leafCount})</small>

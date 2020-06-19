@@ -88,7 +88,7 @@
 
   onMount(() => {
     let destIndex = null;
-    interact('.list-item').draggable({
+    interact('.drag-handle').draggable({
       hold: 0,
       lockAxis: 'y',
       modifiers: [
@@ -98,12 +98,12 @@
       ],
       listeners: {
         start (event) {
-          let el = event.target;
+          let el = event.target.parentNode;
           el.classList.add('dragged');
           el.style.zIndex = 1000;
         },
         move (event) {
-          let el = event.target; // the TR
+          let el = event.target.parentNode; // the TR
           let x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
           let y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
           el.style.transform = `translate(${x}px, ${y}px)`;
@@ -111,14 +111,13 @@
           el.setAttribute('data-y',y);
 
           let currY = parseInt(el.offsetTop + y);
-          let entries = Array.from(el.parentNode.childNodes);
+          let entries = Array.from(el.parentNode.childNodes).flatMap(e => e.classList ? [e] : []);
           destIndex = entries.findIndex(e => {
             let top = parseInt(e.offsetTop);
             let bot = parseInt(e.offsetTop + e.offsetHeight);
             if ((currY >= top) && (currY <= bot)) { return true }
           });
-
-          // highlight active node, clear rest
+          console.log("DestIndex", destIndex)
           entries.forEach(e => e.classList.remove('active'));
           el.parentNode.classList.remove('movetotop');
           if (destIndex >= 0) {
@@ -128,8 +127,9 @@
           }
         },
         end(event) {
-          let el = event.target;
+          let el = event.target.parentNode;
           let ul = el.parentNode;
+          console.log("found ", destIndex)
           if (destIndex != null) {          
             if (destIndex == -1) {
               moveToTop(el.dataset.id);
@@ -137,11 +137,9 @@
               moveAfterItem(el.dataset.id, entries[destIndex].playlistItemID);
             }
           }
-
-          // reset el
-          el.parentNode.childNodes.forEach(e => e.classList.remove('active'));
+          let els = Array.from(el.parentNode.childNodes).flatMap(e => e.classList ? [e] : []);
+          els.forEach(e => e.classList.remove('active'));
           el.parentNode.classList.remove('movetotop');
-
           el.removeAttribute("data-y");
           el.removeAttribute("data-x");
           el.removeAttribute("style");
@@ -181,7 +179,6 @@
     <h3 class='text-light'>
       {playlist.title}       
     </h3>
-    <p class='text-muted'>{playlist.summary}</p>
     <a class='text-muted' href='#' on:click={() => showEdit = true }>
       <i class='fas fa-pencil'></i>
     </a>
@@ -190,6 +187,9 @@
     <small><i class='fas fa-cog text-success fa-lg'></i></small>
   {/if}
 </div>
+
+<p class='text-muted'>{playlist.summary}</p>
+
 
 <div class='clearfix mt-3'>
   <h6 class='text-light'>
@@ -204,14 +204,14 @@
 {:else}
 {#each entries as movie, index}
   <li class='list-group-item text-muted bg-dark' class:list-item={!playlist.smart} data-id={movie.playlistItemID} data-title={movie.title}>
-    {#if (!playlist.smart)}
-      <div class='handle'>
+    <div class:drag-handle={!playlist.smart}>
+      <div class='handle' class:d-none={playlist.smart}>
         <i class='fas fa-bars'></i>
       </div>
-    {/if}
-    <div class='position'>{ index + 1 }</div>
-    <div class='movie-thumb'>
-      <img src="{Plex.thumbUrl(movie.thumb, 30)}"/>
+      <div class='position'>{ index + 1 }</div>
+      <div class='movie-thumb'>
+        <img src="{Plex.thumbUrl(movie.thumb, 30)}"/>
+      </div>
     </div>
     <div class='movie-details'>
       <h6>{movie.title}</h6>
@@ -275,6 +275,11 @@
     position: relative;
     margin: 0; padding: 5px;
     z-index: 1;
+    .drag-handle {
+      z-index: 2;
+      touch-action: none;
+      user-select: none;
+    }
   }
 }
 
@@ -288,8 +293,6 @@
   width:  24px;
   float: left;
   text-align: center;
-  touch-action: none;
-  user-select: none;
 }
 .position { 
   float: left;
