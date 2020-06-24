@@ -17,7 +17,7 @@ https://redronin.github.io/plex-playlist-manager
 
 ***Note: You will need to allow mixed-content if your Plex Server on your localnetwork doesn't support https***. 
 
-If you access your local plex server like this: ***http://<your local ip>:32400*** instead of https://, then make sure you allow mixed-content for the above URL, otherwise you will not see any playlists or movies loading on your screen.
+If you access your local plex server like this: ***http://192.168.2.10:32400*** instead of https://, then make sure you allow mixed-content for the above URL, otherwise you will not see any playlists or movies loading on your screen.
 
 ## Code
 
