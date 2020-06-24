@@ -7,8 +7,8 @@
     "clean": "rm -rf ./dist/* && rm -rf ./.cache/*",
     "start": "parcel -p 4000 src/index.html",
     "dev": "parcel -p 4000 src/index.html",
-    "build": "parcel build src/index.html --public-url .",
-    "postbuild": "cp -r public/* dist/"
+    "build": "rm -rf docs; parcel build src/index.html --public-url . --out-dir docs/",
+    "postbuild": "cp -r public/* docs/"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
