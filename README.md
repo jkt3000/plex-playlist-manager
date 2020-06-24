@@ -1,6 +1,6 @@
 # Plex Playlist Manager
 
-An Svelte app that allows you to use touch/drag/drop to manage your Plex playlists easier on an iPad. The app is fully self-contained and does not use or require backend server or API requests. Works on desktop as well, but you lose the touch drag/drop functionality. Does not work well on iPhone because the layout won't work on it.
+An Svelte app that allows you to use touch/drag/drop to manage your Plex playlists easier on an iPad. The app is fully self-contained in the browser and does not use or require backend server - API calls are made from browser (fetch). Works on desktop as well, but you lose the touch drag/drop functionality. Does not work well on iPhone because the layout won't work on it.
 
 You can:
 - filter library view by most common filters (by year, decade, actor, director, genre, studio, country and rating)
