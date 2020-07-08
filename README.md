@@ -1,5 +1,7 @@
 # Plex Playlist Manager
 
+<img src="/screenshots/screenshot.jpg" width="600"/>
+
 An Svelte app that allows you to use touch/drag/drop to manage your Plex playlists easier on an iPad. The app is fully self-contained in the browser and does not use or require backend server - API calls are made from browser (fetch). Works on desktop as well, but you lose the touch drag/drop functionality. Does not work well on iPhone because the layout won't work on it.
 
 You can:
@@ -9,7 +11,6 @@ You can:
 - drag and drop movies into regular playlists
 - drag to reorder playlist content
 
-<img src="/screenshots/screenshot.jpg" width="600"/>
 
 ## Try it
 
